@@ -432,33 +432,43 @@ As the map iterates starting from almost any $x_0$, a physical solution explores
 
 \subsection{Nonphysical solutions Type II: Quasi-physical Solutions}
 \label{sec:quasiphysical}
-The simplicity of the tent map, as well as its binary decimal form (\ref{tent_xor}),
-enables us to study non-physical solutions that are not periodic.
+The simplicity of the tent map, as well as its binary form (\ref{tent_xor}),
+enables us to study nonphysical solutions that are not periodic.
 As in the last section, consider an
 \begin{equation}
     x_0 = \sum_{j=0}^{\infty} \frac{x_{0,j}}{2^j}
 \end{equation}
-the digits of which are not independent of each other.  Instead,
-suppose each digit is more likely to repeat the previous digit than to be different.
+in which the bits $x_{0,j}$ are not independent of each other.  Instead,
+suppose each bit is more likely to be identical to the previous bit than to be different.
 That is, $x_{0,j+1}=x_{0,j}$ with probability $p>\frac12$ for $j=0,1,2,\ldots$.
-Then, by Equation (\ref{tent_xor}), the digits of every $x_i, i=1,2,\ldots$
-have digits that repeats its previous digit with probability $p$.
-Moreover, consider Equation (\ref{tent_xor}) for $j=0$ and any $i$:
+Then, by Eq. \ref{tent_xor}, the bits of every $x_i, i=1,2,\ldots$ follow the same pattern, namely, each bit repeats the previous bit
+with probability $p$. Moreover, consider Eq. \ref{tent_xor} 
+for $j=0$ and any $i$:
 \begin{equation}
     x_{i+1,0} = x_{i,0} \veebar x_{i,1}
 \end{equation}
 Because $x_{i,0}=x_{i,1}$ with probability $p>\frac12$, $x_{i+1,0}=0$ with probability 
-$p>\frac12$.  The solution, starting from $x_1$, visits $[0,1]$ with
+$p>\frac12$.  Starting from $x_1$, this solution visits $[0,1]$ with
 probability $p>\frac12$.  Instead of visiting $[0,1]$ and $[1,2]$ with
-equal probability, as a physical solution does, this solution favors $[0,1]$.
-Because it visits the interval $[0,2]$ with a provably different frequency from that
+equal probability, as a physical solution does, this solution favors $[0,1]$. Since it provably visits the interval $[0,2]$ with a different frequency from that
 of a physical solution, this is a nonphysical solution.
 
-Note that the solution we just constructed is both nonphysical and aperiodic.
-The digits of $x_0$, though correlated with each other,
-still can exhibit an infinite variety of patterns.  As the map iterates, these patterns
+If $p = 1$, the bits of $x_0$ are either all zeros or all ones. So, all further iterates when $x_0$ is 0, are 0, and this is a trivial nonphysical solution of type 1. When $x_0$ consists of all ones, the solution eventually becomes 0, and hence is also a nonphysical solution, which is eventually constant (of period 1). Even when this solution does not 
+attain zero in a large number of iterations, it does not 
+distribute uniformly on $[0,2]$ like a physical solution 
+because all $x_i$ starting from $i = 1$ are dyadic numbers; other numbers are not visited. Now when $p > \frac12$ but strictly less than 1, 
+the solutions we just constructed are both nonphysical and aperiodic.
+The bits of $x_0$, though correlated with each other,
+still can exhibit an infinite variety of patterns. 
+This implies that further iterates may not eventually converge to 
+any fixed point, nor show any repetitive patterns.  
+ As the map iterates, these patterns
 shift towards more significant digits, and the solution visits an infinite set of
-points.  We call such aperiodic nonphysical solutions ``quasi-physical'' solutions.
+points. 
+ Nevertheless, the solutions observed along a trajectory also 
+ do not conform to a uniform distribution on $[0,2]$ since they 
+ preferentially visit the first half of this interval.
+We call such aperiodic nonphysical solutions ``quasi-physical'' solutions.
 
 \begin{figure}[H]\centering
 \includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_hist_p_0.5001.png}
