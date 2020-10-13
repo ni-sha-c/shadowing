@@ -455,7 +455,7 @@ of a physical solution, this is a nonphysical solution.
 
 If $p = 1$, the bits of $x_0$ are either all zeros or all ones. So, all further iterates when $x_0$ is 0, are 0, and this is a trivial nonphysical solution of type 1. When $x_0$ consists of all ones, the solution eventually becomes 0, and hence is also a nonphysical solution that is eventually periodic (of period 1). Even when this solution does not attain zero in a large number of iterations, it does not 
 distribute uniformly on $[0,2]$ like a physical solution 
-because all $x_i$ starting from $i = 1$ are dyadic numbers; other numbers are not visited. Now when $p > \frac12$ but strictly less than 1, 
+because all $x_i, i\geq 1$ are of the form $1/2^k$ for some $k \in \mathbb{N}$; other numbers are not visited. Now when $p > \frac12$ but strictly less than 1, 
 the solutions we just constructed are both nonphysical and aperiodic.
 The bits of $x_0$, though correlated with each other,
 still can exhibit an infinite variety of patterns. 
@@ -504,19 +504,19 @@ Their statistical distribution can be either
 very similar or completely different from that of physical solutions.
 
 So far we have constructed one class of quasi-physical solutions.
-It is noteworthy that there are infinite variations to how we
-construct quasi-physical solutions.  In the binary decimal
-representation of the initial condition $x_0$, any statistical
+It is noteworthy that there are infinite ways to 
+construct quasi-physical solutions.  In the binary representation 
+of the initial condition $x_0$, any statistical
 deviation from equal probability of 0 or 1, or any statistical
 dependence among digits would lead to quasi-physical solutions.
-One could, for example, construct an $x_0$ whose digit is
+One could, for example, construct an $x_0$ in which a bit is
 more likely to be 1 than 0 only if it follows two consecutive 0's.
 Such $x_0$ would lead to a nonphysical solution.  Its statistical
 distribution would differ from any of the plots in Figure
 \ref{fig:tent_quasiphysical}.  Nevertheless, as can be
-observed in Figure \ref{fig:tent_alternative}, it would show
+observed in Figure \ref{fig:tent_alternative}, it shows
 a remarkable resemblance in its ``hairiness''; some kind of fractal
-pattern would emerge from the distribution.  A fractal density
+pattern emerges from the distribution.  A fractal distribution
 appears to be a hallmark of quasi-physical solutions.
 \begin{figure}[H]\centering
     \centering
@@ -525,32 +525,31 @@ appears to be a hallmark of quasi-physical solutions.
     \includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_alternaive2_hist_p_0.6.png}
     \caption{Empirical distribution function of other quasi-physical solutions.
     The solution shown in the left plot starts from an initial condition
-    whose binary decimal digits are independent and have probability 0.6 of being 0.
+    whose bits are independent and have probability 0.6 of being 0.
     The solution shown in the right plot starts from an initial condition
-    whose binary decimal digits have probability of 0.6 of being 1 only following two
-    consecutive 1's; otherwise it is 0 or 1 with equal probability of 0.5.}
+    whose bits have a probability of 0.6 of being 1 only following two
+    consecutive 1's; otherwise a bit is 0 or 1 with equal probability.}
     \label{fig:tent_alternative}
 \end{figure}
 
-We have only seem quasi-physical solutions for the tent map.
+We have only seen quasi-physical solutions for the tent map.
 It is difficult to analytically construct quasi-physical solutions
-to the Lorenz equation and other, more complex, chaotic governing
-equations.  Neverthless, the similarity between the tent map and the
-Lorenz map, shown in Figure \ref{fig:lorenz_map}, suggests that
+to the Lorenz equation and other, more complex, governing
+equations which typically produce chaotic solutions.  Neverthless, the similarity 
+between the tent map and the Lorenz map \cite{tent2}, shown in Figure \ref{fig:lorenz_map}, suggests that
 quasi-physical solutions may exist for the Lorenz map, and by
 extension, the Lorenz equation.  It is then natural to conjecture
 that such aperiodic, non-physical, quasi-physical solutions
 exist in general for chaotic dynamical systems.
 
-These quasi-physical solutions raise doubt to the usefulness of shadowing
+These quasi-physical solutions raise doubts over the usefulness of shadowing
 in some applications.  For example, even if a numerical
 solution is shadowed by a solution to the true governing physics,
-is the shadowing solution physical or quasi-physical?  Such doubt may first
-seem paranoid; since almost all solutions are physical, it appears
-that one has to be extremely unlucky for the shadowing solution to
-be nonphysical. It seems reasonable to argue that because the set of
-all nonphysical solutions is measure-zero, the probability of finding
-a nonphysical solution through shadowing is zero percent.  Such argument,
+is the shadowing solution physical or quasi-physical? At first glance, this may 
+seem to be a nonissue because almost all solutions are physical. 
+It seems reasonable to argue that because the set of
+all nonphysical solutions is Lebesgue measure-zero, the probability of finding
+a nonphysical solution through shadowing is zero percent.  Such an argument,
 as we show in the next section, is wrong.  The probability of
 finding a nonphysical solution through shadowing can be, instead of
 zero percent, one hundred percent.
@@ -559,15 +558,15 @@ zero percent, one hundred percent.
 
 \subsection{Example of a shadowing solution for the tent map}
 To illustrate the concept of shadowing, consider the tent map, defined
-by Equation (\ref{tentmap}), and a scaled version of the map, defined by
+in Eq. \ref{tentmap}, and a scaled version of the map, defined by
 \begin{equation} \label{tent_scaled}
     \hat\varphi_s(x) := \begin{cases}
     2x \quad & x < 1+s \\
     4(1+s) - 2x \quad & x \ge 1+s
     \end{cases}
 \end{equation}
-where $s<<1$.  Note that tiny differences in $s$ can lead to drastic
-different solutions, if the solutions start from the same initial condition.
+where $s<<1$.  Note that a small change in $s$ can lead to drastic differences 
+between solutions starting from the same initial condition.
 As demonstrated in Figure \ref{fig:tent_ivp}, this sensitivity to small
 perturbations reflects the chaotic nature of the governing equation.
 
@@ -575,10 +574,10 @@ perturbations reflects the chaotic nature of the governing equation.
     \includegraphics[width=0.48\textwidth]{figure/scaled_tent_map.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tent_ivp.png}
-    \caption{Sensitivity to small perturbation in the governing
+    \caption{L: The scaled tent map $\hat{\varphi}_s$ at different values of $s$ between 0 and 1. R: sensitivity to small perturbation in the governing
     equation.
     The y-axis shows the absolute value of the difference between
-    two solutions, one satisfying Equation (\ref{tent_scaled}),
+    two solutions, one satisfying Eq. \ref{tent_scaled},
     one for $s=0$ and the other for $s=10^{-5}$.
     The x-axis shows the iteration number.  The initial condition
     is at $x_0=\pi/2$.
