@@ -453,14 +453,13 @@ probability $p>\frac12$.  Instead of visiting $[0,1]$ and $[1,2]$ with
 equal probability, as a physical solution does, this solution favors $[0,1]$. Since it provably visits the interval $[0,2]$ with a different frequency from that
 of a physical solution, this is a nonphysical solution.
 
-If $p = 1$, the bits of $x_0$ are either all zeros or all ones. So, all further iterates when $x_0$ is 0, are 0, and this is a trivial nonphysical solution of type 1. When $x_0$ consists of all ones, the solution eventually becomes 0, and hence is also a nonphysical solution, which is eventually constant (of period 1). Even when this solution does not 
-attain zero in a large number of iterations, it does not 
+If $p = 1$, the bits of $x_0$ are either all zeros or all ones. So, all further iterates when $x_0$ is 0, are 0, and this is a trivial nonphysical solution of type 1. When $x_0$ consists of all ones, the solution eventually becomes 0, and hence is also a nonphysical solution that is eventually periodic (of period 1). Even when this solution does not attain zero in a large number of iterations, it does not 
 distribute uniformly on $[0,2]$ like a physical solution 
 because all $x_i$ starting from $i = 1$ are dyadic numbers; other numbers are not visited. Now when $p > \frac12$ but strictly less than 1, 
 the solutions we just constructed are both nonphysical and aperiodic.
 The bits of $x_0$, though correlated with each other,
 still can exhibit an infinite variety of patterns. 
-This implies that further iterates may not eventually converge to 
+This implies that the solution may not eventually converge to 
 any fixed point, nor show any repetitive patterns.  
  As the map iterates, these patterns
 shift towards more significant digits, and the solution visits an infinite set of
@@ -479,11 +478,11 @@ We call such aperiodic nonphysical solutions ``quasi-physical'' solutions.
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_hist_p_0.9.png}
 \caption{Empirical density function of long solutions (a billion steps)
-starting from four point whose binary digits have probability $p$ of
+starting from four points whose binary digits have probability $p$ of
 repeating the previous digit.
 The solution shown in the top-left plot starts from a point with $p=0.5001$;
 top-right: $p=0.51$; bottom-left: $p=0.55$; bottom-right: $p=0.9$.
-Note that the empirical densities at larger $p$s go well beyond 1.}
+Note that the empirical densities at larger $p'$s are well above 1.}
 \label{fig:tent_quasiphysical}
 \end{figure}
 
@@ -497,10 +496,10 @@ distribution becomes ``hairy''.  An apparently fractal pattern emerges.
 This fractal pattern further amplifies when $p=0.55$.  Meanwhile,
 the density on the left side, $[0,1]$, becomes obviously higher than
 the density on the right side, $[1,2]$.  This is consistent with our
-theoretical analysis in the first paragraph of this subsection.
+theoretical analysis at the beginning of this subsection.
 When $p=0.9$, the fractal pattern is so intensified that most
 of the solution seem to concentrate in a collection of tiny intervals.
-These plots exposes the diversity of quasi-physical solutions.
+These plots expose the diversity of quasi-physical solutions.
 Their statistical distribution can be either
 very similar or completely different from that of physical solutions.
 
