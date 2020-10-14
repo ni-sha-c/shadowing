@@ -98,7 +98,7 @@ if __name__ == '__main__':
     
     zs0 = (zMax + zSep) / 2
     for i in range(99999, -1, -1):
-        fname = 'shadow_baseline_{}.npy'.format(i)
+        fname = 'shadow_baseline_{}_{}.npy'.format(sys.argv[0].rsplit('.', r)[0], i)
         if os.path.exists(fname):
             print(i)
             z = load(fname)

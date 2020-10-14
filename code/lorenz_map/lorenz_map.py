@@ -12,21 +12,33 @@ def ddt(xyz):
     return array([dxdt, dydt, dzdt])
 
 @numba.jit(nopython=True)
-def step(xyz0):
+def step(xyz0_zint_tint):
+    xyz0 = xyz0_zint_tint[:3]
     ddt0 = ddt(xyz0)
     dt = 0.001
     xyz1 = xyz0 + 0.5 * dt * ddt0
     ddt1 = ddt(xyz1)
     xyz1 = xyz0 + dt * ddt1
+    zint = xyz0_zint_tint[3] + (xyz0[2] + xyz1[2]) / 2 * dt
+    tint = xyz0_zint_tint[4] + dt
     ddt1 = ddt(xyz1)
+    zmax = zeros(5)
     if ddt0[2] >= 0 and ddt1[2] < 0:
         if xyz0[2] > xyz1[2]:
-            zmax = xyz0.copy()
+            zmax[:3] = xyz0
+            zmax[3] = xyz0_zint_tint[3]
+            zmax[4] = xyz0_zint_tint[4]
+            zint = (xyz0[2] + xyz1[2]) / 2 * dt
+            tint = dt
         else:
-            zmax = xyz1.copy()
-    else:
-        zmax = zeros(3)
-    xyz0[:] = xyz1
+            zmax[:3] = xyz1
+            zmax[3] = zint
+            zmax[4] = tint
+            zint = 0
+            tint = 0
+    xyz0_zint_tint[3] = zint
+    xyz0_zint_tint[4] = tint
+    xyz0_zint_tint[:3] = xyz1
     return zmax
 
 @numba.jit(nopython=True)
