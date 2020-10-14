@@ -679,21 +679,20 @@ we need to analyze two cases: $x<1+s$ and $x\ge 1+s$.
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_map.png}
     \\ \vspace{0.02\textwidth}
-     \caption{Upper-left: the tilted tent map (\ref{tent_tilted}) for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5.
-    Upper-right: the conjugate map $\tilde{h}_s$ between the tent map (Eq. \ref{tentmap})
+     \caption{L: the tilted tent map Eq. \ref{tent_tilted} for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5. R: the conjugacy $\tilde{h}_s$ between the tent map (Eq. \ref{tentmap})
     and the tilted tent map (Eq. \ref{tent_tilted}), evaluated using
     Eq. \ref{conjugate_tilted}-\ref{conjugate_tilted_helper}, for the same set of $s$ as the
-    upper-left plot.}
+    left plot.}
      \label{fig:tilted_tent_conjugate}
 \end{figure}
 When $x<1+s$, $\xi_{s,0}(x)=0$; thus
 $\tilde{h}_s(x) = \sum_{j=1}^{\infty} \frac{\xi_{s,j}(x)}{2^j}$.
 Inside this infinite series, $\xi_{s,1}(x)=\xi_{s,0}(x)=0$ if $\tilde\varphi_s(x)<1+s$,
 or $\xi_{s,1}(x)=1-\xi_{s,0}(x)=1$ if $\tilde\varphi_s(x)\ge 1+s$.
-Thus, $\xi_{s,1}(x) = \xi_{s,0}(\varphi_s(x))$ according to the definition of $\xi_{s,0}$.
+Thus, $\xi_{s,1}(x) = \xi_{s,0}(\tilde{\varphi}_s(x))$ according to the definition of $\xi_{s,0}$.
 Using this as the base case, one can inductively verify that
 $\xi_{s,j+1}(x) = \xi_{s,j}(\tilde\varphi_s(x))$
-for all $j>0$, using just the definition of $\xi_{s,j}$ and $\xi_{s,j+1}$.
+for all $j>0$, using just the definitions of $\xi_{s,j}$ and $\xi_{s,j+1}$.
 Therefore,
 $\tilde{h}_s(x) = \frac12 \sum_{j=0}^{\infty} \frac{\xi_{s,j}(\tilde\varphi_s(x))}{2^j}
 =\frac12 \tilde{h}_s(\tilde\varphi_s(x))$.
@@ -708,16 +707,16 @@ $\tilde{h}_s(x) = 1+ \sum_{j=1}^{\infty} \frac{\xi_{s,j}(x)}{2^j}
                 = 2- \sum_{j=1}^{\infty} \frac{1-\xi_{s,j}(x)}{2^j}$.
 Inside this infinite series, $1-\xi_{s,1}(x)=1-\xi_{s,0}(x)=0$ if $\tilde\varphi_s(x)<1+s$,
 or $1-\xi_{s,1}(x)=\xi_{s,0}(x)=1$ if $\tilde\varphi_s(x)\ge 1+s$.
-Thus, $1-\xi_{s,1}(x) = \xi_{s,0}(\varphi_s(x))$ according to the definition of $\xi_{s,0}$.
+Thus, $1-\xi_{s,1}(x) = \xi_{s,0}(\tilde{\varphi}_s(x))$ according to the definition of $\xi_{s,0}$.
 Using this as the base case, one can inductively verify that
 $1-\xi_{s,j+1}(x) = \xi_{s,j}(\tilde\varphi_s(x))$
-for all $j>0$, using just the definition of $\xi_{s,j}$ and $\xi_{s,j+1}$.
+for all $j>0$, using just the definitions of $\xi_{s,j}$ and $\xi_{s,j+1}$.
 Therefore,
 $\tilde{h}_s(x) = 2 - \frac12 \sum_{j=0}^{\infty} \frac{\xi_{s,j}(\tilde\varphi_s(x))}{2^j}
 =2 - \frac12 \tilde{h}_s(\tilde\varphi_s(x))$.
 On the other hand, because
 $\tilde{h}_s(x) = 1+\sum_{j=1}^{\infty} \frac{\xi_{s,j}(x)}{2^j}\ge 1$,
-$\varphi(\tilde{h}_s(x)) = 2(1-\tilde{h}_s(x))$ according
+$\varphi(\tilde{h}_s(x)) = 4 - 2 \tilde{h}_s(x)$ according
 to the definition of $\varphi$.  Thus,
 $\varphi(\tilde{h}_s(x)) = \tilde{h}_s(\tilde\varphi_s(x))$ also holds when $x\ge 1+s$.
 
@@ -726,16 +725,16 @@ $\varphi(\tilde{h}_s(x)) = \tilde{h}_s(\tilde\varphi_s(x))$ also holds when $x\g
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.5.png}
    \caption{
-     Lower-left: the density of a trajectory satisfying (\ref{tentmap})
-    that shadows a random trajectory satisfying (\ref{tent_tilted}) for $s=0.1$.
-    Lower-right: the density of a trajectory satisfying (\ref{tentmap})
-    that shadows a random trajectory satisfying (\ref{tent_tilted}) for $s=0.5$.
+     L: the density of a trajectory satisfying Eq. \ref{tentmap}
+    that shadows a random trajectory satisfying Eq. \ref{tent_tilted} for $s=0.1$.
+    R: the density of a trajectory satisfying Eq. \ref{tentmap}
+    that shadows a random trajectory satisfying Eq. \ref{tent_tilted} for $s=0.5$.
     }
     \label{fig:tilted_tent_density}
 \end{figure}
 
-Figure \ref{fig:tilted_tent_density} shows how fractal the conjugate map is.
-This fractal conjugate map transforms a uniform distribution in $[0,2]$ into
+Figure \ref{fig:tilted_tent_density} shows how fractal the conjugacy map is.
+This fractal conjugacy map transforms a uniform distribution in $[0,2]$ into
 a fractal distribution similar to the ones plotted in Section \ref{sec:quasiphysical}.
 In fact, we will show that the fractal distribution obtained by mapping a uniform
 distribution under $\tilde{h}_s$ is exactly the family of distributions
