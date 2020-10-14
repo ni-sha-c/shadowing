@@ -668,7 +668,19 @@ where
 To see why this map satisfies the definition of the conjugate map --
 $\tilde{h}_s(\tilde\varphi_s(x)) = \varphi(\tilde{h}_s(x))$ for all $x$ --
 we need to analyze two cases: $x<1+s$ and $x\ge 1+s$.
-
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.48\textwidth]{figure/tilted_tent_map.png}
+    \hspace{0.02\textwidth}
+    \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_map.png}
+    \\ \vspace{0.02\textwidth}
+     \caption{Upper-left: the tilted tent map (\ref{tent_tilted}) for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5.
+    Upper-right: the conjugate map $\tilde{h}_s$ between the tent map (\ref{tentmap})
+    and the tilted tent map (\ref{tent_tilted}), evaluated using
+    Equation (\ref{conjugate_tilted}-\ref{conjugate_tilted_helper}), for the same set of $s$ as the
+    upper-left plot.}
+     \label{fig:tilted_tent_conjugate}
+\end{figure}
 When $x<1+s$, $\xi_{s,0}(x)=0$; thus
 $\tilde{h}_s(x) = \sum_{j=1}^{\infty} \frac{\xi_{s,j}(x)}{2^j}$.
 Inside this infinite series, $\xi_{s,1}(x)=\xi_{s,0}(x)=0$ if $\tilde\varphi_s(x)<1+s$,
@@ -705,27 +717,19 @@ to the definition of $\varphi$.  Thus,
 $\varphi(\tilde{h}_s(x)) = \tilde{h}_s(\tilde\varphi_s(x))$ also holds when $x\ge 1+s$.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figure/tilted_tent_map.png}
-    \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_map.png}
-    \\ \vspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.1.png}
+   \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.1.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.5.png}
-    \caption{Upper-left: the tilted tent map (\ref{tent_tilted}) for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5.
-    Upper-right: the conjugate map $\tilde{h}_s$ between the tent map (\ref{tentmap})
-    and the tilted tent map (\ref{tent_tilted}), evaluated using
-    Equation (\ref{conjugate_tilted}-\ref{conjugate_tilted_helper}), for the same set of $s$ as the
-    upper-left plot. Lower-left: the density of a trajectory satisfying (\ref{tentmap})
+   \caption{
+     Lower-left: the density of a trajectory satisfying (\ref{tentmap})
     that shadows a random trajectory satisfying (\ref{tent_tilted}) for $s=0.1$.
     Lower-right: the density of a trajectory satisfying (\ref{tentmap})
     that shadows a random trajectory satisfying (\ref{tent_tilted}) for $s=0.5$.
     }
-    \label{fig:tilted_tent_conjugate}
+    \label{fig:tilted_tent_density}
 \end{figure}
 
-Figure \ref{fig:tilted_tent_conjugate} shows how fractal the conjugate map is.
+Figure \ref{fig:tilted_tent_density} shows how fractal the conjugate map is.
 This fractal conjugate map transforms a uniform distribution in $[0,2]$ into
 a fractal distribution similar to the ones plotted in Section \ref{sec:quasiphysical}.
 In fact, we will show that the fractal distribution obtained by mapping a uniform
