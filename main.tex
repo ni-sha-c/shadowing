@@ -557,6 +557,7 @@ zero percent, one hundred percent.
 \section{Are shadowing solutions physical?}
 
 \subsection{Example of a shadowing solution for the tent map}
+\label{sec:sub:shadow-example}
 To illustrate the concept of shadowing, consider the tent map, defined
 in Eq. \ref{tentmap}, and a scaled version of the map, defined by
 \begin{equation} \label{tent_scaled}
@@ -585,52 +586,48 @@ perturbations reflects the chaotic nature of the governing equation.
     \label{fig:tent_ivp}
 \end{figure}
 
-We can avoid this sensitivity to the governing equation
-by a coordinated perturbation to the initial condition.
-Consider two solutions satisfying Equation (\ref{tent_scaled})
-for different values of $s$.  Instead of starting from the same
+We can avoid this sensitivity to the governing equation using a coordinated perturbation to the initial condition.
+Consider two solutions satisfying Eq. \ref{tent_scaled} at different values of $s$.  Instead of starting from the same
 initial condition, these two solutions start from $x_0 (1 + s)$ with
 the same $x_0$ but their respective values of $s$.  It can be shown that
 the solution of these two equations would be
 $x_i (1+s), i=0,1,\ldots$ with their respective values of $s$,
 where $x_{i+1}=\varphi(x_i)$ satisfies the original
-tent map (\ref{tentmap}).  When the values of $s$ are similar between
-the two solutions, this pair of solutions stay uniformly close to each
-other forever.  Such pair of solutions, satisfying slightly different
-governing equations, yet keep close to each other over a long time,
-are known as shadowing solutions.
+tent map (Eq. \ref{tentmap}).  When the values of $s$ are similar between
+the two solutions, this pair of solutions stays uniformly close to each
+other forever.  Such a true solution of the governing equation
+that stays close to a given perturbed solution over a long time, is known as a \emph{shadowing} solution. In this example, the perturbed solution satisfies a 
+slightly different governing equation.
 
-For every solution $\hat{x}_i,i=0,\ldots$ satisfying Equation
-(\ref{tent_scaled}), there is a shadowing solution satisfying Equations
-(\ref{tentmap}): $x_i:= \hat{x}_i/(1+s)$.  The map,
+For every solution $\hat{x}_i,i=0,\ldots$ satisfying Eq. \ref{tent_scaled}, there is a shadowing solution satisfying Eq. \ref{tentmap}: $x_i:= \hat{x}_i/(1+s)$.  The map,
 \begin{equation} \label{conjugate_scaled}
-    \hat{h}_s(x):=x/(1+s)
+    h_s(x):=x/(1+s)
 \end{equation}
-is known as the conjugate map, because it satisfies
+is known as a \emph{conjugacy} between the two maps $\varphi$ and $\hat{\varphi_s}$ 
+because it satisfies
 \begin{equation} \label{conjugate_def}
-    \varphi(\hat{h}_s(x)) = \hat{h}_s(\hat\varphi_s(x))\;,\quad \forall x
+    \varphi(h_s(x)) = h_s(\hat\varphi_s(x))\;,\quad \forall\: x
 \end{equation}
-or equivalently, $\varphi\circ \hat{h}_s \equiv \hat{h}_s\circ\hat\varphi_s$.
-Such conjugate maps can generally help us construct shadowing solutions.
-If a conjugate map $h$ exists for two maps $\varphi$ and $\psi$, i.e.,
-$\varphi\circ h \equiv h\circ\psi$, then for every solution satisfying
-$\psi$, $h$ maps it to a shadowing solution satisfying $\varphi$.
+or equivalently, $\varphi\circ h_s \equiv h_s\circ\hat\varphi_s$.
+Such conjugacy maps can generally help us construct shadowing solutions.
+For every solution satisfying
+$\hat{\varphi}_s$, $h_s$ maps it to a shadowing solution satisfying $\varphi$.
 
 Is the shadowing solution a physical solution?  In this example,
 the answer is almost surely positive.  We can demonstrate that
-almost any solution of the scaled tent map (\ref{tent_scaled}) is uniformly
+almost any solution of the scaled tent map (Eq. \ref{tent_scaled}) is uniformly
 distributed in $[0, 2(1+s)]$ -- we can repeat our analysis
 in Section \ref{sec:tent} but represent our initial condition as
-$x_0= (1+s) \sum x_{0,j} / 2^j$.  Its shadowing solution,
-satisfying the original tent map (\ref{tentmap}), can be obtained through the
-conjugate map (\ref{conjugate_scaled}).  Thus the distribution
+$x_0= (1+s) \sum_{j=0}^\infty x_{0,j} / 2^j$.  Its shadowing solution,
+which satisfies the original tent map (Eq. \ref{tentmap}), can be obtained through the
+conjugacy (Eq. \ref{conjugate_scaled}).  Thus, the distribution
 of the shadowing solution can be obtained by mapping a uniform
-distribution in $[0,2(1+s)]$ through the conjugate map.
-This leads to a uniformly distribution in $[0,2]$,
+distribution in $[0,2(1+s)]$ through the conjugacy map.
+This leads to a uniformly distribution in $[0,2]$, which is
 precisely the distribution of a physical solution of the tent map.
 
 This simple example is useful in illustrating the concept of shadowing
-and the utility of the conjugate map.  This example is nevertheless special
+and the utility of the conjugacy map.  But it is rather special
 in that the shadowing solution is almost always physical.  Our next
 example introduces a tilted version of the tent map.  Although
 the tilting perturbation to the tent map seems as simple as the
@@ -638,15 +635,15 @@ scaling perturbation, the shadowing solution, as we will see,
 is almost always a quasi-physical solution.
 
 \subsection{An example of quasi-physical shadowing solution}
-
+\label{sec:sub:quasi-physical-shadow}
 The tilted tent map is defined as
 \begin{equation} \label{tent_tilted}
     \hat\varphi_s(x) := \begin{cases}
     \frac2{1+s} x \quad & x < 1+s \\
-    \frac2{1-s}(2-s) \quad & x \ge 1+s
+    \frac2{1-s}(2-x) \quad & x \ge 1+s
     \end{cases}
 \end{equation}
-When $s=0$, this map is identical to the tent map (\ref{tentmap}).
+When $s=0$, this map is identical to the tent map (Eq. \ref{tentmap}).
 Let $\tilde{x}_{i+1}=\hat\varphi_s(\tilde{x}_i), i=0,1,\ldots$ be a solution.
 As we explained in the previous subsection,
 this shadowing solution can be found through a conjugate map $\tilde{h}_s$.
@@ -716,10 +713,15 @@ $\varphi(\tilde{h}_s(x)) = \tilde{h}_s(\tilde\varphi_s(x))$ also holds when $x\g
     \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.1.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.5.png}
-    \caption{Conjugate map $\tilde{h}_s$ between the tent map (\ref{tentmap})
+    \caption{Upper-left: the tilted tent map (\ref{tent_tilted}) for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5.
+    Upper-right: the conjugate map $\tilde{h}_s$ between the tent map (\ref{tentmap})
     and the tilted tent map (\ref{tent_tilted}), evaluated using
-    Equation (\ref{conjugate_tilted}-\ref{conjugate_tilted_helper}).
-    Starting from the diagonal line, $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5.}
+    Equation (\ref{conjugate_tilted}-\ref{conjugate_tilted_helper}), for the same set of $s$ as the
+    upper-left plot. Lower-left: the density of a trajectory satisfying (\ref{tentmap})
+    that shadows a random trajectory satisfying (\ref{tent_tilted}) for $s=0.1$.
+    Lower-right: the density of a trajectory satisfying (\ref{tentmap})
+    that shadows a random trajectory satisfying (\ref{tent_tilted}) for $s=0.5$.
+    }
     \label{fig:tilted_tent_conjugate}
 \end{figure}
 
@@ -778,30 +780,49 @@ It explores $[0,2]$ at a nonuniform frequency with a fractal density function.
 
 \subsection{Are general shadowing solutions physical?}
 
-Here we completed our example.  For almost every solution to a perturbed governing
-equation, its shadowing solution, satisfying the real governing equation, will
-be nonphysical.  The shadowing theorems do guarantee the existence of shadowing
-solutions.  But are we sure it is the kind of solution we want?
+In the previous subsection, we examined a tilting perturbation to the tent map.
+We derived the fractal conjugate map, and showed that a typical shadowing trajectory
+is exactly the quasi-physical solution we analyzed in Section \ref{sec:quasiphysical}.
+This example contrast with Section \ref{sec:sub:shadow-example}, in which the
+shadowing solutions of a different perturbation, the scaling perturbation,
+are physical solutions.  Which situation is more typical?  When we make other
+types of perturbations, do we expect to observe physical or nonphysical
+shadowing solutions?
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.48\textwidth]{figure/tent_tilted_shadow_density_0.01.png}
-    \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_tilted_shadow_density_0.05.png}
-    \\ \vspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_tilted_shadow_density_0.4.png}
-    \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_tilted_shadow_density_0.7.png}
-    \caption{Caption}
-    \label{fig:tent_tilted_shadow}
-\end{figure}
+
+%%
+%%\begin{figure}[H]
+%%    \centering
+%%    \includegraphics[width=0.48\textwidth]{figure/tent_tilted_shadow_density_0.01.png}
+%%    \hspace{0.02\textwidth}
+%%    \includegraphics[width=0.48\textwidth]{figure/tent_tilted_shadow_density_0.05.png}
+%%    \\ \vspace{0.02\textwidth}
+%%    \includegraphics[width=0.48\textwidth]{figure/tent_tilted_shadow_density_0.4.png}
+%%    \hspace{0.02\textwidth}
+%%    \includegraphics[width=0.48\textwidth]{figure/tent_tilted_shadow_density_0.7.png}
+%%    \caption{Caption}
+%%    \label{fig:tent_tilted_shadow}
+%%\end{figure}
+%%
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figure/squashed_tent_map.png}
-    \caption{Caption}
+    \caption{The ``squashed'' tent map (\ref{eqn:tent_squashed}) for $s=0.01, 0.05, 0,2,$ and 0.5.}
     \label{fig:tent_squashed}
 \end{figure}
+
+This section attempts to answer this question by investigating several other
+perturbations, the first of which scales the height, but not the width,
+of the tent map.  The resulting ``squashed'' tent map, illustrated
+in Figure \ref{fig:tent_squashed}, has a closed form of
+\begin{equation} \label{eqn:tent_squashed}
+    \widehat{\varphi^{sq}}_s(x) := \begin{cases}
+    (2-s)x \quad & x < 1 \\
+    (2-s)(2 - x) \quad & x \ge 1
+    \end{cases}
+\end{equation}
+
 
 \begin{figure}[H]
     \centering
