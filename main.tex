@@ -601,12 +601,12 @@ slightly different governing equation.
 
 For every solution $\hat{x}_i,i=0,\ldots$ satisfying Eq. \ref{tent_scaled}, there is a shadowing solution satisfying Eq. \ref{tentmap}: $x_i:= \hat{x}_i/(1+s)$.  The map,
 \begin{equation} \label{conjugate_scaled}
-    h_s(x):=x/(1+s)
+    \hat{h}_s(x):=x/(1+s)
 \end{equation}
 is known as a \emph{conjugacy} between the two maps $\varphi$ and $\hat{\varphi_s}$ 
 because it satisfies
 \begin{equation} \label{conjugate_def}
-    \varphi(h_s(x)) = h_s(\hat\varphi_s(x))\;,\quad \forall\: x
+    \varphi(\hat{h}_s(x)) = \hat{h}_s(\hat\varphi_s(x))\;,\quad \forall\: x
 \end{equation}
 or equivalently, $\varphi\circ h_s \equiv h_s\circ\hat\varphi_s$.
 Such conjugacy maps can generally help us construct shadowing solutions.
@@ -638,20 +638,23 @@ is almost always a quasi-physical solution.
 \label{sec:sub:quasi-physical-shadow}
 The tilted tent map is defined as
 \begin{equation} \label{tent_tilted}
-    \hat\varphi_s(x) := \begin{cases}
+    \tilde\varphi_s(x) := \begin{cases}
     \frac2{1+s} x \quad & x < 1+s \\
     \frac2{1-s}(2-x) \quad & x \ge 1+s
     \end{cases}
 \end{equation}
 When $s=0$, this map is identical to the tent map (Eq. \ref{tentmap}).
-Let $\tilde{x}_{i+1}=\hat\varphi_s(\tilde{x}_i), i=0,1,\ldots$ be a solution.
+Let $\tilde{x}_{i+1}=\tilde\varphi_s(\tilde{x}_i), i=0,1,\ldots$ be a solution of 
+$\tilde{\varphi}_s$ that is also a perturbed solution of $\varphi$.
 As we explained in the previous subsection,
-this shadowing solution can be found through a conjugate map $\tilde{h}_s$.
+the corresponding 
+shadowing solution, which solves $\varphi$, can be found through a conjugacy map $\tilde{h}_s$ that connects the solutions of $\varphi$ and $\tilde{\varphi}_s$.
 If $\varphi\circ \tilde{h}_s \equiv \tilde{h}_s\circ\tilde\varphi_s$,
-then $x_i=\tilde{h}_s(\tilde{x}_i), i=0,1,\ldots$ is a shadowing solution
-that satisfies $x_{i+1} = \varphi(x_i)$.
+then $x_i=\tilde{h}_s(\tilde{x}_i), i=0,1,\ldots$ is the shadowing solution 
+that satisfies $x_{i+1} = \varphi(x_i)$, corresponding to the perturbed solution 
+$\tilde{x}_i,i=0,1,\cdots$.
 
-The conjugate map, although more complex than the one
+The conjugacy map, although more complex than the one
 in the last subsection, has the following closed form:
 \begin{equation} \label{conjugate_tilted}
     \tilde{h}_s(x) = \sum_{j=0}^{\infty} \frac{\xi_{s,j}(x)}{2^j}\;,
@@ -662,10 +665,12 @@ where
     0 & j=0, x<1+s \\
     1 & j=0, x\ge 1+s \\
     \xi_{s,j-1}(x) & j>0, \tilde\varphi_s^j(x) < 1+s \\
-    1 - \xi_{s,j-1}(x) & j>0, \tilde\varphi_s^j(x) \ge 1+s
+    1 - \xi_{s,j-1}(x) & j>0, \tilde\varphi_s^j(x) \ge 1+s.
     \end{cases}
 \end{equation}
-To see why this map satisfies the definition of the conjugate map --
+In the above expression, $\tilde{\varphi}^j_s$ refers to the $j$-time 
+composition of $\tilde{\varphi}_s.$ That is, if $\tilde{x}_{j+1} = \tilde{\varphi}_s(\tilde{x}_j), j = 0,1,\cdots,$ is a solution, $\tilde{\varphi}_s^i(\tilde{x}_j) = \tilde{x}_{j+i},\quad i,j = 0,1,\cdots$. 
+To see why $\tilde{h}_s$ constructed in Eq. \ref{conjugate_tilted} satisfies the definition of a conjugacy map --
 $\tilde{h}_s(\tilde\varphi_s(x)) = \varphi(\tilde{h}_s(x))$ for all $x$ --
 we need to analyze two cases: $x<1+s$ and $x\ge 1+s$.
 \begin{figure}[H]
@@ -675,9 +680,9 @@ we need to analyze two cases: $x<1+s$ and $x\ge 1+s$.
     \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_map.png}
     \\ \vspace{0.02\textwidth}
      \caption{Upper-left: the tilted tent map (\ref{tent_tilted}) for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5.
-    Upper-right: the conjugate map $\tilde{h}_s$ between the tent map (\ref{tentmap})
-    and the tilted tent map (\ref{tent_tilted}), evaluated using
-    Equation (\ref{conjugate_tilted}-\ref{conjugate_tilted_helper}), for the same set of $s$ as the
+    Upper-right: the conjugate map $\tilde{h}_s$ between the tent map (Eq. \ref{tentmap})
+    and the tilted tent map (Eq. \ref{tent_tilted}), evaluated using
+    Eq. \ref{conjugate_tilted}-\ref{conjugate_tilted_helper}, for the same set of $s$ as the
     upper-left plot.}
      \label{fig:tilted_tent_conjugate}
 \end{figure}
