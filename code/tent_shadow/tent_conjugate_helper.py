@@ -3,36 +3,38 @@ from pylab import *
 from numpy import *
 
 @numba.jit(nopython=True)
-def find(x, y, s):
-    if x < 1:
-        return y / 2 * (1 + s)
+def next(x, s):
+    if x < 1+s:
+        return 2*x/(1+s)
     else:
-        return 2 - y / 2 * (1 - s)
+        return 4/(1-s) - 2*x/(1-s)
 
 @numba.jit(nopython=True)
-def shadow(n, s, width):
-    count = zeros(width, dtype=uint64)
-    x = random.rand() * 2
-    y = x
-    for i in range(100):
-        y = find(x, y, s)
-        x = x / 2 + random.randint(0,2)
-    for i in range(n):
-        y = find(x, y, s)
-        count[int(floor(y * width / 2))] += 1
-        x = x / 2 + random.randint(0,2)
-    return count
+def xi(x, s, j):
+    if j==0 and x<1+s:
+        return 0
+    elif j==0 and x>=(1+s):
+        return 1
+    xj = x
+    for k in range(j):
+        xj = next(xj,s)
+    if xj < 1+s:
+        return xi(x, s, j-1)
+    return 1 - xi(x,s,j-1)
 
-n = 10000000000
-for s in [0.01, 0.05, 0.4, 0.7]:
-    width = 2**13
-    density = shadow(n, s, width) * width / 2 / n
-    x = linspace(0,2,width*2+1)[1:-1:2]
-    figure(figsize=(16,18))
-    fill_between(x, density)
-    ylim([0,1])
-    for tick in gca().xaxis.get_major_ticks():
-        tick.label.set_fontsize(40)
-    for tick in gca().yaxis.get_major_ticks():
-        tick.label.set_fontsize(40)
-    savefig('tent_tilted_shadow_density_{}.png'.format(s))
+
+n = 500
+x = linspace(0.,2, n)
+for s in [0, 0.05, 0.4, 0.7]:
+    fig = figure(figsize=(16,18))
+    ax = fig.add_subplot(111)
+    xij = zeros_like(x)
+    for j in range(5,6):
+        for k,xk in enumerate(x):
+            xij[k] = xi(xk, s, j)
+        ax.plot(x, xij, label=r'$\xi_{{{},{}}}$'.format(s,j), lw=2.5)
+        ax.xaxis.set_tick_params(labelsize=40)
+        ax.yaxis.set_tick_params(labelsize=40)
+        leg = ax.legend(fontsize=40)
+
+    savefig('tent_tilted_conjugacy_helper_{}.png'.format(s))
