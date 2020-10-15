@@ -98,7 +98,7 @@ if __name__ == '__main__':
     
     zs0 = (zMax + zSep) / 2
     for i in range(99999, -1, -1):
-        fname = 'shadow_baseline_{}_{}.npy'.format(sys.argv[0].rsplit('.', r)[0], i)
+        fname = 'data/shadow_baseline_{}_{}.npy'.format(sys.argv[1].rsplit('.', 1)[0], i)
         if os.path.exists(fname):
             print(i)
             z = load(fname)
@@ -108,4 +108,4 @@ if __name__ == '__main__':
             zs0 = zs[0]
             density += histogram(zs, linspace(29,50,width+1))[0]
     
-    save('lorenz_shadow_density_{}.npy'.format(sys.argv[2]), density)
+    save('lorenz_shadow_density_{}.npy'.format(sys.argv[2]).rsplit('.', 1)[0], density)

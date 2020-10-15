@@ -69,7 +69,7 @@ n = 10000000
 z = (zSep + zMax) / 2
 for i in range(200):
     z = trajectory(z, n, zMax, zSep, pwr, pL, pR, aL, aR, bL, bR)
-    # save('shadow_baseline_{}_{}.npy'.format(sys.argv[1].rsplit('.', 1)[0], i), z)
+    #save('data/shadow_baseline_{}_{}.npy'.format(sys.argv[1].rsplit('.', 1)[0], i), z)
     density += histogram(z, linspace(29,50,width+1))[0]
     z = z[-1]
 

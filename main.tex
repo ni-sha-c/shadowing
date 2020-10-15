@@ -737,48 +737,56 @@ Figure \ref{fig:tilted_tent_density} shows how fractal the conjugacy map is.
 This fractal conjugacy map transforms a uniform distribution in $[0,2]$ into
 a fractal distribution similar to the ones plotted in Section \ref{sec:quasiphysical}.
 In fact, we will show that the fractal distribution obtained by mapping a uniform
-distribution under $\tilde{h}_s$ is exactly the family of distributions
+distribution through $\tilde{h}_s$ is exactly the family of distributions
 shown in Figure \ref{fig:tent_quasiphysical}.  We will also show that
-a physical solution of the tilted tent map (\ref{tent_tilted}) is uniformly
+a physical solution of the tilted tent map (Eq. \ref{tent_tilted}) is uniformly
 distributed in $[0,2]$.  Thus, for almost any physical solution of the
 tilted tent map, a shadowing solution of the original tent map, obtained
 through the conjugate map $\tilde{h}_s$, has a fractal distribution.
-Such shadowing solution is therefore a quasi-physical solution of
+Such a shadowing solution is therefore a quasi-physical solution of
 the tent map.
 
 We first show that a physical solution of the tilted tent map 
 (\ref{tent_tilted}) is uniformly distributed in $[0,2]$, for
 any $0\le s<1$.
-According to ergodic theory, we only need to show that the uniform
+According to the ergodic theory and the properties of the SRB measure of 
+one-dimensional chaotic systems (\cite{young}), 
+we only need to show that the uniform
 distribution is stationary under the tilted tent map.
-If $x$ is uniformly distributed in $[0,2]$ with a density of 0.5,
-the left and right sides of the map, from $x=0$ to $x=1+s$ and
-from $x=1+s$ to 2 respectively, both has constant derivatives.
-The resulting density of $\tilde\varphi_s(x)$ is
-therefore uniform in $[0,2]$.
+The function $\tilde{\varphi}_s$ stretches an infinitesimal
+region around each $x$ by the absolute value of the derivative at $x$; 
+hence, a uniform density on an infinitesimal region around $\tilde{\varphi}_s(x)$ 
+is reduced by the same factor. In other words, let $\tilde{\rho}(x)$ 
+be the map of a uniform density on $[0,2]$, through $\tilde{\varphi}_s$. Then, 
+$\tilde{\rho}(\tilde{\varphi}_s (x)) = 0.5/|\tilde \varphi_s'(x)| + 0.5/|\tilde \varphi_s'(2-x)|,$ where the two terms express the conservation of probability 
+from the two pre-images of $\tilde{\varphi}_s$. Substituting the piecewise constant 
+derivative of $\tilde{\varphi}_s$ on the two intervals, $[0,1+s)$ and $[1+s,2]$,
+we have $\tilde{\rho}(\tilde{\varphi}_s (x)) = 0.25(1+s) + 0.25(1-s) = 0.5,$ at 
+all $x.$ Hence, a uniform density of 0.5 is unaltered by mapping through 
+$\tilde\varphi_s(x)$.
 
-We then show that the conjugate map $\tilde{h}_s$ maps a uniform
-distribution to a fractal.  Here we use the closed form
-(\ref{conjugate_tilted}-\ref{conjugate_tilted_helper}).
+We now show that the conjugacy $\tilde{h}_s$ maps a uniform
+distribution to a fractal.  Here we use the closed forms Eqs. \ref{conjugate_tilted}-\ref{conjugate_tilted_helper}.
 If $x$ is a random number drawn uniformly in $[0,2]$,
 it has $\frac{1+s}2$ probability of being less than $1+s$.
 Thus, $\xi_{s,0}(x)=0$ with probability $\frac{1+s}2$.
-This means, according to Equation (\ref{conjugate_tilted}),
-$\tilde{h}_s(x)<1$ with probability $\frac{1+s}2$ --
+This means, according to Eq. \ref{conjugate_tilted},
+$\tilde{h}_s(x)<1$ with probability $\frac{1+s}2$:
 $\tilde{h}_s(x)$ is more likely to lie in the left half
 of the domain $[0,2]$.
 Furthermore, for $j\ge 0$, $\xi_{s,j+1}(x)=\xi_{s,j}(x)$
-with probability $\frac{1+s}2$.  This probability has direct
-implication, again by Equation (\ref{conjugate_tilted}),
-to the binary decimal representation of $\tilde{h}_s(x)$ --
-each binary digit repeat the previous one with probability
-$\frac{1+s}2$.  Now we understand that for a uniformly random
+with probability $\frac{1+s}2$ since each $\tilde{\varphi}^j_s(x)$ is sampled
+from the uniform distribution on $[0,2]$.  This probability has direct
+implication on $\tilde{h}_s(x)$ since, again by Eq. (\ref{conjugate_tilted}),
+$\xi_{s,j}$ is the $j$th bit in the binary representation of $\tilde{h}_s$ --
+each bit repeats the previous one with probability
+$\frac{1+s}2$.  For a uniformly random
 $x$, $\tilde{h}_s(x)$ is exactly the kind of initial condition
 we used to construct the quasi-physical solution
 in Section \ref{sec:quasiphysical}, with $p=\frac{1+s}2$.
-
-This analysis implies that the shadowing solution is
-almost surely nonphysical.  Let $x_{s,i},i=0,1,\ldots$ be a solution
+\nisha{This is so well set up and awesome!}
+Since this analysis holds for any $x$ sampled uniformly on $[0,2]$, we can conclude that
+the shadowing solution is almost surely nonphysical.  Let $x_{s,i},i=0,1,\ldots$ be a solution
 to the tilted tent map with an initial condition randomly chosen
 in $[0,1]$.  Then with a hundred percent probability
 it is a physical solution that uniformly visits the domain $[0,2]$.
@@ -910,15 +918,15 @@ in Figure \ref{fig:tent_squashed}, has a closed form of
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_lorenz_shadow_density_lorenz_zmax_15_28_2.67.json.png}
+    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_15_28_2.67.json.png}
     \hspace{0.005\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/baseline_density_lorenz_zmax_15_28_2.67.json.png}
     \\
-    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_lorenz_shadow_density_lorenz_zmax_10_30_2.67.json.png}
+    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_10_30_2.67.json.png}
     \hspace{0.005\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/baseline_density_lorenz_zmax_10_30_2.67.json.png}
     \\
-    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_lorenz_shadow_density_lorenz_zmax_10_28_3.33.json.png}
+    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_10_28_3.33.json.png}
     \hspace{0.005\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/baseline_density_lorenz_zmax_10_28_3.33.json.png}
     \caption{
