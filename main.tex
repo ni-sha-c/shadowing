@@ -787,19 +787,19 @@ in Section \ref{sec:quasiphysical}, with $p=\frac{1+s}2$.
 \nisha{This is so well set up and awesome!}
 Since this analysis holds for any $x$ sampled uniformly on $[0,2]$, we can conclude that
 the shadowing solution is almost surely nonphysical.  Let $x_{s,i},i=0,1,\ldots$ be a solution
-to the tilted tent map with an initial condition randomly chosen
-in $[0,1]$.  Then with a hundred percent probability
+to the tilted tent map $\tilde{\varphi}_s$ with $x_{s,0}$ chosen 
+randomly in $[0,1+s]$.  Then, with a hundred percent probability,
 it is a physical solution that uniformly visits the domain $[0,2]$.
 Its shadowing solution $\tilde{h}_s(x_{s,i}),i=0,1,\ldots$, however,
 is a quasi-physical solution, also with a hundred percent probability.
-It explores $[0,2]$ at a nonuniform frequency with a fractal density function.
+It explores $[0,2]$ at a nonuniform frequency with a fractal probability distribution.
 
 \subsection{Are general shadowing solutions physical?}
 
 In the previous subsection, we examined a tilting perturbation to the tent map.
-We derived the fractal conjugate map, and showed that a typical shadowing trajectory
+We derived the fractal conjugacy map, and showed that a typical shadowing trajectory
 is exactly the quasi-physical solution we analyzed in Section \ref{sec:quasiphysical}.
-This example contrast with Section \ref{sec:sub:shadow-example}, in which the
+This example contrasts with Section \ref{sec:sub:shadow-example}, in which the
 shadowing solutions of a different perturbation, the scaling perturbation,
 are physical solutions.  Which situation is more typical?  When we make other
 types of perturbations, do we expect to observe physical or nonphysical
@@ -824,16 +824,16 @@ shadowing solutions?
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figure/squashed_tent_map.png}
-    \caption{The ``squashed'' tent map (\ref{eqn:tent_squashed}) for $s=0.01, 0.05, 0,2,$ and 0.5.}
+    \caption{The ``squashed'' tent map (Eq. \ref{eqn:tent_squashed}) for $s=0.01, 0.05, 0,2,$ and 0.5.}
     \label{fig:tent_squashed}
 \end{figure}
 
 This section attempts to answer this question by investigating several other
 perturbations, the first of which scales the height, but not the width,
 of the tent map.  The resulting ``squashed'' tent map, illustrated
-in Figure \ref{fig:tent_squashed}, has a closed form of
+in Figure \ref{fig:tent_squashed}, has the closed form 
 \begin{equation} \label{eqn:tent_squashed}
-    \widehat{\varphi^{sq}}_s(x) := \begin{cases}
+\hat{\varphi}^{\rm sq}_s(x) := \begin{cases}
     (2-s)x \quad & x < 1 \\
     (2-s)(2 - x) \quad & x \ge 1
     \end{cases}
@@ -849,14 +849,14 @@ in Figure \ref{fig:tent_squashed}, has a closed form of
     \includegraphics[width=0.48\textwidth]{figure/tent_squashed_shadow_density_0.2.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tent_squashed_physical_density_0.2.png}
-    \caption{Caption}
+    \caption{The left column shows the empirical distribution of the shadowing solution for the squashed tent map at $s=0.01$ (top) and at $s=0.2$ (bottom). The right column shows the probability distribution of a physical solution at the same two values of $s = 0.01$ (top) and $s = 0.2$ (bottom).}
     \label{fig:tent_squashed_shadow}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figure/pinched_tent_map.png}
-    \caption{Caption}
+    \caption{The pinched tent map (Eq. \ref{eqn:tent_pinched}) for $s = 0.01, 0.05, 0.2,$ and 0.5.}
     \label{fig:tent_pinched}
 \end{figure}
 
@@ -869,14 +869,14 @@ in Figure \ref{fig:tent_squashed}, has a closed form of
     \includegraphics[width=0.48\textwidth]{figure/tent_pinched_shadow_density_0.2.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tent_pinched_physical_density_0.2.png}
-    \caption{Caption}
+    \caption{The left column shows the empirical distribution of the shadowing solution for the pinched tent map at $s=0.05$ (top) and at $s=0.2$ (bottom). The right column shows the probability distribution of a physical solution at the same two values of $s = 0.05$ (top) and $s = 0.2$ (bottom).}
     \label{fig:tent_pinched_shadow}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figure/wave_tent_map.png}
-    \caption{Caption}
+    \caption{The wave tent map (Eq. \ref{eqn:tent_wave}) for $s = 0.01, 0.05, 0.2,$ and 0.5.}
     \label{fig:tent_wave}
 \end{figure}
 
@@ -889,7 +889,7 @@ in Figure \ref{fig:tent_squashed}, has a closed form of
     \includegraphics[width=0.48\textwidth]{figure/tent_wave_shadow_density_0.2.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tent_wave_physical_density_0.2.png}
-    \caption{Caption}
+    \caption{The left column shows the empirical distribution of the shadowing solution for the wave tent map (Eq. \ref{eqn:tent_wave}) at $s=0.05$ (top) and at $s=0.2$ (bottom). The right column shows the probability distribution of a physical solution at the same two values of $s = 0.05$ (top) and $s = 0.2$ (bottom).}
     \label{fig:tent_wave_shadow}
 \end{figure}
 
