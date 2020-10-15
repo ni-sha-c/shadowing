@@ -890,15 +890,23 @@ can see that the pinching perturbation changes the uniform density of the origin
 \end{figure}
 We consider yet another perturbation of the tent map with the closed form
 \begin{align}
+\hat{\varphi}^w_s(x) = \begin{cases}
+        \dfrac{4x}{1 + s + \sqrt{(1+s)^2 - 4s x} }, & x < 1 \\
+        \dfrac{4(2-x)}{1 - s + \sqrt{(1-s)^2 - 4s(2- x)} }, & 2 \leq x \leq 1.
+    \end{cases}
     \label{eqn:tent_wave}
 \end{align}
+The above map, called the wave tent map, is illustrated in Figure \ref{fig:tent_wave}.
+To construct the pinched tent map (Eq. \ref{eqn:tent_pinched}), we perturbed the original tent map in such a way that the perturbations on the two halves of the interval $[0,2]$ are mirror images of each other about the $x=1$ line. In the wave tent map, the perturbations on the two halves are a reflection of each other about the 
+$x$-axis.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figure/wave_tent_map.png}
     \caption{The wave tent map (Eq. \ref{eqn:tent_wave}) for $s = 0.01, 0.05, 0.2,$ and 0.5.}
     \label{fig:tent_wave}
 \end{figure}
-
+The wave perturbation does not noticeably alter the SRB density of the original tent map. As we show in Figure \ref{fig:tent_wave_shadow} (right), a solution of the 
+wave tent map, starting from almost any point on $[0,2]$ -- a physical solution -- has a density that looks almost identical to a uniform density of 0.5. On the left column of Figure \ref{fig:tent_wave_shadow}, we observe that the distributions of the shadowing solutions corresponding to the physical solutions on the right, once again appear fractal.  
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figure/tent_wave_shadow_density_0.05.png}
@@ -911,6 +919,12 @@ We consider yet another perturbation of the tent map with the closed form
     \caption{The left column shows the empirical distribution of the shadowing solution for the wave tent map (Eq. \ref{eqn:tent_wave}) at $s=0.05$ (top) and at $s=0.2$ (bottom). The right column shows the probability distribution of a physical solution at the same two values of $s = 0.05$ (top) and $s = 0.2$ (bottom).}
     \label{fig:tent_wave_shadow}
 \end{figure}
+Hence, we can once again conclude that almost every solution, which is physical, 
+has a corresponding shadowing solution, that is non-physical. In this section,
+we have shown that the same conclusion holds for several different perturbations 
+of the tent map. The physical solutions were distributed nonuniformly 
+and differently from one another. However, we observed a commonality in the different perturbations: the shadowing solutions corresponding to almost every physical solution had a fractal-like probability distribution that did not resemble the distributions of the physical solutions in any case. Thus, we have shown significant evidence, through analytical constructions of perturbed tent maps in this section and 
+section \ref{sec:quasiphysical} that shadowing solutions can almost surely be nonphysical.
 
 \subsection{What about the Lorenz equation?}
 
