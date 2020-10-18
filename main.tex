@@ -929,7 +929,13 @@ section \ref{sec:quasiphysical} that shadowing solutions can almost surely be no
 \subsection{What about the Lorenz equation?}
 In order to analyze the behavior of the shadowing solutions of the Lorenz'63 system 
 of equations, we first make a closed form approximation of the Lorenz map. The reason 
-is that due to the presence of bifurcations, 
+is that except at rare parameter values, the Lorenz system does not have 
+solutions that shadow perturbed orbits for all time, but rather only for a finite time 
+\cite{lorenzPOTP}. Hence, the Lorenz map also does not have infinitely long shadowing solutions. This implies that a numerical solution of the Lorenz map approximates 
+a true solution, as accurately as desired, only for a finite time.
+
+A closed form approximation is constructed by regression performed using long solutions 
+of the Lorenz map (see Figure \ref{fig:lorenz_map}). The cusp, around $(39,48)$, is fitted with an exponential function, and the tails are fitted with a sum of a cubic polynomial and a rational function (see supplementary material for the fitting parameters).  
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.32\textwidth]{figure/lorenz_zmax_sigma.png}
@@ -940,17 +946,15 @@ is that due to the presence of bifurcations,
     \caption{The left, center, and right plots show the effect of the
     parameters $\sigma, \rho$, and $\beta$ on the Lorenz map, respectively.
     In the left plot, the blue, orange, and green lines represent
-    $\sigma=10,11$, and $12$, respectively, while $\rho$ and $\beta$ stay
-    at 28 and $8/3$.
+    $\sigma=10,11$, and $12$, respectively, while $\rho  = 28$ and $\beta = 8/3.$
     In the center plot, the blue, orange, and green lines represent
-    $\rho=28,29$ and $30$, respectively, while $\sigma$ and $\beta$ stays at 10
-    and $8/3$.
+    $\rho=28,29$ and $30$, respectively, while $\sigma = 10$ and $\beta  = 8/3.$ 
     In the right plot, the blue, orange, and green lines represent
-    $\sigma=8/3,3$ and $10/3$ respectively, while $\sigma$ and $\rho$ stays at 10
-    and $28$.}
+    $\sigma=8/3,3$ and $10/3$ respectively, while $\sigma = 10$ and $\rho = 28.$\nisha{Is the green line overlapping one of the two lines?}}
     \label{fig:lorenz_params}
 \end{figure}
-
+The Lorenz map approximation obtained this way is illustrated in Figure \ref{fig:lorenz_params}, for variations of the parameters around their standard values of 
+$\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is numerically verified that the approximate Lorenz map qualitatively reproduces the behavior of the true Lorenz map. Using the approximate Lorenz map, we calculate next the shadowing solutions.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_15_28_2.67.json.png}
@@ -964,7 +968,7 @@ is that due to the presence of bifurcations,
     \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_10_28_3.33.json.png}
     \hspace{0.005\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/baseline_density_lorenz_zmax_10_28_3.33.json.png}
-    \caption{
+    \caption{The left column shows the empirical distribution of the shadowing solution of the Lorenz map at $\rho = 28$ (top row), $\rho = 29$ (middle row), and $\rho = 30$ (bottom row). The right column shows the probability distribution of a physical solution at the corresponding $\rho$ values of each row. The other two parameters are held at their standard values of $\sigma = 10, \beta = 8/3.$
     }
     \label{fig:lorenz_params_scaled}
 \end{figure}
