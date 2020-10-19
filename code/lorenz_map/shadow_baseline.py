@@ -60,12 +60,12 @@ aL = array(params0['aL'])
 aR = array(params0['aR'])
 bL = array(params0['bL'])
 bR = array(params0['bR'])
-
+'''
 width = 2100
 x = linspace(29,50,width*2+1)[1:-1:2]
 density = zeros_like(x)
 
-n = 10000000
+n = 10
 z = (zSep + zMax) / 2
 for i in range(200):
     z = trajectory(z, n, zMax, zSep, pwr, pL, pR, aL, aR, bL, bR)
@@ -74,3 +74,4 @@ for i in range(200):
     z = z[-1]
 
 save('baseline_density_{}.npy'.format(sys.argv[1]), density)
+'''

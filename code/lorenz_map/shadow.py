@@ -28,6 +28,7 @@ def fit1(dz, pwr, p):
 
 @numba.jit(nopython=True)
 def fit2(dz, pwr, p, a, b):
+    print(dz)
     f1, f1grad = fit1(dz, pwr, p)
     num, numgrad = polyval(a, dz)
     den, dengrad = polyval(b, dz)
@@ -65,10 +66,8 @@ def shadow(zTraj, zSep0, z0, zMin, zMax, zSep, pwr, pL, pR, aL, aR, bL, bR):
     dzMaxR = zSep - zMin
     for i in range(zTraj.size-1,-1,-1):
         if zTraj[i] > zSep0:
-            dz0 = max(0.002, zTraj[i] - zSep0)
             z = zSep + find2(zMax - z, dzMinR, dzMaxR, pwr, pR, aR, bR)
         else:
-            dz0 = max(0.002, zSep0 - zTraj[i])
             z = zSep - find2(zMax - z, dzMinL, dzMaxL, pwr, pL, aL, bL)
         zShadow[i] = z
         if not isfinite(z):
