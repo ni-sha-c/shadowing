@@ -928,14 +928,14 @@ section \ref{sec:quasiphysical} that shadowing solutions can almost surely be no
 
 \subsection{What about the Lorenz equation?}
 In order to analyze the behavior of the shadowing solutions of the Lorenz'63 system 
-of equations, we first make a closed form approximation of the Lorenz map. The reason 
+of equations, we first make a closed form approximation of the Lorenz map (see section \ref{sec:lorenzMapApprox} of the supplementary material). The reason 
 is that except at rare parameter values, the Lorenz system does not have 
 solutions that shadow perturbed orbits for all time, but rather only for a finite time 
 \cite{lorenzPOTP}. Hence, the Lorenz map also does not have infinitely long shadowing solutions. This implies that a numerical solution of the Lorenz map approximates 
 a true solution, as accurately as desired, only for a finite time.
 
 A closed form approximation is constructed by regression performed using long solutions 
-of the Lorenz map (see Figure \ref{fig:lorenz_map}). The cusp, around $(39,48)$, is fitted with an exponential function, and the tails are fitted with a sum of a cubic polynomial and a rational function (see supplementary material for the fitting parameters).  
+of the Lorenz map (see Figure \ref{fig:lorenz_map}). 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.32\textwidth]{figure/lorenz_zmax_sigma.png}
