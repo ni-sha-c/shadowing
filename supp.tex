@@ -4,4 +4,5 @@
 
 \subsubsection{Computing shadowing solution of the Lorenz map}
 In this section, we discuss how to numerically compute the shadowing trajectories of the Lorenz map. One of the motivations for approximating the Lorenz map is that having a closed form expression is necessary in the algorithm we discuss for numerical shadowing solution computation. The program used to generate Figure 
-\ref{fig:lorenz_params_scaled} is in \verb+lorenz_map/shadow.py+. The main logic behind the numerical procedure to compute the shadowing solution can be found in that script, within the function \verb+shadow+, which calls \verb+find2+. 
+\ref{fig:lorenz_params_scaled} is in \verb+lorenz_map/shadow.py+. The main logic behind the numerical procedure to compute the shadowing solution can be found in that script, within the function \verb+shadow+, which calls \verb+find2+. Let $x_n, n = 0,1,2,3\cdots,N$ be a given perturbed solution given to us until time $N$. The goal is to find, at every time $n,$ a perturbation $\epsilon_n$ such that $y_n = x_n + \epsilon_n$ is a shadowing solution. This means that $y_n$ must satisfy the governing equation: $y_{n+1} = \varphi(y_n),$ where $\varphi$ is the Lorenz map, and, $y_n$ and $x_n$ must stay 
+close to each to other for the length of time $N$. We start by initialized $y_N = x_N$ and find $\epsilon_n$ backward in time.
