@@ -954,7 +954,7 @@ of the Lorenz map (see Figure \ref{fig:lorenz_map}).
     \label{fig:lorenz_params}
 \end{figure}
 The Lorenz map approximation obtained this way is illustrated in Figure \ref{fig:lorenz_params}, for variations of the parameters around their standard values of 
-$\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is numerically verified that the approximate Lorenz map qualitatively reproduces the behavior of the true Lorenz map. Using the approximate Lorenz map, we calculate next the shadowing solutions. 
+$\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is numerically verified that the approximate Lorenz map qualitatively reproduces the behavior of the true Lorenz map. Using the approximate Lorenz map, we calculate next the shadowing solutions (see the supplementary material section \ref{sec:lorenzShadowingProcedure} for the numerical procedure). 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_15_28_2.67.json.png}
@@ -968,11 +968,11 @@ $\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is nu
     \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_10_28_3.33.json.png}
     \hspace{0.005\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/baseline_density_lorenz_zmax_10_28_3.33.json.png}
-    \caption{The left column shows the empirical distribution of the shadowing solution of the Lorenz map at $\rho = 28$ (top row), $\rho = 29$ (middle row), and $\rho = 30$ (bottom row). The right column shows the probability distribution of a physical solution at the corresponding $\rho$ values of each row. The other two parameters are held at their standard values of $\sigma = 10, \beta = 8/3.$
+    \caption{The left column shows the empirical distribution of the shadowing solution of the Lorenz map at $\rho = 28$ (top row), $\rho = 29$ (middle row), and $\beta = 10/3$ (bottom row). The right column shows the probability distribution of the corresponding physical solution. In each case, the parameters not mentioned are held at their standard values of $\rho = 28, \sigma = 10, \beta = 8/3.$
     }
     \label{fig:lorenz_params_scaled}
 \end{figure}
-
+The empirical densities computed from long shadowing solutions, of length 10 billion, are shown in the left column of Figure \ref{fig:lorenz_params_scaled},  
 
 
 \section{Discussions}

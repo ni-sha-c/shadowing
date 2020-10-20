@@ -5,8 +5,25 @@ The motivation for approximating the Lorenz map is that a
 closed form expression for the map is necessary for our numerical shadowing procedure. In a small region around the cusp, we approximate the map using an exponential function. The tails on both sides are fitted with a sum of a cubic polynomial and a rational function. Thus, the approximate Lorenz map has the 
 following closed form expression:
 \begin{align}
-    \varphi(x) = 
+    \varphi(x) = \begin{cases}
+        z_{\rm max} - f_R(x - z_{\rm sep})   &  x > z_{\rm sep} \\
+        z_{\rm max} -  f_L(z_{\rm sep} - x)   &  x \leq z_{\rm sep}
+    \end{cases}
 \end{align}
+where 
+\begin{align}
+    f_R(y) = \Big( (1000 y)^p + 
+        \sum_{n=0}^3 p_{R,n} y^n + \dfrac{a_{L,0} + a_{L,1} y}{\sum_{n=0}^3 b_{L,n} y^n}\Big),
+\end{align}
+and,
+\begin{align}
+    f_L(y) = \Big((1000 y)^p 
+        + \sum_{n=0}^3 p_{L,n} y^n + \dfrac{a_{R,0} + a_{R,1}y}{\sum_{n=0}^3 b_{R,n} y^n}\Big).
+\end{align}
+The location of the cusp is denoted $z_{\rm sep}$ (in which ``sep'' stands 
+for \emph{separation}), and the maximum and minimum values encountered 
+in the Lorenz map iterates are denoted $z_{\rm max}$ and $z_{\rm min}$, respectively. The exponent of the cusp is denoted $p$. The coefficients of the cubic polynomial modelling the left (right) tail are  denoted $p_{L,n}, n = 0,1,2,3$ ($p_{R,n}, n = 0,1,2,3$). The coefficients of the numerator and denominator of the rational function modelling the left (right) tail are denoted $a_{L,0}, a_{L,1}$ ($a_{R,0}, a_{R,1}$) and $b_{L,n}, n=0,1,2,3$ ($b_{R,n}, n=0,1,2,3$), respectively. The values of these coefficients are obtained by 
+regression on 
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
@@ -15,18 +32,18 @@ following closed form expression:
          $z_{\rm min}$ =  29.213182255013322 \\ 
          $z_{\rm max}$ =  47.978140718671284 & 
          $p$ = 0.28796740575434676   \\
-         $p_{L,1}$ = -0.00024683786275242047 & $p_{L,2} = $ 
+         $p_{L,3}$ = -0.00024683786275242047 & $p_{L,2} = $ 
          0.016174566354858824 \\
-         $p_{L,3} = $ 0.40179772568004946 & 
-         $p_{L, 4}  = $ -0.24612651488351725 \\
-         $p_{R,1} = $ -0.00020712463321688308 & 
+         $p_{L,1} = $ 0.40179772568004946 & 
+         $p_{L, 0}  = $ -0.24612651488351725 \\
+         $p_{R,3} = $ -0.00020712463321688308 & 
          $p_{R,2} = $ 0.017130843276711716 \\
-         $p_{R, 3} = $ 0.3930080703420676 & 
-         $p_{R, 4} = $ -0.23471384266765036 \\
-         $a_{L,1}$ = -0.05405742075580959 & $a_{L,2}$ = -0.05405742075580959 \\
-         $a_{R,1}$ = -0.05351127783496397 & $a_{R,2}$ = 0.22489891059122896 \\
-         $b_{L,1}$ = 0.5609397451213353 & $b_{L,2}$ = -0.3491184293228338 \\  $b_{L,3}$ = 2.419972619058592 & $b_{L,4}$ = 1.0 \\
-         $b_{R,1}$ = 0.6456076059873844 & $b_{R,2}$ = -0.34840383986411055 \\ $b_{R,3}$ = 2.6035438510917692 &  $b_{R,4}$ = 1.0 \\
+         $p_{R, 1} = $ 0.3930080703420676 & 
+         $p_{R, 0} = $ -0.23471384266765036 \\
+         $a_{L,1}$ = -0.05405742075580959 & $a_{L,0}$ = -0.05405742075580959 \\
+         $a_{R,1}$ = -0.05351127783496397 & $a_{R,0}$ = 0.22489891059122896 \\
+         $b_{L,3}$ = 0.5609397451213353 & $b_{L,2}$ = -0.3491184293228338 \\  $b_{L,1}$ = 2.419972619058592 & $b_{L,0}$ = 1.0 \\
+         $b_{R,3}$ = 0.6456076059873844 & $b_{R,2}$ = -0.34840383986411055 \\ $b_{R,1}$ = 2.6035438510917692 &  $b_{R,0}$ = 1.0 \\
          \hline
     \end{tabular}
     \caption{The fitting parameters of the Lorenz map at $\sigma = 10, \beta = 8/3$ and $\rho = 28.$}
