@@ -972,26 +972,25 @@ $\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is nu
     }
     \label{fig:lorenz_params_scaled}
 \end{figure}
-The empirical densities computed from long shadowing solutions, of length 10 billion, are shown in the left column of Figure \ref{fig:lorenz_params_scaled},  
+The empirical densities computed from long shadowing solutions, of length 10 billion, are shown in the left column of Figure \ref{fig:lorenz_params_scaled} at three different sets of parameter values, which are also different from the standard values of $\rho = 28, \sigma = 10$, and $\beta = 8/3$. 
+In the top and middle row, $\rho = 29$ and $\rho = 30$ are used, respectively, while the other two parameters are retained at their standard values. In the bottom row, only the parameter $\beta$ is perturbed from the standard values; $\beta = 10/3$ is used. On the right column, we plot the densities of physical solutions, the SRB distribution, at the set of parameters corresponding to each row. We again notice that, while the physical distributions are smooth, the shadowing solutions have a rough distribution that appears to have hair-like patterns. Thus, we draw the same conclusion in the Lorenz map as in the various perturbations of the tent map treated in section \ref{sec:tent}: shadowing solutions do not have the same distribution as a typically observed solution of the governing equation. In other words, shadowing solutions may be nonphysical.
 
 
 \section{Discussions}
-Shown through a rigorous counter-example, we conclude that shadowing can lead
-to nonphysical solutions.  The conclusion has instant implication for
-sensitivity analysis methods based on the concept shadowing.
-If the goal is to compute derivative of ensemble averages, where the ensemble
-is distributed according to the physical measure, i.e., the SRB measure,
-then shadowing-based methods can give wrong results.  This has been observed
-before and appropriately attributed as ``ergodicity breaking error''.
-This paper merely gave a rigorous analytical example of it.
+Through a rigorous counter-example, we show that shadowing can lead
+to nonphysical solutions.  The conclusion has an immediate implication for
+sensitivity analysis methods based on the concept of shadowing \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagne}.
+When the goal is to compute derivatives of ensemble averages, where the ensemble
+is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results.  This has been observed
+before and appropriately attributed as ``ergodicity breaking error'' \cite{patrick} \cite{angxiu-error}. In this paper, we construct rigorous analytical examples of this error.
 
-Even more troubling is the implication for any numerical simulation of chaotic
-governing equations.  We now understand that a numerical solution, satisfying
+Even more troubling is the implication for numerical simulations of chaotic
+governing equations.  Through the examples in this paper, it is clear that a numerical solution, satisfying
 a governing equation perturbed due to numerics, is not expected to shadow a
 physical solution of the real governing physics.  What is, if any, the
 relation of a numerical solution, such as DNS of turbulent flows, to
-the true physics?
-[Nisha: Use tent map as example for point 1. For $10^{-18}$ perturbation (trunction numerically), we get completely different statistics. How can we trust numerical solutions]
+the true physics? While this question remains open, we conclude with a final example illustrating that not only can shadowing solutions display statistical averages different from physical solutions, but that the difference can be drastic. 
+For $10^{-18}$ perturbation (trunction numerically), we get completely different statistics. How can we trust numerical solutions
 
 [Nisha: Eq. 18 and Eq. 19 - shadowing sensitivities are incorrect.]
 
