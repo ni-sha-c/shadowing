@@ -27,30 +27,36 @@ def accumulate(nbins, n, m, s):
         bno = int(x//dx)
         density[bno] += 1/n/dx
     return density
-'''
-nbins = 2**9
-x = linspace(0, 2, nbins)[1:-1]
-y = zeros_like(x)
-for i, xi in enumerate(x):
-    y[i] = osc_tent(xi, 0.5, 5)
-fig = figure(figsize=(8,5))
-ax = fig.add_subplot(111)
-ax.plot(x, y)
-ax.xaxis.set_tick_params(labelsize=40)
-ax.yaxis.set_tick_params(labelsize=40)
-'''
 
+nbins = 2**13
+ns = 5
+nn = 5
+n_arr = [0, 1, 2, 4, 6]
+s_arr = [0, 0.1, 0.2, 0.3, 0.5]
 
-nbins = 2**12
-nrep = 1
-density = zeros(nbins)
-for m in range(nrep):
-    print("repeat {}".format(m))
-    density += accumulate(nbins, 1000000000, 6, 0.5)/nrep
 x = linspace(0, 2, nbins+2)[1:-1]
-fig = figure(figsize=(8,5))
+ys = zeros((ns,nbins))
+yn = zeros((nn,nbins))
+for k,nk in enumerate(n_arr):
+    for i, xi in enumerate(x):
+        yn[k,i] = osc_tent(xi, 0.5, nk)
+fig = figure(figsize=(8,6))
 ax = fig.add_subplot(111)
-ax.fill_between(x, 0, density)
+for k,nk in enumerate(n_arr):
+    ax.plot(x, yn[k],lw=2.5,label="n = {}".format(nk))
 ax.xaxis.set_tick_params(labelsize=40)
 ax.yaxis.set_tick_params(labelsize=40)
+leg = ax.legend(fontsize=30)
+ax.axis("scaled")
 
+for k,sk in enumerate(s_arr):
+    for i, xi in enumerate(x):
+        ys[k,i] = osc_tent(xi, sk, 0)
+fig = figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+for k,sk in enumerate(s_arr):
+    ax.plot(x, ys[k],lw=2.5,label="s = {}".format(sk))
+ax.xaxis.set_tick_params(labelsize=40)
+ax.yaxis.set_tick_params(labelsize=40)
+ax.axis("scaled")
+leg = ax.legend(fontsize=30)
