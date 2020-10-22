@@ -983,7 +983,13 @@ sensitivity analysis methods based on the concept of shadowing \cite{qiqi-lss}\c
 When the goal is to compute derivatives of ensemble averages, where the ensemble
 is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results.  This has been observed
 before and appropriately attributed as ``ergodicity breaking error'' \cite{patrick} \cite{angxiu-error}. In this paper, we construct rigorous analytical examples of this error.
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{figure/osc_tent_n.png}
+    \includegraphics[width=0.45\textwidth]{figure/osc_tent_s.png}
+    \caption{The plucked tent map shown at different values of $s$ and $n$, that represent the magnitude and frequency of the applied oscillation to the original tent map ($n=0,s=0$). On the left, $s$ is held constant at 0.5. On the right, $n$ is held constant at 0.}
+    \label{fig:map}
+\end{figure}
 Even more troubling is the implication for numerical simulations of chaotic
 governing equations.  Through the examples in this paper, it is clear that a numerical solution, satisfying
 a governing equation perturbed due to numerics, is not expected to shadow a
@@ -994,13 +1000,7 @@ For $10^{-18}$ perturbation (trunction numerically), we get completely different
 
 [Nisha: Eq. 18 and Eq. 19 - shadowing sensitivities are incorrect.]
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.35\textwidth,height=2in]{figure/osc_tent_n.png}
-    \includegraphics[width=0.35\textwidth,height=2in]{figure/osc_tent_s.png}
-    \caption{The plucked tent map shown at different values of $s$ and $n$, that represent the magnitude and frequency of the applied oscillation to the original tent map ($n=0,s=0$). On the left, $s$ is held constant at 0.5. On the right, $n$ is held constant at 0.}
-    \label{fig:map}
-\end{figure}
+
 [Nisha: shadowing perturabtions predict tiny effects. Real effect is a lot more dramatic. Desmos plot.]
 give example of numerics that destroys physicalness
 
