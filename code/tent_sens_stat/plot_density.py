@@ -27,27 +27,24 @@ def accumulate(nbins, n, m, s):
         bno = int(x//dx)
         density[bno] += 1/n/dx
     return density
-'''
-nbins = 2**9
-x = linspace(0, 2, nbins)[1:-1]
-y = zeros_like(x)
-for i, xi in enumerate(x):
-    y[i] = osc_tent(xi, 0.5, 5)
-fig = figure(figsize=(8,5))
-ax = fig.add_subplot(111)
-ax.plot(x, y)
-ax.xaxis.set_tick_params(labelsize=40)
-ax.yaxis.set_tick_params(labelsize=40)
-'''
 
+@numba.jit(nopython=True)
+def analytical_rho(x,s):
+    if x < 1:
+        return (1-s)/2
+    return (1+s)/2
 
 nbins = 2**12
-nrep = 1
+nrep = 10
 density = zeros(nbins)
-for m in range(nrep):
-    print("repeat {}".format(m))
-    density += accumulate(nbins, 1000000000, 6, 0.5)/nrep
-x = linspace(0, 2, nbins+2)[1:-1]
+s = 0.5
+n = 5
+#for m in range(nrep):
+ #   print("repeat {}".format(m))
+    #density += accumulate(nbins, 1000000000, n, s)/nrep
+x = array(linspace(0, 2, nbins+2)[1:-1])
+for i,xi in enumerate(x):
+    density[i] = analytical_rho(2*2**n*xi - 2*floor(2**n*xi),s)
 fig = figure(figsize=(8,5))
 ax = fig.add_subplot(111)
 ax.fill_between(x, 0, density)
