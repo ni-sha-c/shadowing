@@ -9,13 +9,20 @@ def tent_basic(x,s):
             2 - 2*(x-1)/(1+s))
 
 @numba.jit(nopython=True)
-def oscillation(x, s, n):
-    return tent_basic(2**n*x - floor(2**n*x),s)/2**n + \
+def oscillation(x,s):
+    if x < 0.5:
+        return tent_basic(2*x,s)/2
+    return 2-tent_basic(2-2*x,s)/2 
+
+
+@numba.jit(nopython=True)
+def frequency(x,s,n):
+    return oscillation(2**n*x - floor(2**n*x),s)/2**n + \
             2*floor(2**n*x)/2**n
 
 @numba.jit(nopython=True)
 def osc_tent(x, s, n):
-    return min(oscillation(x,s,n), oscillation(2-x,s,n))
+    return min(frequency(x,s,n), frequency(2-x,s,n))
 
 @numba.jit(nopython=True)
 def accumulate(nbins, n, m, s):
@@ -29,10 +36,10 @@ def accumulate(nbins, n, m, s):
     return density
 
 nbins = 2**13
-ns = 5
-nn = 5
-n_arr = [0, 1, 2, 4, 6]
-s_arr = [0, 0.1, 0.2, 0.3, 0.5]
+ns = 1
+nn = 1
+n_arr = [1]
+s_arr = [0.5]
 
 x = linspace(0, 2, nbins+2)[1:-1]
 ys = zeros((ns,nbins))
