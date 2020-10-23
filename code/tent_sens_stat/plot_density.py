@@ -37,21 +37,25 @@ def accumulate(nbins, n, m, s):
 
 @numba.jit(nopython=True)
 def analytical_rho(x,s):
-    if x < 1:
-        return (1-s)/2
-    return (1+s)/2
+    if x < s:
+        return (1-s)/4
+    elif x < 1:
+        return (1 + s)/4
+    elif x < 1+s:
+        return 1 + s/4
+    return (1+s)/4
 
 nbins = 2**12
-nrep = 1
+nrep = 5
 density = zeros(nbins)
 s = 0.5
-n = 6
-for m in range(nrep):
-    print("repeat {}".format(m))
-    density += accumulate(nbins, 1000000, n, s)/nrep
+n = 0
+#for m in range(nrep):
+#    print("repeat {}".format(m))
+#    density += accumulate(nbins, 1000000000, n, s)/nrep
 x = array(linspace(0, 2, nbins+2)[1:-1])
-#for i,xi in enumerate(x):
-#    density[i] = analytical_rho(2*2**n*xi - 2*floor(2**n*xi),s)
+for i,xi in enumerate(x):
+    density[i] = analytical_rho(xi,s)
 fig = figure(figsize=(8,5))
 ax = fig.add_subplot(111)
 ax.fill_between(x, 0, density)
