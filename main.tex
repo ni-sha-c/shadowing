@@ -59,42 +59,38 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx, float}
 \usepackage{amsmath, amssymb, amsfonts}
-\usepackage{xcolor}
+\usepackage{xcolor,verbatim}
 \definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
 \newcommand{\nisha}[1]{{\color{darkgreen} #1}}
 \begin{document}
 
 \title{On the probability of finding a nonphysical solution through shadowing}
 \date{June 2020}
-\subtitle{Do you have a subtitle?\\ If so, write it here}
+
 
 %\titlerunning{Short form of title}        % if too long for running head
 
-\author{Qiqi Wang}
+\author{Qiqi Wang and Nisha Chandramoorthy}
 
 %\authorrunning{Short form of author list} % if too long for running head
 
-\institute{F. Author \at
-              first address \\
-              Tel.: +123-45-678910\\
-              Fax: +123-45-678910\\
-              \email{fauthor@example.com}           %  \\
+\institute{Q. Wang \at 
+        Department of Aeronautics and Astronautics, Center for Computational Science and Engineering, MIT, Cambridge, MA 02139, USA.
+              \email{qiqi@mit.edu}           %  \\
 %             \emph{Present address:} of F. Author  %  if needed
            \and
-           S. Author \at
-              second address
+           N. Chandramoorthy \at Department of Mechanical Engineering, Center for Computational Science and Engineering, MIT, Cambridge, MA 02139, USA. \email{nishac@mit.edu}
 }
 
-\date{Received: date / Accepted: date}
+%\date{Received: date / Accepted: date}
 % The correct dates will be entered by the editor
 
 
 \maketitle
 
 \begin{abstract}
-Insert your abstract here. Include keywords, PACS and mathematical
-subject classification numbers as needed.
-\keywords{First keyword \and Second keyword \and More}
+Based on the shadowing property of dynamical systems, we expect that numerical solutions of governing equations lie close to a true solution -- a shadowing solution -- of the governing equation. This is used to justify, even when the governing equation is chaotic, that numerical solutions represent a true solution. However, shadowing solutions can be \emph{nonphysical}: they may not represent the long-term statistical behavior of an ensemble of true solutions. That is, the probability distribution of a shadowing solution can differ, often dramatically, from that of a solution starting from almost every initial condition. In this paper, we construct analytical examples of chaotic systems in which shadowing solutions are nonphysical. These examples also illustrate that the probability of finding a nonphysical shadowing solution can be 1. Through several analytical constructions, we note that the incorrect assumption of the physicality of shadowing raises questions on the trustworthiness of numerical solutions, and shadowing-based sensitivity analysis of chaotic systems.
+\keywords{Numerical simulations \and Shadowing sensitivity analysis \and Chaotic systems}
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
 \end{abstract}
@@ -125,14 +121,14 @@ approximation to a ``true'' solution that satisfies the real governing physics.
 
 Shadowing is also used in sensitivity analysis of chaotic dynamical systems.  In particular,
 it is used in computing how long-time-averages in a chaotic system
-respond to small perturbations in the governing equation. In this application, derivative
+respond to small perturbations in the governing equation \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. In this application, derivative
 of the long-time-averages is computed using a solution to the perturbed governing equation
-that shadows a solution to the unperturbed equation.  The Least Squares Shadowing \cite{qiqi-lss} method
+that shadows a solution to the unperturbed equation.  The Least Squares Shadowing \cite{qiqi-lss}\cite{angxiu-lss} method
 uses this concept.
 
 There is an implicit assumption in both of these applications.  The assumption is that
 the shadowing trajectory is a ``physical'' trajectory, a trajectory on which
-the long-time-average of a quantity is equal to the physical \nisha{can we remove the word ``physical'' before ensemble average?} ensemble average.
+the long-time-average of a quantity is equal to the ensemble average.
 Not all solutions satisfying the physical governing equation are considered ``physical''
 in this sense.  In high-Reynolds number fluid flows, for example, a steady-state, laminar flow solution may satisfy the Navier-Stokes equation. But such a solution would never be observed in reality because it is unstable, and any small perturbation
 would trip it into turbulence. Unstable steady-state solutions are not the only
@@ -156,11 +152,11 @@ examples of these almost-never-observed nonphysical solutions.
 
 \subsection{Physical solutions}
 What we typically call ``physical'' solutions to a governing equation satisfy the following
-two criteria: \nisha{Is the term ``physical'' to mean the following common in fluid mechanics? If not, can we emphasize that we are defining it here? e.g. }
+two criteria: 
 \begin{enumerate}
     \item Long-time-averaged, ``statistical'' quantities converges as time goes to infinity.
-    Consider $u(t)$ as the solution to a chaotic governing equation, then for \nisha{a continuous/regular observable?}
-    a smooth quantity of interest $J(u(t))$,
+    Consider $u(t)$ as the solution to a chaotic governing equation, then for a regular observable
+    of interest $J(u(t))$,
     \begin{equation} \label{longtimeavg}
         \lim_{T\to\infty}\frac1T \int_0^T J(u(t))\,dt
     \end{equation}
@@ -173,7 +169,7 @@ two criteria: \nisha{Is the term ``physical'' to mean the following common in fl
     \end{equation}
 \end{enumerate}
 
-\begin{figure}[H] \centering
+\begin{figure} \centering
 \includegraphics[width=0.48\textwidth]{figure/lorenz_trajectory_1000.0.png}
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{figure/lorenz_ensemble_10.png}
@@ -186,7 +182,7 @@ $2048\times2048$ uniform grid.  The trajectory is sampled every 0.001 time units
 }
 \label{fig:lorenz_ergodicity1}
 \end{figure}
-\begin{figure}[H] \centering
+\begin{figure} \centering
 \includegraphics[width=0.48\textwidth]{figure/lorenz_trajectory_10000.0.png}
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{figure/lorenz_ensemble_15.png}
@@ -198,7 +194,7 @@ evolved for $10,000$ time units.
 }
 \label{fig:lorenz_ergodicity2}
 \end{figure}
-\begin{figure}[H] \centering
+\begin{figure} \centering
 \includegraphics[width=0.48\textwidth]{figure/lorenz_trajectory_1000000.0.png}
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{figure/lorenz_ensemble_50.png}
@@ -252,8 +248,7 @@ of ergodic theory. Under surprisingly weak conditions, a solution starting from
 Meanwhile, an ensemble of trajectories starting from any distribution with a 
 finite density also evolves towards the same final distribution, $\mu$. Due to expansion of a volume of solutions tangent to the attractor filaments, a finite density under long-time evolution becomes absolutely continuous on the unstable manifold, i.e., the likelihood of a trajectory visiting any set not intersecting the attractor filaments is zero. The 
 stationary distribution achieved on long-time evolution of the ensemble that has the absolute continuity property is called the Sinai-Ruelle-Bowen
-(SRB) measure. The absolute continuity property is sufficient to ensure that the SRB measure is the same $\mu.$ That is, the SRB measure is physically observed in the sense that  
-\nisha{what do we mean by ``under sufficient regularity conditions'' here? Suggesting a modification to the previous sentence} physical solutions produce long-time-averages which are expectations with respect to the SRB measure. 
+(SRB) measure. The absolute continuity property is sufficient to ensure that the SRB measure is the same $\mu.$ That is, the SRB measure is physically observed in the sense that physical solutions produce long-time-averages which are expectations with respect to the SRB measure. 
 
 Note that almost any, not any, initial condition leads to a physical solution. A set of special initial conditions
 contained in a neighborhood of the attractor may exist starting from which physical solutions are not generated. These initial conditions do not produce the same statistics as the physical solutions. This special set of initial conditions is Lebesgue measure zero -- one
@@ -274,7 +269,7 @@ to the physical solution visualized in Figures \ref{fig:lorenz_ergodicity1}--\re
 we see that the periodic solutions are significantly more limited in their
 extent of exploration.
 
-\begin{figure}[H]\centering
+\begin{figure}\centering
 \includegraphics[width=0.48\textwidth]{figure/lorenz_periodic.png}
 \caption{Periodic solutions of the Lorenz equation, overlaid on top of
 its SRB distribution.  The solid line, dashed line, and dotted line
@@ -324,7 +319,7 @@ $u_3(t)$ component oscillates in a pattern that appears neither regular nor rand
 observed that the height of one peak in the oscillation can predict the height of the next peak.  He quantified his observation by the Lorenz map,
 as shown in Figure \ref{fig:lorenz_map}.
 
-\begin{figure}[H]\centering
+\begin{figure}\centering
 \includegraphics[width=0.48\textwidth]{figure/lorenz_zmax_10_28_2.6666666666666665.png}
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{figure/lorenz_zmax2_10_28_2.6666666666666665.png}
@@ -335,10 +330,10 @@ in Figure \ref{fig:lorenz_periodic}.
 Right: the Lorenz map iterated twice.  The x-axis is the $n$-th local maximum
 of $u_3(t)$; the y-axis is the $(n+2)$-th maximum.  The intersection with the diagonal dashed
 line indicates the initial conditions for both the solid and dashed lines in
-Figure \ref{fig:lorenz_periodic}. \nisha{In Figure 4, the solid line appears only to have one local maximum, which is shown as the fixed point on the left plot of this figure. The two fixed points of the 2-time-iterate of the Lorenz map, shown on the right plot of this figure, both appear to correspond to the local maxima of the dashed curve in Figure 4.}}
+Figure \ref{fig:lorenz_periodic}.}
 \label{fig:lorenz_map}
 \end{figure}
-
+\begin{comment}In Figure 4, the solid line appears only to have one local maximum, which is shown as the fixed point on the left plot of this figure. The two fixed points of the 2-time-iterate of the Lorenz map, shown on the right plot of this figure, both appear to correspond to the local maxima of the dashed curve in Figure 4.\end{comment}
 The Lorenz map provides us a tool to find as many periodic solutions as we want.
 By intersecting the map with a diagonal line, we can find a local maximum of $u_3(t)$
 for which the next maximum is almost the same value.  We then look up the values of
@@ -373,7 +368,7 @@ we construct, in the next subsection, a one-dimensional discrete-time dynamical 
 with a closed form, one that qualitatively resembles the Lorenz map.  This map
 will help us, in Section \ref{sec:quasiphysical}, to study a more insidious type
 of nonphysical solutions, a type that hides in the shadow.
-\nisha{I wish all papers were this intriguing!}
+
 \subsection{Tent map: periodic and physical solutions}
 \label{sec:tent}
 The tent map has been widely studied \cite{tent1}\cite{tent2}.  It is qualitatively similar
@@ -385,7 +380,7 @@ to the Lorenz map and has a simple, analytic form:
     \end{cases}
 \end{equation}
 Figure \ref{fig:tent_map} shows the tent map.
-\begin{figure}[H]\centering
+\begin{figure}\centering
 \includegraphics[width=0.48\textwidth]{figure/tent_map.png}
 \caption{The tent map $\varphi$.}
 \label{fig:tent_map}
@@ -469,7 +464,7 @@ points.
  preferentially visit the first half of this interval.
 We call such aperiodic nonphysical solutions ``quasi-physical'' solutions.
 
-\begin{figure}[H]\centering
+\begin{figure}\centering
 \includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_hist_p_0.5001.png}
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_hist_p_0.51.png}
@@ -518,7 +513,7 @@ observed in Figure \ref{fig:tent_alternative}, it shows
 a remarkable resemblance in its ``hairiness''; some kind of fractal
 pattern emerges from the distribution.  A fractal distribution
 appears to be a hallmark of quasi-physical solutions.
-\begin{figure}[H]\centering
+\begin{figure}\centering
     \centering
     \includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_alternaive1_hist_p_0.6.png}
     \hspace{0.02\textwidth}
@@ -571,7 +566,7 @@ between solutions starting from the same initial condition.
 As demonstrated in Figure \ref{fig:tent_ivp}, this sensitivity to small
 perturbations reflects the chaotic nature of the governing equation.
 
-\begin{figure}[H]   \centering
+\begin{figure}   \centering
     \includegraphics[width=0.48\textwidth]{figure/scaled_tent_map.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tent_ivp.png}
@@ -673,7 +668,7 @@ composition of $\tilde{\varphi}_s.$ That is, if $\tilde{x}_{j+1} = \tilde{\varph
 To see why $\tilde{h}_s$ constructed in Eq. \ref{conjugate_tilted} satisfies the definition of a conjugacy map --
 $\tilde{h}_s(\tilde\varphi_s(x)) = \varphi(\tilde{h}_s(x))$ for all $x$ --
 we need to analyze two cases: $x<1+s$ and $x\ge 1+s$.
-\begin{figure}[H]
+\begin{figure}
   \centering
     \includegraphics[width=0.48\textwidth]{figure/tilted_tent_map.png}
     \hspace{0.02\textwidth}
@@ -720,7 +715,7 @@ $\varphi(\tilde{h}_s(x)) = 4 - 2 \tilde{h}_s(x)$ according
 to the definition of $\varphi$.  Thus,
 $\varphi(\tilde{h}_s(x)) = \tilde{h}_s(\tilde\varphi_s(x))$ also holds when $x\ge 1+s$.
 
-\begin{figure}[H]
+\begin{figure}
    \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.1.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.5.png}
@@ -784,7 +779,6 @@ $\frac{1+s}2$.  For a uniformly random
 $x$, $\tilde{h}_s(x)$ is exactly the kind of initial condition
 we used to construct the quasi-physical solution
 in Section \ref{sec:quasiphysical}, with $p=\frac{1+s}2$.
-\nisha{This is so well set up and awesome!}
 Since this analysis holds for any $x$ sampled uniformly on $[0,2]$, we can conclude that
 the shadowing solution is almost surely nonphysical.  Let $x_{s,i},i=0,1,\ldots$ be a solution
 to the tilted tent map $\tilde{\varphi}_s$ with $x_{s,0}$ chosen 
@@ -821,7 +815,7 @@ shadowing solutions?
 %%\end{figure}
 %%
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{figure/squashed_tent_map.png}
     \caption{The ``squashed'' tent map (Eq. \ref{eqn:tent_squashed}) for $s=0.01, 0.05, 0,2,$ and 0.5.}
@@ -840,7 +834,7 @@ in Figure \ref{fig:tent_squashed}, has the closed form
 \end{equation}
 
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{figure/tent_squashed_shadow_density_0.01.png}
     \hspace{0.02\textwidth}
@@ -866,7 +860,7 @@ Next we consider a second perturbation of the tent map, the \emph{pinched} tent 
     \label{eqn:tent_pinched}
 \end{align}
 Again, at $s=0$, the original tent map is recovered, and other values of $s,$ the tent map is ``pinched'' by perturbations that are symmetric around $x = 1$, and zero at the end points. Figure \ref{fig:tent_pinched} shows the pinched tent map at different $s$ values.  
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{figure/pinched_tent_map.png}
     \caption{The pinched tent map (Eq. \ref{eqn:tent_pinched}) for $s = 0.01, 0.05, 0.2,$ and 0.5.}
@@ -876,7 +870,7 @@ In Figure \ref{fig:tent_pinched_shadow}, we show the corresponding plots of the
 physical and shadowing distributions for the pinched tent map. From the right 
 column, which shows the probability density of a long physical solution, we 
 can see that the pinching perturbation changes the uniform density of the original tent map to a linearly varying density. The more pronounced the perturbation -- the higher the value of $s$ -- the steeper decline in the density from left to the right. The shadowing distribution, in this case as well, appears fractal. Once again, with probability one -- or, for any randomly chosen initial condition of the solution of the pinched tent map -- any physical solution is shadowed by a quasi-physical solution.
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{figure/tent_pinched_shadow_density_0.05.png}
     \hspace{0.02\textwidth}
@@ -899,7 +893,7 @@ We consider yet another perturbation of the tent map with the closed form
 The above map, called the wave tent map, is illustrated in Figure \ref{fig:tent_wave}.
 To construct the pinched tent map (Eq. \ref{eqn:tent_pinched}), we perturbed the original tent map in such a way that the perturbations on the two halves of the interval $[0,2]$ are mirror images of each other about the $x=1$ line. In the wave tent map, the perturbations on the two halves are a reflection of each other about the 
 $x$-axis.
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{figure/wave_tent_map.png}
     \caption{The wave tent map (Eq. \ref{eqn:tent_wave}) for $s = 0.01, 0.05, 0.2,$ and 0.5.}
@@ -907,7 +901,7 @@ $x$-axis.
 \end{figure}
 The wave perturbation does not noticeably alter the SRB density of the original tent map. As we show in Figure \ref{fig:tent_wave_shadow} (right), a solution of the 
 wave tent map, starting from almost any point on $[0,2]$ -- a physical solution -- has a density that looks almost identical to a uniform density of 0.5. On the left column of Figure \ref{fig:tent_wave_shadow}, we observe that the distributions of the shadowing solutions corresponding to the physical solutions on the right, once again appear fractal.  
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{figure/tent_wave_shadow_density_0.05.png}
     \hspace{0.02\textwidth}
@@ -936,7 +930,7 @@ a true solution, as accurately as desired, only for a finite time.
 
 A closed form approximation is constructed by regression performed using long solutions 
 of the Lorenz map (see Figure \ref{fig:lorenz_map}). 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=0.32\textwidth]{figure/lorenz_zmax_sigma.png}
     \hspace{0.005\textwidth}
@@ -950,12 +944,15 @@ of the Lorenz map (see Figure \ref{fig:lorenz_map}).
     In the center plot, the blue, orange, and green lines represent
     $\rho=28,29$ and $30$, respectively, while $\sigma = 10$ and $\beta  = 8/3.$ 
     In the right plot, the blue, orange, and green lines represent
-    $\sigma=8/3,3$ and $10/3$ respectively, while $\sigma = 10$ and $\rho = 28.$\nisha{Is the green line overlapping one of the two lines?}}
+    $\sigma=8/3,3$ and $10/3$ respectively, while $\sigma = 10$ and $\rho = 28.$}
     \label{fig:lorenz_params}
 \end{figure}
+\begin{comment}
+Is the green line overlapping one of the two lines?
+\end{comment}
 The Lorenz map approximation obtained this way is illustrated in Figure \ref{fig:lorenz_params}, for variations of the parameters around their standard values of 
-$\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is numerically verified that the approximate Lorenz map qualitatively reproduces the behavior of the true Lorenz map. Using the approximate Lorenz map, we calculate next the shadowing solutions (see the supplementary material section \ref{sec:lorenzShadowingProcedure} for the numerical procedure). 
-\begin{figure}[H]
+$\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is numerically verified that the approximate Lorenz map qualitatively reproduces the behavior of the true Lorenz map. Using the approximate Lorenz map, we calculate next the shadowing solutions. 
+\begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_15_28_2.67.json.png}
     \hspace{0.005\textwidth}
@@ -979,7 +976,7 @@ In the top and middle row, $\rho = 29$ and $\rho = 30$ are used, respectively, w
 \section{Discussions}
 Through a rigorous counter-example, we show that shadowing can lead
 to nonphysical solutions.  The conclusion has an immediate implication for
-sensitivity analysis methods based on the concept of shadowing \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagne}.
+sensitivity analysis methods based on the concept of shadowing \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}.
 When the goal is to compute derivatives of ensemble averages, where the ensemble
 is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results.  This has been observed
 before and appropriately attributed as ``ergodicity breaking error'' \cite{patrick} \cite{angxiu-error}. In this paper, we construct rigorous analytical examples of this error.
@@ -988,7 +985,7 @@ before and appropriately attributed as ``ergodicity breaking error'' \cite{patri
     \includegraphics[width=0.45\textwidth]{figure/osc_tent_n.png}
     \includegraphics[width=0.45\textwidth]{figure/osc_tent_s.png}
     \caption{The plucked tent map shown at different values of $s$ and $n$, that represent the magnitude and frequency of the applied oscillation to the original tent map ($n=0,s=0$). On the left, $s$ is held constant at 0.5. On the right, $n$ is held constant at 0.}
-    \label{fig:map}
+    \label{fig:osc_map}
 \end{figure}
 \begin{figure}
     \centering
@@ -1007,11 +1004,17 @@ we may get completely different statistics from a true, physical solution.
 How then can we trust numerical solutions that, even if they are shadowed by
 physical solutions, do not share their statistics? 
 
-We conclude with a final example illustrating 
-another problem with assuming the physicality of shadowing solutions: with a small change in a parameter, the stationary probability distribution of a chaotic system \emph{can} change drastically, while if shadowing solutions are physical, the change in the statistics must be small when the parameter perturbation is small. Once again, a perturbation of a tent map can be used as an example. 
-We consider a plucked tent map as shown in Figure only can shadowing solutions display statistical averages different from physical solutions, but that the difference can be drastic. 
+We conclude with an example that illustrates that assuming the 
+physicality of shadowing solutions leads to incorrect results in shadowing-based sensitivity 
+computation methods. We construct yet another perturbed tent map -- the \emph{plucked} 
+tent map -- in which an oscillatory perturbation is introduced. In Figure \ref{fig:osc_map}, we show that the magnitude of the oscillatory perturbation is controlled by a parameter $s$, and its frequency is controlled by the parameter $n$; at $s=0,n=0$, we recover the original tent map. The plucked tent map illustrates an important feature of some chaotic systems: with a small change in a parameter, the stationary probability distribution of a chaotic system \emph{can} change drastically. For the plucked tent map, this feature is illustrated by the stationary probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.5$. On the left, $n=0$ and there is already a marked asymmetry developed in the probability distribution compared to the uniform distribution seen at $s=0, n=0$. On the right, we show that by increasing $n,$ while keeping the magnitude of the perturbation the same ($s=0.5$), we see a dramatic change in the appearance of the stationary probability distribution: we observe a fractal distribution.  On the other hand, if perturbed solutions are shadowed by physical solutions for all time, the change in the statistics of the perturbed solutions must be small. In other words, the physicality of shadowing predicts that there cannot be a large change in statistics due to small parameter perturbations; the reality is that, as illustrated by the plucked tent map, the effect of small parameter changes on the statistics can be drastic.  
 
-
+In this paper, we have constructed several counterexamples that disprove the common 
+assumption that shadowing solutions are physical solutions, i.e., that their 
+statistical distribution is the same as that typically observed for almost every solution 
+of a governing equation. The existence of long-time shadowing solutions \cite{grebogi} has historically been used to address the issue of whether numerical simulations, which are 
+perturbed solutions, represent the true physics implied by the governing equation. In light of the evidence in this paper, we must reopen this issue. Even when numerical simulations are 
+shadowed by a true solution in that the difference between them is small for a long time, this shadowing solution may not represent the long-term behavior of the physical system. The nonphysicality of shadowing solutions also indicates that shadowing-based methods \cite{qiqi-lss} can lead to incorrect values of sensitivities of statistics to parameter changes. 
 
 
 

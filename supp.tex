@@ -1,6 +1,7 @@
 \section{Supplementary material}
-\subsection{The Lorenz Map}
-\subsubsection{Approximation of the Lorenz Map}
+%\subsection{The Lorenz Map}
+\subsection{Approximation of the Lorenz Map}
+\label{sec:lorenzMapApprox}
 The motivation for approximating the Lorenz map is that a 
 closed form expression for the map is necessary for our numerical shadowing procedure. In a small region around the cusp, we approximate the map using an exponential function. The tails on both sides are fitted with a sum of a cubic polynomial and a rational function. Thus, the approximate Lorenz map has the 
 following closed form expression:
@@ -23,7 +24,7 @@ and,
 The location of the cusp is denoted $z_{\rm sep}$ (in which ``sep'' stands 
 for \emph{separation}), and the maximum and minimum values encountered 
 in the Lorenz map iterates are denoted $z_{\rm max}$ and $z_{\rm min}$, respectively. The exponent of the cusp is denoted $p$. The coefficients of the cubic polynomial modelling the left (right) tail are  denoted $p_{L,n}, n = 0,1,2,3$ ($p_{R,n}, n = 0,1,2,3$). The coefficients of the numerator and denominator of the rational function modelling the left (right) tail are denoted $a_{L,0}, a_{L,1}$ ($a_{R,0}, a_{R,1}$) and $b_{L,n}, n=0,1,2,3$ ($b_{R,n}, n=0,1,2,3$), respectively. The values of these coefficients are obtained by 
-regression on 
+regression on the map at standard parameters are shown in the table below.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
@@ -50,7 +51,7 @@ regression on
     \label{tab:my_label}
 \end{table}
 
-
+\begin{comment}
 \subsubsection{Computing shadowing solutions of the Lorenz map}
 In this section, we discuss how to numerically compute the shadowing trajectories of the Lorenz map.  The program used to generate Figure 
 \ref{fig:lorenz_params_scaled} is in \verb+lorenz_map/shadow.py+. The main logic behind the numerical procedure to compute the shadowing solution can be found in that script, within the function \verb+shadow+, which calls \verb+find2+. Let $x_n, n = 0,1,2,3,\cdots,N$ be a perturbed solution given to us until time $N$. The goal is to find a sequence $\left\{ y_n\right\}_{n=0}^{N}$ that is a shadowing solution. This means that $y_n$ must satisfy the governing equation: $y_{n+1} = \varphi(y_n),$ where $\varphi$ is the Lorenz map, and, 
@@ -79,3 +80,4 @@ a tolerance. When the iteration converges, at some $k$,
 $f(y_{n+1}) = v_k.$ Notice that by construction, the
 sequence $\left\{ y_n\right\}$ computed this way solves the governing equation.
 To conclude that the sequence approximates the shadowing solution, we only need to check that $x_n$ and $y_n$ are close to each other for all times up to $N.$
+\end{comment}
