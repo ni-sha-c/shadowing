@@ -1002,10 +1002,15 @@ governing equations.  Through the examples in this paper, it is clear that a num
 a governing equation perturbed due to numerics, is not expected to shadow a
 physical solution of the real governing physics.  What is, if any, the
 relation of a numerical solution, such as DNS of turbulent flows, to
-the true physics? While this question remains open, we conclude with a final example illustrating 
-another problem with assuming the physicality of shadowing solutions: with a small change in a parameter, the stationary probability distribution of a chaotic system \emph{change} drastically, while if shadowing solutions are physical, the change in the statistics must be small when the parameter perturbation is small. Once again, a perturbation of a tent map can be used as an example. 
+the true physics? For $10^{-18}$ perturbation (due to numerics), 
+we may get completely different statistics from a true, physical solution. 
+How then can we trust numerical solutions that, even if they are shadowed by
+physical solutions, do not share their statistics? 
+
+We conclude with a final example illustrating 
+another problem with assuming the physicality of shadowing solutions: with a small change in a parameter, the stationary probability distribution of a chaotic system \emph{can} change drastically, while if shadowing solutions are physical, the change in the statistics must be small when the parameter perturbation is small. Once again, a perturbation of a tent map can be used as an example. 
 We consider a plucked tent map as shown in Figure only can shadowing solutions display statistical averages different from physical solutions, but that the difference can be drastic. 
-For $10^{-18}$ perturbation (trunction numerically), we get completely different statistics. How can we trust numerical solutions
+
 
 
 
