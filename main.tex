@@ -990,15 +990,22 @@ before and appropriately attributed as ``ergodicity breaking error'' \cite{patri
     \caption{The plucked tent map shown at different values of $s$ and $n$, that represent the magnitude and frequency of the applied oscillation to the original tent map ($n=0,s=0$). On the left, $s$ is held constant at 0.5. On the right, $n$ is held constant at 0.}
     \label{fig:map}
 \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{figure/osc_tent_dens_0.5_0.png}
+    \includegraphics[width=0.45\textwidth]{figure/osc_tent_dens_0.5_6.png}
+    \caption{The effect of increasing $n$ on the probability distribution associated to the plucked tent map. L: The stationary probability distribution of the plucked tent map at $s=0.5, n = 0$. R: The stationary probability distribution of the plucked tent map at $s=0.5, n = 6$.}
+    \label{fig:map}
+\end{figure}
 Even more troubling is the implication for numerical simulations of chaotic
 governing equations.  Through the examples in this paper, it is clear that a numerical solution, satisfying
 a governing equation perturbed due to numerics, is not expected to shadow a
 physical solution of the real governing physics.  What is, if any, the
 relation of a numerical solution, such as DNS of turbulent flows, to
-the true physics? While this question remains open, we conclude with a final example illustrating that not only can shadowing solutions display statistical averages different from physical solutions, but that the difference can be drastic. 
+the true physics? While this question remains open, we conclude with a final example illustrating 
+another problem with assuming the physicality of shadowing solutions: with a small change in a parameter, the stationary probability distribution of a chaotic system \emph{change} drastically, while if shadowing solutions are physical, the change in the statistics must be small when the parameter perturbation is small. Once again, a perturbation of a tent map can be used as an example. 
+We consider a plucked tent map as shown in Figure only can shadowing solutions display statistical averages different from physical solutions, but that the difference can be drastic. 
 For $10^{-18}$ perturbation (trunction numerically), we get completely different statistics. How can we trust numerical solutions
-
-[Nisha: Eq. 18 and Eq. 19 - shadowing sensitivities are incorrect.]
 
 
 [Nisha: shadowing perturabtions predict tiny effects. Real effect is a lot more dramatic. Desmos plot.]
