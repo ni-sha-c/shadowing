@@ -36,10 +36,10 @@ def accumulate(nbins, n, m, s):
     return density
 
 nbins = 2**13
-ns = 1
-nn = 1
-n_arr = [1]
-s_arr = [0.5]
+ns = 5
+nn = 5
+n_arr = [0, 1, 2, 4, 6]
+s_arr = [0.005, 0.1, 0.2, 0.4, 0.5]
 
 x = linspace(0, 2, nbins+2)[1:-1]
 ys = zeros((ns,nbins))

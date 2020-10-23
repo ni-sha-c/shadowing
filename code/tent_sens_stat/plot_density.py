@@ -14,7 +14,6 @@ def oscillation(x,s):
         return tent_basic(2*x,s)/2
     return 2-tent_basic(2-2*x,s)/2 
 
-
 @numba.jit(nopython=True)
 def frequency(x,s,n):
     return oscillation(2**n*x - floor(2**n*x),s)/2**n + \
