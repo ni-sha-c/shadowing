@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\begin{document}
+\section*{Section 2}
+\begin{enumerate}
+    \item Should we use ``stationary measure'' or ``stationary distribution'' for the SRB measure, instead of ``equilibrium distribution''? This is because physically, the dynamical systems we consider may not be in equilibrium: systems with an attractor, when ``energy'' is dissipated, may be in nonequilibrium steady states. A fluid dynamics/physics audience may assume that we are concerned only with systems that attain an equilibrium, if we call the SRB measure 
+    an equilibrium measure.
+    \item Another point about the SRB measure: the way they are introduced in section 2 (as the probability distribution of a long trajectory) is the best possible. When we talk about the Birkhoff ergodic theorem, it may not be accurate to introduce the SRB measure right afterwards because the existence of the SRB measure does not follow from Birkhoff's theorem. Secondly, without going into mathematical details, we can insert information that forces us to define SRB measure: that it is a special stationary measure which is physical. That is, we can say it is the particular measure, which is smooth along the attractor filaments, and this property is enough to guarantee that it is also the same as $\mu$ defined using the long trajectory. I have given this a shot by adding a few sentences but if this does not add value to the paper and/or is confusing, please remove them!
+\end{enumerate}
+\subsection*{Section 2.2: Lorenz map}
+\begin{enumerate}
+    \item To numerically find periodic orbits of the Lorenz system using the Lorenz map, we obtain the a value of $u_3$ for a point on a periodic orbit. However, there is numerical error in our reading of $u_3$ and hence in $u_1,$ $u_2$ as well. Does this make it so that the generated orbit is not periodic but a typical chaotic orbit? The effect of numerical error may be more pronounced for periodic orbits of longer period.  
+    \item I am curious also about how to find local maxima in a program. Is the `scipy.find\_peaks` function a good way?
+\end{enumerate} 
+\subsection*{Section 3.1}
+\begin{enumerate}
+    \item Reading the text around the definition of the shadowing solution, 
+    the reader may wonder when a true solution is called a shadowing solution.
+    What does it shadow? To clarify, we can add that a solution of $\tilde{\varphi}_s$
+    is a perturbed solution (a pseudoorbit) of $\varphi.$ The shadowing solution 
+    is a true trajectory of $\varphi$ that stays close, forever, to the perturbed solution.
+\end{enumerate}
+\subsection*{Section 3.2}
+\begin{enumerate}
+    \item Given two nearby maps, how can we construct a conjugacy between their trajectories?
+    I think there is a Newton's method for conjugacies, can we explain this with an example?
+    Since finding conjugacies is not directly relevant to analyzing the physicality of shadowing, it may suffice to point to references. 
+    \item Can we give intuition for $\tilde{h}_s?$ The conjugacy helpers $\xi_{s, j}$
+    are bits in the binary representation of $\tilde{h}_s.$ Does this observation provide 
+    any intuition for the shadowing map? Additionally, $\xi_{s, j}$ is a recursive function that codes the orbits of $\tilde{\varphi}_s.$ The coding is as follows. If an orbit 
+    visits the interval $[1+s, 2]$ an even number of times upto and including time $j$,
+    then, $\xi_{s,j} =0;$ otherwise, it is one.
+    \item This should probably be addressed in 3.1, and relates to what is shadowed by what.
+    Can we add a line that says that the two trajectories that remain close are 
+    $\varphi^j \tilde{h}_s x$ and $\tilde{\varphi}^j_s x$?
+\end{enumerate}
+\end{document}
