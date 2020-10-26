@@ -70,7 +70,7 @@
 
 %\titlerunning{Short form of title}        % if too long for running head
 
-\author{Qiqi Wang and Nisha Chandramoorthy}
+\author{Nisha Chandramoorthy and Qiqi Wang}
 
 %\authorrunning{Short form of author list} % if too long for running head
 
@@ -114,7 +114,7 @@ Because of numerical and modeling errors, there will typically be a small differ
 true governing physics and the equations solved on a computer.  As the system is evolved forward
 in time, this difference will be amplified exponentially due to the chaotic nature of the system.
 The question therefore arises as to whether or not numerical solutions to chaotic systems, such
-as turbulent flows, are related to the physics at all.  The existence of shadowing solutions
+as turbulent flows, represent the true physics.  The existence of shadowing solutions
 is used to argue for the usefulness of such numerical solutions.
 When certain conditions for shadowing theorems are met, the numerical solution would be an
 approximation to a ``true'' solution that satisfies the real governing physics.
@@ -132,7 +132,7 @@ the long-time-average of a quantity is equal to the ensemble average.
 Not all solutions satisfying the physical governing equation are considered ``physical''
 in this sense.  In high-Reynolds number fluid flows, for example, a steady-state, laminar flow solution may satisfy the Navier-Stokes equation. But such a solution would never be observed in reality because it is unstable, and any small perturbation
 would trip it into turbulence. Unstable steady-state solutions are not the only
-non-physical solution. Many chaotic dynamical systems have infinitely many periodic
+nonphysical solution. Many chaotic dynamical systems have infinitely many periodic
 solutions that are, similar to their steady counterpart, unstable. These trajectories can have a probability distribution that is remarkably different from that of a typically observed solution of the governing equation. It is also possible to effect significant change in the statistics of the true governing dynamics by introducing a minor parameter perturbation. Thus, although two trajectories, at slightly different parameters, may shadow each other, the long-time-averages of observables calculated using them, may not be close.    
 As we will see
 in the next section, even solutions that look ``chaotic'', i.e., unsteady and aperiodic, may not be physical. 
@@ -333,7 +333,7 @@ line indicates the initial conditions for both the solid and dashed lines in
 Figure \ref{fig:lorenz_periodic}.}
 \label{fig:lorenz_map}
 \end{figure}
-\begin{comment}In Figure 4, the solid line appears only to have one local maximum, which is shown as the fixed point on the left plot of this figure. The two fixed points of the 2-time-iterate of the Lorenz map, shown on the right plot of this figure, both appear to correspond to the local maxima of the dashed curve in Figure 4.\end{comment}
+\nisha{In Figure 4, the solid line appears only to have one local maximum, which is shown as the fixed point on the left plot of this figure. The two fixed points of the 2-time-iterate of the Lorenz map, shown on the right plot of this figure, both appear to correspond to the local maxima of the dashed curve in Figure 4.}
 The Lorenz map provides us a tool to find as many periodic solutions as we want.
 By intersecting the map with a diagonal line, we can find a local maximum of $u_3(t)$
 for which the next maximum is almost the same value.  We then look up the values of
@@ -356,7 +356,7 @@ If we extract from a physical solution to the Lorenz equation, we obtain a physi
 interval between 29 and 49 with varying, well-defined frequencies.
 By contrast, if one extracts a solution to the Lorenz map from a periodic solution
 to the Lorenz equation, the solution will visit only a discrete set of points.
-It is thus a periodic, non-physical solution.  What we learned about
+It is thus a periodic, nonphysical solution.  What we learned about
 the Lorenz equation could have all been learned from the Lorenz map.
 
 Having discussed periodic solutions in this section,
@@ -534,7 +534,7 @@ equations which typically produce chaotic solutions.  Neverthless, the similarit
 between the tent map and the Lorenz map \cite{tent2}, shown in Figure \ref{fig:lorenz_map}, suggests that
 quasi-physical solutions may exist for the Lorenz map, and by
 extension, the Lorenz equation.  It is then natural to conjecture
-that such aperiodic, non-physical, quasi-physical solutions
+that such aperiodic, nonphysical, quasi-physical solutions
 exist in general for chaotic dynamical systems.
 
 These quasi-physical solutions raise doubts over the usefulness of shadowing
@@ -914,7 +914,7 @@ wave tent map, starting from almost any point on $[0,2]$ -- a physical solution 
     \label{fig:tent_wave_shadow}
 \end{figure}
 Hence, we can once again conclude that almost every solution, which is physical, 
-has a corresponding shadowing solution, that is non-physical. In this section,
+has a corresponding shadowing solution, that is nonphysical. In this section,
 we have shown that the same conclusion holds for several different perturbations 
 of the tent map. The physical solutions were distributed nonuniformly 
 and differently from one another. However, we observed a commonality in the different perturbations: the shadowing solutions corresponding to almost every physical solution had a fractal-like probability distribution that did not resemble the distributions of the physical solutions in any case. Thus, we have shown significant evidence, through analytical constructions of perturbed tent maps in this section and 
