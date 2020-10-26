@@ -59,9 +59,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx, float}
 \usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools,hyperref}
 \usepackage{xcolor,verbatim}
 \definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
 \newcommand{\nisha}[1]{{\color{darkgreen} #1}}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \begin{document}
 
 \title{On the probability of finding a nonphysical solution through shadowing}
@@ -70,7 +72,7 @@
 
 %\titlerunning{Short form of title}        % if too long for running head
 
-\author{Qiqi Wang and Nisha Chandramoorthy}
+\author{Nisha Chandramoorthy and Qiqi Wang}
 
 %\authorrunning{Short form of author list} % if too long for running head
 
@@ -132,7 +134,7 @@ the long-time-average of a quantity is equal to the ensemble average.
 Not all solutions satisfying the physical governing equation are considered ``physical''
 in this sense.  In high-Reynolds number fluid flows, for example, a steady-state, laminar flow solution may satisfy the Navier-Stokes equation. But such a solution would never be observed in reality because it is unstable, and any small perturbation
 would trip it into turbulence. Unstable steady-state solutions are not the only
-non-physical solution. Many chaotic dynamical systems have infinitely many periodic
+nonphysical solution. Many chaotic dynamical systems have infinitely many periodic
 solutions that are, similar to their steady counterpart, unstable. These trajectories can have a probability distribution that is remarkably different from that of a typically observed solution of the governing equation. It is also possible to effect significant change in the statistics of the true governing dynamics by introducing a minor parameter perturbation. Thus, although two trajectories, at slightly different parameters, may shadow each other, the long-time-averages of observables calculated using them, may not be close.    
 As we will see
 in the next section, even solutions that look ``chaotic'', i.e., unsteady and aperiodic, may not be physical. 
@@ -170,9 +172,9 @@ two criteria:
 \end{enumerate}
 
 \begin{figure} \centering
-\includegraphics[width=0.48\textwidth]{figure/lorenz_trajectory_1000.0.png}
+\includegraphics[width=0.48\textwidth]{lorenz_trajectory_1000.0.png}
 \hspace{0.02\textwidth}
-\includegraphics[width=0.48\textwidth]{figure/lorenz_ensemble_10.png}
+\includegraphics[width=0.48\textwidth]{lorenz_ensemble_10.png}
 \caption{
 Left: An ensemble of initial conditions distributed uniformly in the box $u_1\in[0,1], u_2\in[0,1], u_3\in[28,39]$ 
 after 10 time units of evolution, shown in in the $u_1-u_3$ plane.
@@ -183,9 +185,9 @@ $2048\times2048$ uniform grid.  The trajectory is sampled every 0.001 time units
 \label{fig:lorenz_ergodicity1}
 \end{figure}
 \begin{figure} \centering
-\includegraphics[width=0.48\textwidth]{figure/lorenz_trajectory_10000.0.png}
+\includegraphics[width=0.48\textwidth]{lorenz_trajectory_10000.0.png}
 \hspace{0.02\textwidth}
-\includegraphics[width=0.48\textwidth]{figure/lorenz_ensemble_15.png}
+\includegraphics[width=0.48\textwidth]{lorenz_ensemble_15.png}
 \caption{
 Left: distribution of the same ensemble as in Figure \ref{fig:lorenz_ergodicity1}
 after another 5 time units of evolution.
@@ -195,9 +197,9 @@ evolved for $10,000$ time units.
 \label{fig:lorenz_ergodicity2}
 \end{figure}
 \begin{figure} \centering
-\includegraphics[width=0.48\textwidth]{figure/lorenz_trajectory_1000000.0.png}
+\includegraphics[width=0.48\textwidth]{lorenz_trajectory_1000000.0.png}
 \hspace{0.02\textwidth}
-\includegraphics[width=0.48\textwidth]{figure/lorenz_ensemble_50.png}
+\includegraphics[width=0.48\textwidth]{lorenz_ensemble_50.png}
 \caption{
 Left: distribution of the same ensemble as in Figures \ref{fig:lorenz_ergodicity1}
 and \ref{fig:lorenz_ergodicity2} after a total of 50 time units of evolution.
@@ -256,7 +258,7 @@ has zero chance of finding such an initial condition by randomly sampling.
 Nonphysical solutions thus take an effort to find.  Nevertheless, they
 turn out to be important when discussing shadowing, the topic of this paper.
 We first introduce a type of obviously nonphysical solutions in the next
-subsection, before discussing a less obvious type in Section \ref{sec:quasiphysical}.
+subsection, before discussing a less obvious type in section \ref{sec:quasiphysical}.
 
 \subsection{Nonphysical solutions Type I: Periodic Solutions}
 
@@ -270,7 +272,7 @@ we see that the periodic solutions are significantly more limited in their
 extent of exploration.
 
 \begin{figure}\centering
-\includegraphics[width=0.48\textwidth]{figure/lorenz_periodic.png}
+\includegraphics[width=0.48\textwidth]{lorenz_periodic.png}
 \caption{Periodic solutions of the Lorenz equation, overlaid on top of
 its SRB distribution.  The solid line, dashed line, and dotted line
 represent three distinct periodic solutions.}
@@ -320,16 +322,16 @@ observed that the height of one peak in the oscillation can predict the height o
 as shown in Figure \ref{fig:lorenz_map}.
 
 \begin{figure}\centering
-\includegraphics[width=0.48\textwidth]{figure/lorenz_zmax_10_28_2.6666666666666665.png}
+\includegraphics[width=0.48\textwidth]{lorenz_zmax_10_28_2.6666666666666665.png}
 \hspace{0.02\textwidth}
-\includegraphics[width=0.48\textwidth]{figure/lorenz_zmax2_10_28_2.6666666666666665.png}
-\caption{Left: the Lorenz map.  The x-axis is the $n$-th local maximum of $u_3(t)$ over a
+\includegraphics[width=0.48\textwidth]{lorenz_zmax2_10_28_2.6666666666666665.png}
+\caption{L: the Lorenz map.  The x-axis is the $n$-th local maximum of $u_3(t)$ over a
 long solution; the y-axis is the $(n+1)$-th local maximum of $u_3(t)$.  The intersection of this curve
-with the diagonal dashed line indicates the initial condition for the solid line
+		with the dashed line ($y=x$) indicates the initial condition for the solid line
 in Figure \ref{fig:lorenz_periodic}.
-Right: the Lorenz map iterated twice.  The x-axis is the $n$-th local maximum
-of $u_3(t)$; the y-axis is the $(n+2)$-th maximum.  The intersection with the diagonal dashed
-line indicates the initial conditions for both the solid and dashed lines in
+R: the Lorenz map iterated twice.  The x-axis is the $n$-th local maximum
+of $u_3(t)$; the y-axis is the $(n+2)$-th maximum.  The intersections with the diagonal dashed
+line indicate the initial conditions for both the dotted and dashed lines in
 Figure \ref{fig:lorenz_periodic}.}
 \label{fig:lorenz_map}
 \end{figure}
@@ -356,7 +358,7 @@ If we extract from a physical solution to the Lorenz equation, we obtain a physi
 interval between 29 and 49 with varying, well-defined frequencies.
 By contrast, if one extracts a solution to the Lorenz map from a periodic solution
 to the Lorenz equation, the solution will visit only a discrete set of points.
-It is thus a periodic, non-physical solution.  What we learned about
+It is thus a periodic, nonphysical solution.  What we learned about
 the Lorenz equation could have all been learned from the Lorenz map.
 
 Having discussed periodic solutions in this section,
@@ -366,7 +368,7 @@ To make it easier, we switch our example to a one-dimensional, discrete time dyn
 systems like the Lorenz map.  Because the Lorenz map lacks a closed form,
 we construct, in the next subsection, a one-dimensional discrete-time dynamical system
 with a closed form, one that qualitatively resembles the Lorenz map.  This map
-will help us, in Section \ref{sec:quasiphysical}, to study a more insidious type
+will help us, in section \ref{sec:quasiphysical}, to study a more insidious type
 of nonphysical solutions, a type that hides in the shadow.
 
 \subsection{Tent map: periodic and physical solutions}
@@ -381,7 +383,7 @@ to the Lorenz map and has a simple, analytic form:
 \end{equation}
 Figure \ref{fig:tent_map} shows the tent map.
 \begin{figure}\centering
-\includegraphics[width=0.48\textwidth]{figure/tent_map.png}
+\includegraphics[width=0.48\textwidth]{tent_map.png}
 \caption{The tent map $\varphi$.}
 \label{fig:tent_map}
 \end{figure}
@@ -465,13 +467,13 @@ points.
 We call such aperiodic nonphysical solutions ``quasi-physical'' solutions.
 
 \begin{figure}\centering
-\includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_hist_p_0.5001.png}
+\includegraphics[width=0.48\textwidth]{tent_quasiphysical_hist_p_0.5001.png}
 \hspace{0.02\textwidth}
-\includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_hist_p_0.51.png}
+\includegraphics[width=0.48\textwidth]{tent_quasiphysical_hist_p_0.51.png}
 \\ \vspace{0.05\textwidth}
-\includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_hist_p_0.55.png}
+\includegraphics[width=0.48\textwidth]{tent_quasiphysical_hist_p_0.55.png}
 \hspace{0.02\textwidth}
-\includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_hist_p_0.9.png}
+\includegraphics[width=0.48\textwidth]{tent_quasiphysical_hist_p_0.9.png}
 \caption{Empirical density function of long solutions (a billion steps)
 starting from four points whose binary digits have probability $p$ of
 repeating the previous digit.
@@ -512,12 +514,12 @@ distribution would differ from any of the plots in Figure
 observed in Figure \ref{fig:tent_alternative}, it shows
 a remarkable resemblance in its ``hairiness''; some kind of fractal
 pattern emerges from the distribution.  A fractal distribution
-appears to be a hallmark of quasi-physical solutions.
+appears to be a signature of quasi-physical solutions.
 \begin{figure}\centering
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_alternaive1_hist_p_0.6.png}
+    \includegraphics[width=0.48\textwidth]{tent_quasiphysical_alternaive1_hist_p_0.6.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_quasiphysical_alternaive2_hist_p_0.6.png}
+    \includegraphics[width=0.48\textwidth]{tent_quasiphysical_alternaive2_hist_p_0.6.png}
     \caption{Empirical distribution function of other quasi-physical solutions.
     The solution shown in the left plot starts from an initial condition
     whose bits are independent and have probability 0.6 of being 0.
@@ -534,7 +536,7 @@ equations which typically produce chaotic solutions.  Neverthless, the similarit
 between the tent map and the Lorenz map \cite{tent2}, shown in Figure \ref{fig:lorenz_map}, suggests that
 quasi-physical solutions may exist for the Lorenz map, and by
 extension, the Lorenz equation.  It is then natural to conjecture
-that such aperiodic, non-physical, quasi-physical solutions
+that such aperiodic, nonphysical, quasi-physical solutions
 exist in general for chaotic dynamical systems.
 
 These quasi-physical solutions raise doubts over the usefulness of shadowing
@@ -567,9 +569,9 @@ As demonstrated in Figure \ref{fig:tent_ivp}, this sensitivity to small
 perturbations reflects the chaotic nature of the governing equation.
 
 \begin{figure}   \centering
-    \includegraphics[width=0.48\textwidth]{figure/scaled_tent_map.png}
+    \includegraphics[width=0.48\textwidth]{scaled_tent_map.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_ivp.png}
+    \includegraphics[width=0.48\textwidth]{tent_ivp.png}
     \caption{L: The scaled tent map $\hat{\varphi}_s$ at different values of $s$ between 0 and 1. R: sensitivity to small perturbation in the governing
     equation.
     The y-axis shows the absolute value of the difference between
@@ -603,16 +605,16 @@ because it satisfies
 \begin{equation} \label{conjugate_def}
     \varphi(\hat{h}_s(x)) = \hat{h}_s(\hat\varphi_s(x))\;,\quad \forall\: x
 \end{equation}
-or equivalently, $\varphi\circ h_s \equiv h_s\circ\hat\varphi_s$.
+or equivalently, $\varphi\circ \hat{h}_s \equiv \hat{h}_s\circ\hat\varphi_s$.
 Such conjugacy maps can generally help us construct shadowing solutions.
 For every solution satisfying
-$\hat{\varphi}_s$, $h_s$ maps it to a shadowing solution satisfying $\varphi$.
+$\hat{\varphi}_s$, $h_s$ maps it to a shadowing solution satisfying $\varphi$ because iterating Eq. \ref{conjugate_def}, we get $\varphi^n \circ \hat{h}_s (x) = \hat{h}_s \circ \hat{\varphi}_s^n(x)$, for $n = 1,2,3\cdots, $ where $f^n$ stands for the function composition of $f$ $n$-times.
 
 Is the shadowing solution a physical solution?  In this example,
 the answer is almost surely positive.  We can demonstrate that
 almost any solution of the scaled tent map (Eq. \ref{tent_scaled}) is uniformly
 distributed in $[0, 2(1+s)]$ -- we can repeat our analysis
-in Section \ref{sec:tent} but represent our initial condition as
+in section \ref{sec:tent} but represent our initial condition as
 $x_0= (1+s) \sum_{j=0}^\infty x_{0,j} / 2^j$.  Its shadowing solution,
 which satisfies the original tent map (Eq. \ref{tentmap}), can be obtained through the
 conjugacy (Eq. \ref{conjugate_scaled}).  Thus, the distribution
@@ -670,9 +672,9 @@ $\tilde{h}_s(\tilde\varphi_s(x)) = \varphi(\tilde{h}_s(x))$ for all $x$ --
 we need to analyze two cases: $x<1+s$ and $x\ge 1+s$.
 \begin{figure}
   \centering
-    \includegraphics[width=0.48\textwidth]{figure/tilted_tent_map.png}
+    \includegraphics[width=0.48\textwidth]{tilted_tent_map.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_map.png}
+    \includegraphics[width=0.48\textwidth]{tilted_conjugate_map.png}
     \\ \vspace{0.02\textwidth}
      \caption{L: the tilted tent map Eq. \ref{tent_tilted} for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5. R: the conjugacy $\tilde{h}_s$ between the tent map (Eq. \ref{tentmap})
     and the tilted tent map (Eq. \ref{tent_tilted}), evaluated using
@@ -716,9 +718,9 @@ to the definition of $\varphi$.  Thus,
 $\varphi(\tilde{h}_s(x)) = \tilde{h}_s(\tilde\varphi_s(x))$ also holds when $x\ge 1+s$.
 
 \begin{figure}
-   \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.1.png}
+   \includegraphics[width=0.48\textwidth]{tilted_conjugate_density_0.1.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tilted_conjugate_density_0.5.png}
+    \includegraphics[width=0.48\textwidth]{tilted_conjugate_density_0.5.png}
    \caption{
      L: the density of a trajectory satisfying Eq. \ref{tentmap}
     that shadows a random trajectory satisfying Eq. \ref{tent_tilted} for $s=0.1$.
@@ -730,7 +732,7 @@ $\varphi(\tilde{h}_s(x)) = \tilde{h}_s(\tilde\varphi_s(x))$ also holds when $x\g
 
 Figure \ref{fig:tilted_tent_density} shows how fractal the conjugacy map is.
 This fractal conjugacy map transforms a uniform distribution in $[0,2]$ into
-a fractal distribution similar to the ones plotted in Section \ref{sec:quasiphysical}.
+a fractal distribution similar to the ones plotted in section \ref{sec:quasiphysical}.
 In fact, we will show that the fractal distribution obtained by mapping a uniform
 distribution through $\tilde{h}_s$ is exactly the family of distributions
 shown in Figure \ref{fig:tent_quasiphysical}.  We will also show that
@@ -778,7 +780,7 @@ each bit repeats the previous one with probability
 $\frac{1+s}2$.  For a uniformly random
 $x$, $\tilde{h}_s(x)$ is exactly the kind of initial condition
 we used to construct the quasi-physical solution
-in Section \ref{sec:quasiphysical}, with $p=\frac{1+s}2$.
+in section \ref{sec:quasiphysical}, with $p=\frac{1+s}2$.
 Since this analysis holds for any $x$ sampled uniformly on $[0,2]$, we can conclude that
 the shadowing solution is almost surely nonphysical.  Let $x_{s,i},i=0,1,\ldots$ be a solution
 to the tilted tent map $\tilde{\varphi}_s$ with $x_{s,0}$ chosen 
@@ -789,11 +791,11 @@ is a quasi-physical solution, also with a hundred percent probability.
 It explores $[0,2]$ at a nonuniform frequency with a fractal probability distribution.
 
 \subsection{Are general shadowing solutions physical?}
-
+\label{sec:tentPerts}
 In the previous subsection, we examined a tilting perturbation to the tent map.
 We derived the fractal conjugacy map, and showed that a typical shadowing trajectory
-is exactly the quasi-physical solution we analyzed in Section \ref{sec:quasiphysical}.
-This example contrasts with Section \ref{sec:sub:shadow-example}, in which the
+is exactly the quasi-physical solution we analyzed in section \ref{sec:quasiphysical}.
+This example contrasts with section \ref{sec:sub:shadow-example}, in which the
 shadowing solutions of a different perturbation, the scaling perturbation,
 are physical solutions.  Which situation is more typical?  When we make other
 types of perturbations, do we expect to observe physical or nonphysical
@@ -817,7 +819,7 @@ shadowing solutions?
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/squashed_tent_map.png}
+    \includegraphics[width=0.48\textwidth]{squashed_tent_map.png}
     \caption{The ``squashed'' tent map (Eq. \ref{eqn:tent_squashed}) for $s=0.01, 0.05, 0,2,$ and 0.5.}
     \label{fig:tent_squashed}
 \end{figure}
@@ -836,20 +838,20 @@ in Figure \ref{fig:tent_squashed}, has the closed form
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/tent_squashed_shadow_density_0.01.png}
+    \includegraphics[width=0.48\textwidth]{tent_squashed_shadow_density_0.01.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_squashed_physical_density_0.01.png}
+    \includegraphics[width=0.48\textwidth]{tent_squashed_physical_density_0.01.png}
     \\ \vspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_squashed_shadow_density_0.2.png}
+    \includegraphics[width=0.48\textwidth]{tent_squashed_shadow_density_0.2.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_squashed_physical_density_0.2.png}
-    \caption{The left column shows the empirical distribution of the shadowing solution for the squashed tent map at $s=0.01$ (top) and at $s=0.2$ (bottom). The right column shows the probability distribution of a physical solution at the same two values of $s = 0.01$ (top) and $s = 0.2$ (bottom).}
+    \includegraphics[width=0.48\textwidth]{tent_squashed_physical_density_0.2.png}
+    \caption{The left column shows the empirical probability distribution of the shadowing solution for the squashed tent map at $s=0.01$ (top) and at $s=0.2$ (bottom). The right column shows the empirical probability distribution of a physical solution at the same two values of $s = 0.01$ (top) and $s = 0.2$ (bottom).}
     \label{fig:tent_squashed_shadow}
 \end{figure}
 In Figure \ref{fig:tent_squashed_shadow}, we show side-by-side the probability distributions generated by observing a long solution (of length 10 billion) 
 of $\hat{\varphi}^{\rm sq}_s$ (left) and its corresponding shadowing solution (right)
 at two different values of $s.$ The left column showing the probability distribution of the shadowing solution is reminiscent of the hairy probability distributions of 
-the quasi-solutions of the tent map in Section \ref{sec:quasiphysical}. Note that, unlike the tilted tent maps, the family of squashed tent maps do not have the uniform distribution as their SRB distribution, as indicated on the right column. However, the SRB distributions are not fractal. That is, the physical solutions of the squashed tent map are distributed according to a regular probability density (right column of Figure \ref{fig:tent_squashed_shadow}). But the shadowing solution, which is a true orbit of the original tent map, is distributed neither like a physical solution of the original tent map nor of the squashed tent map, as suggested by its fractal-like empirical probability distribution. 
+the quasi-solutions of the tent map in section \ref{sec:quasiphysical}. The reader is referred to the Supplementary Material section \ref{sec:computingShadowing} for a note on the computation of the shadowing solution. Note that, unlike the tilted tent maps, the family of squashed tent maps do not have the uniform distribution as their SRB distribution, as indicated on the right column. However, the SRB distributions are not fractal. That is, the physical solutions of the squashed tent map are distributed according to a regular probability density (right column of Figure \ref{fig:tent_squashed_shadow}). But the shadowing solution, which is a true orbit of the original tent map, is distributed neither like a physical solution of the original tent map nor of the squashed tent map, as suggested by its fractal-like probability distribution. 
 
 Next we consider a second perturbation of the tent map, the \emph{pinched} tent map, which has the following closed form
 \begin{align}
@@ -862,7 +864,7 @@ Next we consider a second perturbation of the tent map, the \emph{pinched} tent 
 Again, at $s=0$, the original tent map is recovered, and other values of $s,$ the tent map is ``pinched'' by perturbations that are symmetric around $x = 1$, and zero at the end points. Figure \ref{fig:tent_pinched} shows the pinched tent map at different $s$ values.  
 \begin{figure}
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/pinched_tent_map.png}
+    \includegraphics[width=0.48\textwidth]{pinched_tent_map.png}
     \caption{The pinched tent map (Eq. \ref{eqn:tent_pinched}) for $s = 0.01, 0.05, 0.2,$ and 0.5.}
     \label{fig:tent_pinched}
 \end{figure}
@@ -872,13 +874,13 @@ column, which shows the probability density of a long physical solution, we
 can see that the pinching perturbation changes the uniform density of the original tent map to a linearly varying density. The more pronounced the perturbation -- the higher the value of $s$ -- the steeper decline in the density from left to the right. The shadowing distribution, in this case as well, appears fractal. Once again, with probability one -- or, for any randomly chosen initial condition of the solution of the pinched tent map -- any physical solution is shadowed by a quasi-physical solution.
 \begin{figure}
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/tent_pinched_shadow_density_0.05.png}
+    \includegraphics[width=0.48\textwidth]{tent_pinched_shadow_density_0.05.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_pinched_physical_density_0.05.png}
+    \includegraphics[width=0.48\textwidth]{tent_pinched_physical_density_0.05.png}
     \\ \vspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_pinched_shadow_density_0.2.png}
+    \includegraphics[width=0.48\textwidth]{tent_pinched_shadow_density_0.2.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_pinched_physical_density_0.2.png}
+    \includegraphics[width=0.48\textwidth]{tent_pinched_physical_density_0.2.png}
     \caption{The left column shows the empirical distribution of the shadowing solution for the pinched tent map at $s=0.05$ (top) and at $s=0.2$ (bottom). The right column shows the probability distribution of a physical solution at the same two values of $s = 0.05$ (top) and $s = 0.2$ (bottom).}
     \label{fig:tent_pinched_shadow}
 \end{figure}
@@ -895,7 +897,7 @@ To construct the pinched tent map (Eq. \ref{eqn:tent_pinched}), we perturbed the
 $x$-axis.
 \begin{figure}
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/wave_tent_map.png}
+    \includegraphics[width=0.48\textwidth]{wave_tent_map.png}
     \caption{The wave tent map (Eq. \ref{eqn:tent_wave}) for $s = 0.01, 0.05, 0.2,$ and 0.5.}
     \label{fig:tent_wave}
 \end{figure}
@@ -903,18 +905,18 @@ The wave perturbation does not noticeably alter the SRB density of the original 
 wave tent map, starting from almost any point on $[0,2]$ -- a physical solution -- has a density that looks almost identical to a uniform density of 0.5. On the left column of Figure \ref{fig:tent_wave_shadow}, we observe that the distributions of the shadowing solutions corresponding to the physical solutions on the right, once again appear fractal.  
 \begin{figure}
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/tent_wave_shadow_density_0.05.png}
+    \includegraphics[width=0.48\textwidth]{tent_wave_shadow_density_0.05.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_wave_physical_density_0.05.png}
+    \includegraphics[width=0.48\textwidth]{tent_wave_physical_density_0.05.png}
     \\ \vspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_wave_shadow_density_0.2.png}
+    \includegraphics[width=0.48\textwidth]{tent_wave_shadow_density_0.2.png}
     \hspace{0.02\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/tent_wave_physical_density_0.2.png}
+    \includegraphics[width=0.48\textwidth]{tent_wave_physical_density_0.2.png}
     \caption{The left column shows the empirical distribution of the shadowing solution for the wave tent map (Eq. \ref{eqn:tent_wave}) at $s=0.05$ (top) and at $s=0.2$ (bottom). The right column shows the probability distribution of a physical solution at the same two values of $s = 0.05$ (top) and $s = 0.2$ (bottom).}
     \label{fig:tent_wave_shadow}
 \end{figure}
 Hence, we can once again conclude that almost every solution, which is physical, 
-has a corresponding shadowing solution, that is non-physical. In this section,
+has a corresponding shadowing solution, that is nonphysical. In this section,
 we have shown that the same conclusion holds for several different perturbations 
 of the tent map. The physical solutions were distributed nonuniformly 
 and differently from one another. However, we observed a commonality in the different perturbations: the shadowing solutions corresponding to almost every physical solution had a fractal-like probability distribution that did not resemble the distributions of the physical solutions in any case. Thus, we have shown significant evidence, through analytical constructions of perturbed tent maps in this section and 
@@ -932,19 +934,21 @@ A closed form approximation is constructed by regression performed using long so
 of the Lorenz map (see Figure \ref{fig:lorenz_map}). 
 \begin{figure}
     \centering
-    \includegraphics[width=0.32\textwidth]{figure/lorenz_zmax_sigma.png}
+    \includegraphics[width=0.32\textwidth]{lorenz_zmax_sigma.png}
     \hspace{0.005\textwidth}
-    \includegraphics[width=0.32\textwidth]{figure/lorenz_zmax_rho.png}
+    \includegraphics[width=0.32\textwidth]{lorenz_zmax_rho.png}
     \hspace{0.005\textwidth}
-    \includegraphics[width=0.32\textwidth]{figure/lorenz_zmax_beta.png}
-    \caption{The left, center, and right plots show the effect of the
+    \includegraphics[width=0.32\textwidth]{lorenz_zmax_beta.png}
+    \caption{
+The left, center, and right plots show the effect of the
     parameters $\sigma, \rho$, and $\beta$ on the Lorenz map, respectively.
     In the left plot, the blue and orange lines represent
     $\sigma=10$ and $12$, respectively, while $\rho  = 28$ and $\beta = 8/3.$
     In the center plot, the blue and orange lines represent
     $\rho=28$ and $30$, respectively, while $\sigma = 10$ and $\beta  = 8/3.$ 
     In the right plot, the blue and orange lines represent
-    $\sigma=8/3$ and $10/3$ respectively, while $\sigma = 10$ and $\rho = 28.$}
+    $\sigma=8/3$ and $10/3$ respectively, while $\sigma = 10$ and 
+		$\rho = 28.$}
     \label{fig:lorenz_params}
 \end{figure}
 \begin{comment}
@@ -954,71 +958,212 @@ The Lorenz map approximation obtained this way is illustrated in Figure \ref{fig
 $\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is numerically verified that the approximate Lorenz map qualitatively reproduces the behavior of the true Lorenz map. Using the approximate Lorenz map, we calculate next the shadowing solutions. 
 \begin{figure}
     \centering
-    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_15_28_2.67.json.png}
+    \includegraphics[width=0.48\textwidth]{lorenz_shadow_density_lorenz_zmax_15_28_2.67.json.png}
     \hspace{0.005\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/baseline_density_lorenz_zmax_15_28_2.67.json.png}
+    \includegraphics[width=0.48\textwidth]{baseline_density_lorenz_zmax_15_28_2.67.json.png}
     \\
-    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_10_30_2.67.json.png}
+    \includegraphics[width=0.48\textwidth]{lorenz_shadow_density_lorenz_zmax_10_30_2.67.json.png}
     \hspace{0.005\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/baseline_density_lorenz_zmax_10_30_2.67.json.png}
+    \includegraphics[width=0.48\textwidth]{baseline_density_lorenz_zmax_10_30_2.67.json.png}
     \\
-    \includegraphics[width=0.48\textwidth]{figure/lorenz_shadow_density_lorenz_zmax_10_28_3.33.json.png}
+    \includegraphics[width=0.48\textwidth]{lorenz_shadow_density_lorenz_zmax_10_28_3.33.json.png}
     \hspace{0.005\textwidth}
-    \includegraphics[width=0.48\textwidth]{figure/baseline_density_lorenz_zmax_10_28_3.33.json.png}
+    \includegraphics[width=0.48\textwidth]{baseline_density_lorenz_zmax_10_28_3.33.json.png}
     \caption{The left column shows the empirical distribution of the shadowing solution of the Lorenz map at $\rho = 28$ (top row), $\rho = 29$ (middle row), and $\beta = 10/3$ (bottom row). The right column shows the probability distribution of the corresponding physical solution. In each case, the parameters not mentioned are held at their standard values of $\rho = 28, \sigma = 10, \beta = 8/3.$
     }
     \label{fig:lorenz_params_scaled}
 \end{figure}
 The empirical densities computed from long shadowing solutions, of length 10 billion, are shown in the left column of Figure \ref{fig:lorenz_params_scaled} at three different sets of parameter values, which are also different from the standard values of $\rho = 28, \sigma = 10$, and $\beta = 8/3$. 
-In the top and middle row, $\rho = 29$ and $\rho = 30$ are used, respectively, while the other two parameters are retained at their standard values. In the bottom row, only the parameter $\beta$ is perturbed from the standard values; $\beta = 10/3$ is used. On the right column, we plot the densities of physical solutions, the SRB distribution, at the set of parameters corresponding to each row. We again notice that, while the physical distributions are smooth, the shadowing solutions have a rough distribution that appears to have hair-like patterns. Thus, we draw the same conclusion in the Lorenz map as in the various perturbations of the tent map treated in section \ref{sec:tent}: shadowing solutions do not have the same distribution as a typically observed solution of the governing equation. In other words, shadowing solutions may be nonphysical.
+In the top and middle row, $\rho = 29$ and $\rho = 30$ are used, respectively, while the other two parameters are retained at their standard values. In the bottom row, only the parameter $\beta$ is perturbed from the standard values; $\beta = 10/3$ is used. On the right column, we plot the densities of physical solutions, the SRB distribution, at the set of parameters corresponding to each row. We again notice that, while the physical distributions are smooth, the shadowing solutions have a rough distribution that appears to have hair-like patterns. Thus, we draw the same conclusion in the Lorenz map as in the various perturbations of the tent map treated in section \ref{sec:tentPerts}: shadowing solutions do not have the same distribution as a typically observed solution of the governing equation. In other words, shadowing solutions may be nonphysical.
 
 
-\section{Discussions}
+\section{Discussion and outlook}
+
 Through a rigorous counter-example, we show that shadowing can lead
-to nonphysical solutions.  The conclusion has an immediate implication for
-sensitivity analysis methods based on the concept of shadowing \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}.
-When the goal is to compute derivatives of ensemble averages, where the ensemble
-is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results.  This has been observed
-before and appropriately attributed as ``ergodicity breaking error'' \cite{patrick} \cite{angxiu-error}. In this paper, we construct rigorous analytical examples of this error.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.45\textwidth]{figure/osc_tent_n.png}
-    \includegraphics[width=0.45\textwidth]{figure/osc_tent_s.png}
-    \caption{The plucked tent map shown at different values of $s$ and $n$, that represent the magnitude and frequency of the applied oscillation to the original tent map ($n=0,s=0$). On the left, $s$ is held constant at 0.5. On the right, $n$ is held constant at 0.}
-    \label{fig:osc_map}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.45\textwidth]{figure/osc_tent_dens_0.5_0.png}
-    \includegraphics[width=0.45\textwidth]{figure/osc_tent_dens_0.5_6.png}
-    \caption{The effect of increasing $n$ on the probability distribution associated to the plucked tent map. L: The stationary probability distribution of the plucked tent map at $s=0.5, n = 0$. R: The stationary probability distribution of the plucked tent map at $s=0.5, n = 6$.}
-    \label{fig:map}
-\end{figure}
-Even more troubling is the implication for numerical simulations of chaotic
+to nonphysical solutions. This has a troubling implication for numerical simulations of chaotic
 governing equations.  Through the examples in this paper, it is clear that a numerical solution, satisfying
-a governing equation perturbed due to numerics, is not expected to shadow a
+a governing equation perturbed due to numerics, is not 
+expected to be shadowed by a
 physical solution of the real governing physics.  What is, if any, the
 relation of a numerical solution, such as DNS of turbulent flows, to
-the true physics? For $10^{-18}$ perturbation (due to numerics), 
-we may get completely different statistics from a true, physical solution. 
-How then can we trust numerical solutions that, even if they are shadowed by
-physical solutions, do not share their statistics? 
+the true physics? For an ${\cal O}(10^{-18})$ 
+perturbation (due to numerical error), 
+we may get completely different statistics from a true, physical solution. How then can we trust numerical solutions when they are not guaranteed to share the long-term statistical behavior of the governing equation? 
+We conclude with an example that illustrates a counterintuitive feature of some chaotic systems: a small perturbation to the 
+governing equation can significantly change the statistics/long-term 
+behavior of its physical solutions. We construct yet another 
+perturbed tent map -- the \emph{plucked} 
+tent map -- in which an oscillatory perturbation is introduced (see Supplementary Material section \ref{sec:pluckedTentMap} for the map equation). In Figure \ref{fig:pluckedTentMap}, we show that the magnitude of the oscillatory perturbation is controlled by a parameter $s$, and its frequency is controlled by the parameter $n$; at $s=0,n=0$, we recover the original tent map. The stationary probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.5$, are shown in Figure \ref{fig:pluckedTentMapDistribution}. On the left, $n=0$ and there is already a marked asymmetry developed in the probability distribution compared to the uniform distribution seen at $s=0, n=0$. On the right, we show that by increasing $n,$ while keeping the magnitude of the perturbation the same ($s=0.5$), we see a dramatic change in the appearance of the stationary probability distribution: we observe a fractal distribution.  
 
-We conclude with an example that illustrates that assuming the 
-physicality of shadowing solutions leads to incorrect results in shadowing-based sensitivity 
-computation methods. We construct yet another perturbed tent map -- the \emph{plucked} 
-tent map -- in which an oscillatory perturbation is introduced. In Figure \ref{fig:osc_map}, we show that the magnitude of the oscillatory perturbation is controlled by a parameter $s$, and its frequency is controlled by the parameter $n$; at $s=0,n=0$, we recover the original tent map. The plucked tent map illustrates an important feature of some chaotic systems: with a small change in a parameter, the stationary probability distribution of a chaotic system \emph{can} change drastically. For the plucked tent map, this feature is illustrated by the stationary probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.5$. On the left, $n=0$ and there is already a marked asymmetry developed in the probability distribution compared to the uniform distribution seen at $s=0, n=0$. On the right, we show that by increasing $n,$ while keeping the magnitude of the perturbation the same ($s=0.5$), we see a dramatic change in the appearance of the stationary probability distribution: we observe a fractal distribution.  On the other hand, if perturbed solutions are shadowed by physical solutions for all time, the change in the statistics of the perturbed solutions must be small. In other words, the physicality of shadowing predicts that there cannot be a large change in statistics due to small parameter perturbations; the reality is that, as illustrated by the plucked tent map, the effect of small parameter changes on the statistics can be drastic.  
+In view of the plucked tent map, we can question further the
+validity of numerical solutions. Can numerical play 
+the role of the plucking perturbation to the 
+governing equation? That is, can numerical solutions represent 
+slight perturbations to the governing equations that nevertheless 
+exhibit drastically ensemble statistics? Uniformly hyperbolic 
+dynamical systems exhibit \emph{linear response} 
+(\cite{ruelle}\cite{baladi}) by which small parameter perturbations 
+lead to small changes in statistics, which can be expanded as Taylor series around the reference parameter value. But, uniform hyperbolicity is a mathematical idealization, and although some physical systems have been observed to behave as if they were uniformly hyperbolic \cite{gallavotti}, a violation of uniform hyperbolicity is more likely 
+\cite{wormell}\cite{luca}. The plucked tent map provides a pathological example of a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}).
 
-In this paper, we have constructed several counterexamples that disprove the common 
-assumption that shadowing solutions are physical solutions, i.e., that their 
+Both the nonphysicality of shadowing solutions, and the existence of pathological statistical response, undermine the validity of using shadowing for sensitivity analysis of statistics \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. When the goal is to compute derivatives of ensemble averages, where the ensemble
+is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results. This is because shadowing-based methods compute the sensitivities of ensemble statistics along shadowing solutions, but these may not be physical solutions that reproduce ensemble statistics. The error in shadowing sensitivities has been observed
+before and appropriately attributed as ``ergodicity breaking error'' \cite{patrick} \cite{angxiu-error}. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{osc_tent_n.png}
+    \includegraphics[width=0.45\textwidth]{osc_tent_s.png}
+    \caption{The plucked tent map shown at different values of $s$ and $n$, that represent the magnitude and frequency of the applied oscillation to the original tent map ($n=0,s=0$). On the left, $s$ is held constant at 0.5. On the right, $n$ is held constant at 0.}
+    \label{fig:pluckedTentMap}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.5_0.png}
+    \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.5_6.png}
+    \caption{The effect of increasing $n$ on the probability distribution associated to the plucked tent map. L: The stationary probability distribution of the plucked tent map at $s=0.5, n = 0$. R: The stationary probability distribution of the plucked tent map at $s=0.5, n = 6$.}
+    \label{fig:pluckedTentMapDistribution}
+\end{figure}
+Violations of smooth response, like in the plucked tent map, has an immediate implication for shadowing sensitivities as well. In particular, if perturbed solutions are shadowed by physical solutions for all time, the change in the statistics of the perturbed solutions must be small. In other words, the physicality of shadowing predicts that there cannot be a large change in statistics due to small parameter perturbations; the reality is that, as illustrated by the plucked tent map, the effect of small parameter changes on the statistics can be drastic.  
+
+
+In this paper, we have constructed several counterexamples that 
+dispel the notion that shadowing solutions are physical solutions, i.e., that their 
 statistical distribution is the same as that typically observed for almost every solution 
 of a governing equation. The existence of long-time shadowing solutions \cite{grebogi} has historically been used to address the issue of whether numerical simulations, which are 
 perturbed solutions, represent the true physics implied by the governing equation. In light of the evidence in this paper, we must reopen this issue. Even when numerical simulations are 
-shadowed by a true solution in that the difference between them is small for a long time, this shadowing solution may not represent the long-term behavior of the physical system. The nonphysicality of shadowing solutions also indicates that shadowing-based methods \cite{qiqi-lss} can lead to incorrect values of sensitivities of statistics to parameter changes. 
+shadowed by a true solution in that the difference between them is small for a long time, this shadowing solution may not represent the long-term or ensemble behavior of the physical system. The nonphysicality of shadowing solutions also indicates that shadowing-based methods \cite{qiqi-lss} can lead to incorrect values of sensitivities of statistics to parameter changes. 
 
 
 
 \bibliographystyle{spmpsci}
 \bibliography{refs.bib}
-\include{supp}
+\section{Supplementary material}
+%\subsection{The Lorenz Map}
+\subsection{Approximation of the Lorenz Map}
+\label{sec:lorenzMapApprox}
+The motivation for approximating the Lorenz map is that a 
+closed form expression for the map is necessary for our numerical shadowing procedure. In a small region around the cusp, we approximate the map using an exponential function. The tails on both sides are fitted with a sum of a cubic polynomial and a rational function. Thus, the approximate Lorenz map has the 
+following closed form expression:
+\begin{align}
+    \varphi(x) = \begin{cases}
+        z_{\rm max} - f_R(x - z_{\rm sep})   &  x > z_{\rm sep} \\
+        z_{\rm max} -  f_L(z_{\rm sep} - x)   &  x \leq z_{\rm sep}
+    \end{cases}
+\end{align}
+where 
+\begin{align}
+    f_R(y) = \Big( (1000 y)^p + 
+        \sum_{n=0}^3 p_{R,n} y^n + \dfrac{a_{R,0} + a_{R,1} y}{\sum_{n=0}^3 b_{R,n} y^n}\Big),
+\end{align}
+and,
+\begin{align}
+    f_L(y) = \Big((1000 y)^p 
+        + \sum_{n=0}^3 p_{L,n} y^n + \dfrac{a_{L,0} + a_{L,1}y}{\sum_{n=0}^3 b_{L,n} y^n}\Big).
+\end{align}
+\begin{figure}
+		\includegraphics[width=0.45\textwidth]{lorenz_map_fit_lorenz_zmax_10_28_2.6666666666666665.npy.png}
+		\includegraphics[width=0.45\textwidth]{lorenz_map_fit_error_lorenz_zmax_10_28_2.6666666666666665.npy.png}
+		\caption{L: the blue and orange lines are the Lorenz map at the standard parameters, and the dotted black lines indicate the approximate Lorenz map (Table \ref{tab:lorenzFit}). R: the regression error is shown as a function of $z$} 
+	\label{fig:lorenzMapComp}
+\end{figure}
+The location of the cusp is denoted $z_{\rm sep}$ (in which ``sep'' stands 
+for \emph{separation}), and the maximum and minimum values encountered 
+in the Lorenz map iterates are denoted $z_{\rm max}$ and $z_{\rm min}$, respectively. The exponent of the cusp is denoted $p$. The coefficients of the cubic polynomial modelling the left (right) tail are  denoted $p_{L,n}, n = 0,1,2,3$ ($p_{R,n}, n = 0,1,2,3$). The coefficients of the numerator and denominator of the rational function modelling the left (right) tail are denoted $a_{L,0}, a_{L,1}$ ($a_{R,0}, a_{R,1}$) and $b_{L,n}, n=0,1,2,3$ ($b_{R,n}, n=0,1,2,3$), respectively. The values of these coefficients are obtained by 
+regression on the map at standard parameters are shown in the table below. As shown in Figure \ref{fig:lorenzMapComp}, the fit obtained matches the Lorenz map closely.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline 
+         $z_{\rm sep}$ = 38.55302437476555 &
+         $z_{\rm min}$ =  29.213182255013322 \\ 
+         $z_{\rm max}$ =  47.978140718671284 & 
+         $p$ = 0.28796740575434676   \\
+         $p_{L,3}$ = -0.00024683786275242047 & $p_{L,2} = $ 
+         0.016174566354858824 \\
+         $p_{L,1} = $ 0.40179772568004946 & 
+         $p_{L, 0}  = $ -0.24612651488351725 \\
+         $p_{R,3} = $ -0.00020712463321688308 & 
+         $p_{R,2} = $ 0.017130843276711716 \\
+         $p_{R, 1} = $ 0.3930080703420676 & 
+         $p_{R, 0} = $ -0.23471384266765036 \\
+         $a_{L,1}$ = -0.05405742075580959 & $a_{L,0}$ = -0.05405742075580959 \\
+         $a_{R,1}$ = -0.05351127783496397 & $a_{R,0}$ = 0.22489891059122896 \\
+         $b_{L,3}$ = 0.5609397451213353 & $b_{L,2}$ = -0.3491184293228338 \\  $b_{L,1}$ = 2.419972619058592 & $b_{L,0}$ = 1.0 \\
+         $b_{R,3}$ = 0.6456076059873844 & $b_{R,2}$ = -0.34840383986411055 \\ $b_{R,1}$ = 2.6035438510917692 &  $b_{R,0}$ = 1.0 \\
+         \hline
+    \end{tabular}
+    \caption{The fitting parameters of the Lorenz map at $\sigma = 10, \beta = 8/3$ and $\rho = 28.$}
+    \label{tab:lorenzFit}
+\end{table}
+
+\subsection{Computing shadowing solutions}
+\label{sec:computingShadowing}
+		In general, to numerically compute the shadowing solutions, one could use existing methods such as 
+		the least squares shadowing method \cite{qiqi-lss}. However, since these maps are all one-dimensional chaotic systems that have in common non-invertibility with two inverse \emph{branches}, we devise a simpler approach. The map $\varphi_s$ in this section refers to any of the perturbations of the tent map (section \ref{sec:tentPerts}) or the Lorenz map. Suppose we are given a perturbed solution $x_n, n =0,1,\cdots,N$ that we must compute a shadow of. 
+The shadowing solution, $y_n, n=0,1,2,\cdots,N$ 
+must a) satisfy the governing equation: $y_{n+1} = \varphi_s(y_n)$
+and b) lie close to the given perturbed solution at all times up to 
+$N$, i.e., $|x_n - y_n| < \epsilon$, for some $\epsilon > 0$, for all $n \leq N$. Suppose we set $y_0 = x_0$, the difference $y_1 - x_1$ will amplify on further iterations under $\varphi_s$ for any perturbed solution. On the other hand, backward iteration of the map is contracting, and thus we set $y_N = x_N$ and proceed backward in time to 
+construct a solution of $\varphi_s$, noting that any difference that emerges at a given time $n$ will be made smaller starting at $n-1$. Each point has two pre-images under $\varphi_s$, and thus there are two possible choices for $y_{N-1}$, each lying in one of two fixed sub-intervals separated by the cusp of $\varphi_s$. Due to the contraction of errors backward in time, as long as we choose a pre-image in the same subinterval as the perturbed solution, we are guaranteed to approximate a shadowing solution. Marching backward by choosing at each step, the pre-image $y_n$ in the same subinterval as $x_n$, $y_n$ approximates the shadowing solution better as $n$ decreases. Thus, the procedure to find a shadowing solution simply reduces to solving for a backward trajectory (specifically one among the possible $2^N$), starting at a given final condition $x_N$.
+	
+		Hence, it is clear that all we need is the inverse of 
+		$\varphi_s$, which is propagated backward by choosing the same \emph{branch} of the inverse as $x_n$ at time $n$. This logic is implemented for each map of section \ref{sec:tentPerts} in the function \verb+shadow+ that can be found in the files named for each map (for example, the shadowing solution of the pinched tent map can be found by executing the \verb+shadow+ function of \verb+tent_shadow/tent_shadow_pinched.py+). These functions use the analytical inverses of the maps, which are easy to derive for the tent map perturbations of section \ref{sec:tentPerts}. For the Lorenz map, we use Newton's method to solve for the inverse, and this is implemented in the file \verb+lorenz_map/shadow.py+. Note that we need a closed form expression of the map, for the Newton's method, and this is indeed the reason why we approximate the map, as described in section \ref{sec:lorenzMapApprox}.
+
+\subsection{The \emph{plucked} tent map}
+\label{sec:pluckedTentMap}
+We provide a recursive definition of the plucked tent map, which 
+is illustrated at different values of $n$ and $s$ in Figure \ref{fig:pluckedTentMap}. First we define a function $f_s(x)$, which 
+creates a bend in the tent map that increases with $s$, around 
+$((1-s)/2,1)$:
+\begin{align}
+		f_s(x) = 		{\rm min}\Big(
+				\dfrac{2x}{1-s}, 2 - \dfrac{2(1-x)}{1+s}\Big),
+				\;\;\; x < 1 \\
+\end{align}
+Then, we introduce oscillations using repititions of
+the above map within the unit interval,
+\begin{align}
+		o_s(x) = \begin{cases}
+				f_s(2x)/2, & \; x < 0.5 \\
+				2 - f_s(2-2x)/2, & \; x \ge 0.5.
+		\end{cases}
+\end{align}
+We can modulate
+the frequency or repititions -- proportional to $n$ -- 
+of the oscillations through
+\begin{align}
+		\label{eqn:frequency}
+		\lambda_{s,n}(x) = \dfrac{o_s(2^n x - \floor*{2^n x})}{2^n} 
+		+ 2 \frac{\floor*{2^n x}}{2^n},
+\end{align}
+where $\floor*{x}$ is the greatest integer less than or equal to $x$.
+Finally, the plucked tent map is defined as the above function 
+in the unit interval, and as its reflection about $x=1$,
+in the interval $[1,2)$.
+\begin{align}
+		\label{eqn:plucked}
+		\varphi_{s,n}(x) = {\rm min}\left(
+		\lambda_{s,n}(x), \lambda_{s,n}(2-x)\right), \; 0< x < 2. 
+\end{align}
+Recall that our motivation is to construction a slight perturbation of the tent map whose stationary probability distribution is not just 
+non-uniform (e.g. like the other tent map perturbations of section \ref{sec:tentPerts}) but in which the nonuniformity can be controlled, and made skewed as desired. Thus, we choose to construct a base perturbation of the tent map, ${\rm min}(o_s(x), o_s(2-x))$ -- 
+which is also obtained by setting $n=0$ in $\varphi_{s,n}$ --  
+in which an asymmetry is produced in the probability distribution (left hand side of Figure \ref{fig:pluckedTentMapDistribution}).
+Upon repeating, with appropriate scaling, the oscillation $o_s$, 
+the frequency of which is controlled by $n$, we obtain $\varphi_{s,n}$, 
+as indicated by Eq. \ref{eqn:frequency}-\ref{eqn:plucked}. Thus, the asymmetric probability distribution, through this process of scaled repitition, acquires the fractal-like structure seen on increasing $n$, as shown on the right hand side of Figure \ref{fig:pluckedTentMapDistribution}.
+
+Consider $s=0.5$. 
+One way to see the asymmetry in the probability distribution 
+about $x=1$, at $n=0$, is to construct a Markov chain with nodes 00, 01, 10, and 11, that indicate the subintervals $(0,0.5)$, $[0.5,1)$, 
+$[1,1.5)$ and $[1.5,2)$, respectively. From Eq. \ref{eqn:plucked}, we can see that the application of $\varphi_{0.5,0}$ yields the following transition matrix:
+\[
+\begin{bmatrix}
+		1/4 & 3/4 & 0 & 0 \\
+		0 & 0 & 3/4 & 1/4 \\
+		0 & 0 & 3/4 & 1/4 \\
+		1/4 & 3/4 & 0 & 0
+\end{bmatrix}
+.\] 
+The stationary probability distribution of this Markov chain is $[1/8, 3/8, 9/8, 3/8]^T$, consistent with the left hand side of Figure \ref{fig:pluckedTentMapDistribution}. Clearly, the left subinterval, $[0,1)$ is three times less likely to be visited by a long trajectory of $\varphi_{0.5,0}$, compared to $[1,2)$. In fact, the probability of visiting $[0,1)$ remains at 0.25 for all values of $n$, but for $n >> 0$, fractal distributions are produced within smaller subsets of the two subintervals. 
 \end{document}
