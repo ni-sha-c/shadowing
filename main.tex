@@ -336,10 +336,10 @@ Figure \ref{fig:lorenz_periodic}.}
 The Lorenz map provides us a tool to find as many periodic solutions as we want.
 By intersecting the map with a diagonal line, we can find a local maximum of $u_3(t)$
 for which the next maximum is almost the same value.  We then look up the values of
-$u_1(t)$ and $u_2(t)$ when $u_3(t)$ achieved this maximum.  This gives us an initial
+$u_1(t)$ and $u_2(t)$ when $u_3(t)$ achieves this maximum.  This gives us an initial
 condition starting from which the solution is nearly periodic.   We can similarly
-intersect the second iterate of the Lorenz map (right plot of Figure \ref{fig:lorenz_map},)
-and the third iterate, etc, with a diagonal line to find increasingly
+intersect the second iterate of the Lorenz map (right plot of Figure \ref{fig:lorenz_map}),
+and the third iterate, etc, with a diagonal line, to find increasingly
 complex periodic solutions. 
 
 This Lorenz map is more than a tool to study the Lorenz equation.  It is a chaotic
@@ -349,7 +349,7 @@ system in one dimension.  It exhibits the same sensitivity to initial condition
 that characterizes the Lorenz equation.  One can readily observe in the right
 plot of Figure \ref{fig:lorenz_map} that a small perturbation in the x-axis
 can lead to a large change in the y-axis. This sensitivity grows exponentially
-for the $n$-th iterate of this map. A solution to the Lorenz map can be obtained
+for iterates of this map. A solution to the Lorenz map can be obtained
 by extracting the consecutive local maxima of a solution to the Lorenz equation.
 If we extract from a physical solution to the Lorenz equation, we obtain a physical solution of the Lorenz map.  It will visit the
 interval between 29 and 49 with varying, well-defined frequencies.
@@ -366,12 +366,12 @@ systems like the Lorenz map.  Because the Lorenz map lacks a closed form,
 we construct, in the next subsection, a one-dimensional discrete-time dynamical system
 with a closed form, one that qualitatively resembles the Lorenz map.  This map
 will help us, in section \ref{sec:quasiphysical}, to study a more insidious type
-of nonphysical solutions, a type that hides in the shadow.
+of nonphysical solutions that hides in shadowing solutions.
 
 \subsection{Tent map: periodic and physical solutions}
 \label{sec:tent}
 The tent map has been widely studied \cite{tent1}\cite{tent2}.  It is qualitatively similar
-to the Lorenz map and has a simple, analytic form:
+to the Lorenz map and has a simple analytical form:
 \begin{equation} \label{tentmap}
     \varphi(x) := \begin{cases}
     2x \quad & x < 1 \\
@@ -395,7 +395,7 @@ $\frac47, \frac87$, and $\frac{12}7$ map circularly.  In fact, any rational numb
 only a finite set of rational numbers with the same denominator.
 This is compatible
 with ergodic theory because all rational numbers in $[0,2]$ comprise a subset of Lebesgue measure zero. That is, we would have zero likelihood of getting a
-rational number if sampled the Lebesgue measure (the uniform distribution) on $[0,2]$.  Instead, with a 100\% probability, one would get an irrational number
+rational number if we sampled the Lebesgue measure (the uniform distribution) on $[0,2]$.  Instead, with a 100\% probability, one would get an irrational number
 that, when iterated under the tent map, leads to a physical trajectory that distributes uniformly on the interval $[0,2]$.
 
 To understand why a physical solution visits the interval $[0,2]$ at a uniform
@@ -410,7 +410,7 @@ of the map that its binary representation
 \begin{equation}
     x_i = \sum_{j=0}^{\infty} \frac{x_{i,j}}{2^j}
 \end{equation}
-would satisfy
+satisfies
 \begin{equation} \label{tent_xor}
     x_{i+1,j} = x_{i,0} \veebar x_{i,j+1}
 \end{equation}
@@ -421,12 +421,11 @@ has equal probability of being 0 or 1, and each bit is independent of other bits
 It follows from Eq. \ref{tent_xor} that each bit $x_{i,j},j=0,1,\ldots$ of $x_i,
 i=1,2,\ldots$ has equal probability of being 0 or 1,
 and each bit is still independent of the other bits.
-Thus, every $x_i$ in this physical solution is uniformly distributed in $[0,2]$.
 As the map iterates starting from almost any $x_0$, a physical solution explores the entire interval $[0,2]$ uniformly.
 
 \subsection{Nonphysical solutions Type II: Quasi-physical Solutions}
 \label{sec:quasiphysical}
-The simplicity of the tent map, as well as its binary form (\ref{tent_xor}),
+The simplicity of the tent map, as well as its binary form (Eq. \ref{tent_xor}),
 enables us to study nonphysical solutions that are not periodic.
 As in the last section, consider an
 \begin{equation}
@@ -439,7 +438,7 @@ Then, by Eq. \ref{tent_xor}, the bits of every $x_i, i=1,2,\ldots$ follow the sa
 with probability $p$. Moreover, consider Eq. \ref{tent_xor} 
 for $j=0$ and any $i$:
 \begin{equation}
-    x_{i+1,0} = x_{i,0} \veebar x_{i,1}
+    x_{i+1,0} = x_{i,0} \veebar x_{i,1}.
 \end{equation}
 Because $x_{i,0}=x_{i,1}$ with probability $p>\frac12$, $x_{i+1,0}=0$ with probability 
 $p>\frac12$.  Starting from $x_1$, this solution visits $[0,1]$ with
@@ -447,9 +446,7 @@ probability $p>\frac12$.  Instead of visiting $[0,1]$ and $[1,2]$ with
 equal probability, as a physical solution does, this solution favors $[0,1]$. Since it provably visits the interval $[0,2]$ with a different frequency from that
 of a physical solution, this is a nonphysical solution.
 
-If $p = 1$, the bits of $x_0$ are either all zeros or all ones. So, all further iterates when $x_0$ is 0, are 0, and this is a trivial nonphysical solution of type 1. When $x_0$ consists of all ones, the solution eventually becomes 0, and hence is also a nonphysical solution that is eventually periodic (of period 1). Even when this solution does not attain zero in a large number of iterations, it does not 
-distribute uniformly on $[0,2]$ like a physical solution 
-because all $x_i, i\geq 1$ are of the form $1/2^k$ for some $k \in \mathbb{N}$; other numbers are not visited. Now when $p > \frac12$ but strictly less than 1, 
+If $p = 1$, the bits of $x_0$ are either all zeros or all ones, which is the same as all zeros in mod 2 arithmetic. So, all further iterates when $x_0$ is 0, are 0, and this is a trivial nonphysical solution of type 1.  Now when $p > \frac12$ but strictly less than 1, 
 the solutions we just constructed are both nonphysical and aperiodic.
 The bits of $x_0$, though correlated with each other,
 still can exhibit an infinite variety of patterns. 
@@ -471,12 +468,12 @@ We call such aperiodic nonphysical solutions ``quasi-physical'' solutions.
 \includegraphics[width=0.48\textwidth]{tent_quasiphysical_hist_p_0.55.png}
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{tent_quasiphysical_hist_p_0.9.png}
-\caption{Empirical density function of long solutions (a billion steps)
+\caption{Empirical probability distribution of long solutions (a billion steps)
 starting from four points whose binary digits have probability $p$ of
 repeating the previous digit.
 The solution shown in the top-left plot starts from a point with $p=0.5001$;
 top-right: $p=0.51$; bottom-left: $p=0.55$; bottom-right: $p=0.9$.
-Note that the empirical densities at larger $p'$s are well above 1.}
+}
 \label{fig:tent_quasiphysical}
 \end{figure}
 
@@ -492,7 +489,7 @@ the density on the left side, $[0,1]$, becomes obviously higher than
 the density on the right side, $[1,2]$.  This is consistent with our
 theoretical analysis at the beginning of this subsection.
 When $p=0.9$, the fractal pattern is so intensified that most
-of the solution seem to concentrate in a collection of tiny intervals.
+of the solution seems to concentrate in a collection of tiny intervals.
 These plots expose the diversity of quasi-physical solutions.
 Their statistical distribution can be either
 very similar or completely different from that of physical solutions.
@@ -505,7 +502,7 @@ deviation from equal probability of 0 or 1, or any statistical
 dependence among digits would lead to quasi-physical solutions.
 One could, for example, construct an $x_0$ in which a bit is
 more likely to be 1 than 0 only if it follows two consecutive 0's.
-Such $x_0$ would lead to a nonphysical solution.  Its statistical
+Such an $x_0$ would lead to a nonphysical solution.  Its statistical
 distribution would differ from any of the plots in Figure
 \ref{fig:tent_quasiphysical}.  Nevertheless, as can be
 observed in Figure \ref{fig:tent_alternative}, it shows
@@ -990,20 +987,21 @@ We conclude with an example that illustrates a counterintuitive feature of some 
 governing equation can significantly change the statistics/long-term 
 behavior of its physical solutions. We construct yet another 
 perturbed tent map -- the \emph{plucked} 
-tent map -- in which an oscillatory perturbation is introduced (see Supplementary Material section \ref{sec:pluckedTentMap} for the map equation). In Figure \ref{fig:pluckedTentMap}, we show that the magnitude of the oscillatory perturbation is controlled by a parameter $s$, and its frequency is controlled by the parameter $n$; at $s=0,n=0$, we recover the original tent map. The stationary probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.5$, are shown in Figure \ref{fig:pluckedTentMapDistribution}. On the left, $n=0$ and there is already a marked asymmetry developed in the probability distribution compared to the uniform distribution seen at $s=0, n=0$. On the right, we show that by increasing $n,$ while keeping the magnitude of the perturbation the same ($s=0.5$), we see a dramatic change in the appearance of the stationary probability distribution: we observe a fractal distribution.  
+tent map -- in which an oscillatory perturbation is introduced (see Supplementary Material section \ref{sec:pluckedTentMap} for the map equation). In Figure \ref{fig:pluckedTentMap}, we show that the magnitude of the oscillatory perturbation is controlled by a parameter $s$, and its frequency is controlled by the parameter $n$; at $s=0,n=0$, we recover the original tent map. The stationary probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.5$, are shown in Figure \ref{fig:pluckedTentMapDistribution}. On the left, $n=0$ and there is already a marked asymmetry developed in the probability distribution compared to the uniform distribution seen at $s=0, n=0$. On the right, we show that by increasing $n,$ while keeping the magnitude of the perturbation the same ($s=0.5$), we see a dramatic change in the appearance of the stationary probability distribution: we observe an apparently fractal distribution reminiscent of that of the quasi-physical solutions in 
+section \ref{sec:tentPerts}.
 
 In view of the plucked tent map, we can question further the
 validity of numerical solutions. Can numerical play 
 the role of the plucking perturbation to the 
 governing equation? That is, can numerical solutions represent 
 slight perturbations to the governing equations that nevertheless 
-exhibit drastically ensemble statistics? Uniformly hyperbolic 
+exhibit drastically different statistics from that of the ensemble? Uniformly hyperbolic 
 dynamical systems exhibit \emph{linear response} 
 (\cite{ruelle}\cite{baladi}) by which small parameter perturbations 
 lead to small changes in statistics, which can be expanded as Taylor series around the reference parameter value. But, uniform hyperbolicity is a mathematical idealization, and although some physical systems have been observed to behave as if they were uniformly hyperbolic \cite{gallavotti}, a violation of uniform hyperbolicity is more likely 
 \cite{wormell}\cite{luca}. The plucked tent map provides a pathological example of a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}).
 
-Both the nonphysicality of shadowing solutions, and the existence of pathological statistical response, undermine the validity of using shadowing for sensitivity analysis of statistics \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. When the goal is to compute derivatives of ensemble averages, where the ensemble
+Both the nonphysicality of shadowing solutions, and the existence of extremely non-smooth statistical response, undermine the validity of using shadowing for sensitivity analysis of statistics \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. When the goal is to compute derivatives of ensemble averages, where the ensemble
 is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results. This is because shadowing-based methods compute the sensitivities of ensemble statistics along shadowing solutions, but these may not be physical solutions that reproduce ensemble statistics. The error in shadowing sensitivities has been observed
 before and appropriately attributed as ``ergodicity breaking error'' \cite{patrick} \cite{angxiu-error}. 
 \begin{figure}
@@ -1020,7 +1018,7 @@ before and appropriately attributed as ``ergodicity breaking error'' \cite{patri
     \caption{The effect of increasing $n$ on the probability distribution associated to the plucked tent map. L: The stationary probability distribution of the plucked tent map at $s=0.5, n = 0$. R: The stationary probability distribution of the plucked tent map at $s=0.5, n = 6$.}
     \label{fig:pluckedTentMapDistribution}
 \end{figure}
-Violations of smooth response, like in the plucked tent map, has an immediate implication for shadowing sensitivities as well. In particular, if perturbed solutions are shadowed by physical solutions for all time, the change in the statistics of the perturbed solutions must be small. In other words, the physicality of shadowing predicts that there cannot be a large change in statistics due to small parameter perturbations; the reality is that, as illustrated by the plucked tent map, the effect of small parameter changes on the statistics can be drastic.  
+Violations of smooth response, like in the plucked tent map, have an immediate implication for shadowing sensitivities as well. In particular, if perturbed solutions are shadowed by physical solutions for all time, the change in the statistics of the perturbed solutions must be small. In other words, the physicality of shadowing predicts that there cannot be a large change in statistics due to small parameter perturbations; the reality is that, as illustrated by the plucked tent map, the effect of small parameter changes on the statistics can be drastic.  
 
 
 In this paper, we have constructed several counterexamples that 
@@ -1118,7 +1116,7 @@ $((1-s)/2,1)$:
 				\dfrac{2x}{1-s}, 2 - \dfrac{2(1-x)}{1+s}\Big),
 				\;\;\; x < 1 \\
 \end{align}
-Then, we introduce oscillations using repititions of
+Then, we introduce oscillations using repetitions of
 the above map within the unit interval,
 \begin{align}
 		o_s(x) = \begin{cases}
@@ -1127,7 +1125,7 @@ the above map within the unit interval,
 		\end{cases}
 \end{align}
 We can modulate
-the frequency or repititions -- proportional to $n$ -- 
+the frequency or repetitions -- proportional to $n$ -- 
 of the oscillations through
 \begin{align}
 		\label{eqn:frequency}
@@ -1149,7 +1147,7 @@ which is also obtained by setting $n=0$ in $\varphi_{s,n}$ --
 in which an asymmetry is produced in the probability distribution (left hand side of Figure \ref{fig:pluckedTentMapDistribution}).
 Upon repeating, with appropriate scaling, the oscillation $o_s$, 
 the frequency of which is controlled by $n$, we obtain $\varphi_{s,n}$, 
-as indicated by Eq. \ref{eqn:frequency}-\ref{eqn:plucked}. Thus, the asymmetric probability distribution, through this process of scaled repitition, acquires the fractal-like structure seen on increasing $n$, as shown on the right hand side of Figure \ref{fig:pluckedTentMapDistribution}.
+as indicated by Eq. \ref{eqn:frequency}-\ref{eqn:plucked}. Thus, the asymmetric probability distribution, through this process of scaled repetition, acquires the fractal-like structure seen on increasing $n$, as shown on the right hand side of Figure \ref{fig:pluckedTentMapDistribution}.
 
 Consider $s=0.5$. 
 One way to see the asymmetry in the probability distribution 
