@@ -76,12 +76,10 @@
 
 %\authorrunning{Short form of author list} % if too long for running head
 
-\institute{Q. Wang \at 
-        Department of Aeronautics and Astronautics, Center for Computational Science and Engineering, MIT, Cambridge, MA 02139, USA.
-              \email{qiqi@mit.edu}           %  \\
+\institute{           %  \\
 %             \emph{Present address:} of F. Author  %  if needed
-           \and
-           N. Chandramoorthy \at Department of Mechanical Engineering, Center for Computational Science and Engineering, MIT, Cambridge, MA 02139, USA. \email{nishac@mit.edu}
+           Center for Computational Science and Engineering, MIT, Cambridge, MA 02139, USA. \email{nishac@mit.edu 
+           }
 }
 
 %\date{Received: date / Accepted: date}
@@ -147,8 +145,8 @@ in an experiment.   Not all solutions are physical.  A laminar flow
 solution, despite satisfying the governing equation, does not produce the
 turbulent statistics one would observe in a high-Reynolds number experiment. Such solutions are thus called nonphysical.
 
-In this section, we first describe mathematically what distinguishes a physical
-and a nonphysical solution.  We also explain theoretically why it is unlikely
+In this section, we first describe what distinguishes, mathematically, a physical
+and a nonphysical solution.  We also explain why it is theoretically unlikely
 to observe a nonphysical solution in an experiment.  We then give a few
 examples of these almost-never-observed nonphysical solutions.
 
@@ -156,7 +154,7 @@ examples of these almost-never-observed nonphysical solutions.
 What we typically call ``physical'' solutions to a governing equation satisfy the following
 two criteria: 
 \begin{enumerate}
-    \item Long-time-averaged, ``statistical'' quantities converges as time goes to infinity.
+    \item Time-averaged quantities converge in the limit of infinite averaging time.
     Consider $u(t)$ as the solution to a chaotic governing equation, then for a regular observable
     of interest $J(u(t))$,
     \begin{equation} \label{longtimeavg}
@@ -176,9 +174,9 @@ two criteria:
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{lorenz_ensemble_10.png}
 \caption{
-Left: An ensemble of initial conditions distributed uniformly in the box $u_1\in[0,1], u_2\in[0,1], u_3\in[28,39]$ 
-after 10 time units of evolution, shown in in the $u_1-u_3$ plane.
-Right: distribution of a trajectory of $1000$ time units in length.
+L: An ensemble of initial conditions distributed uniformly in the box $u_1\in[0,1], u_2\in[0,1], u_3\in[28,39]$ 
+after 10 time units of evolution, shown on the $u_1-u_3$ plane.
+R: distribution of a trajectory of $1000$ time units in length.
 In both plots, the color represent the number of samples in a
 $2048\times2048$ uniform grid.  The trajectory is sampled every 0.001 time units.
 }
@@ -189,9 +187,9 @@ $2048\times2048$ uniform grid.  The trajectory is sampled every 0.001 time units
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{lorenz_ensemble_15.png}
 \caption{
-Left: distribution of the same ensemble as in Figure \ref{fig:lorenz_ergodicity1}
+L: distribution of the same ensemble as in Figure \ref{fig:lorenz_ergodicity1}
 after another 5 time units of evolution.
-Right: distribution of the same trajectory as in Figure \ref{fig:lorenz_ergodicity1}
+R: distribution of the same trajectory as in Figure \ref{fig:lorenz_ergodicity1}
 evolved for $10,000$ time units.
 }
 \label{fig:lorenz_ergodicity2}
@@ -201,9 +199,9 @@ evolved for $10,000$ time units.
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{lorenz_ensemble_50.png}
 \caption{
-Left: distribution of the same ensemble as in Figures \ref{fig:lorenz_ergodicity1}
+L: distribution of the same ensemble as in Figures \ref{fig:lorenz_ergodicity1}
 and \ref{fig:lorenz_ergodicity2} after a total of 50 time units of evolution.
-Right: distribution of the same trajectory as in Figures \ref{fig:lorenz_ergodicity1}
+R: distribution of the same trajectory as in Figures \ref{fig:lorenz_ergodicity1}
 and \ref{fig:lorenz_ergodicity2} evolved for $100,000$ time units.
 }
 \label{fig:lorenz_ergodicity3}
@@ -224,7 +222,7 @@ illustrates a physical solution of the Lorenz system,
 where $\sigma=10,\rho=28$, and $\beta=8/3$.  The solution starts at the initial
 condition $u(0)=(0.01, 0.01, 28)$.  After a long time evolution, we observe that
 the solution has visited a large portion of the $u_1-u_3$ plane with a varying, but well-defined, frequency.  We can use a probability distribution, $\mu$, to quantify
-how frequently a physical solution visits portions the phase space.
+how frequently a physical solution visits portions of the phase space.
 Specifically, for a subset $A$ of the phase space, $\mu(A)$ measures the
 fraction of time a very long physical solution spends inside the subset $A$.
 With this distribution defined, the infinite-time average of any quantity $J(u)$ can be represented as an average of $J$ over the entire phase space $U$, weighted
@@ -241,7 +239,7 @@ This is illustrated on the right column of Figures \ref{fig:lorenz_ergodicity1}-
 We generate these plots by starting from an ensemble of about one billion initial
 conditions, randomly and uniformly spaced in a small three-dimensional box.  All these billion solutions are evolved by solving Eq. \ref{eqn:lorenz} for 10, 15, and 50 time units, to obtain the plots. 
 We observe that, as time evolves, the ensemble spreads over an increasingly
-larger portion of the $u_1-u_3$ plane. After a long time, the ensemble settles into a set known as an \emph{attractor} that does not change with time, and contains the \emph{unstable manifold}, which appears as filaments forming the attractor. The distribution of the ensemble on the attractor becomes identical to the distribution of a single, very long physical
+larger portion of the $u_1-u_3$ plane. After a long time, the ensemble settles into a time-invariant \emph{attractor} that contains the \emph{unstable manifold}, which appears as filaments forming the attractor. The probability distribution of the ensemble on the attractor becomes identical to the distribution of a single, very long physical
 solution, which is also contained in the attractor (Figure \ref{fig:lorenz_ergodicity3}).
 
 This remarkable agreement has been thoroughly studied under the subject
@@ -291,7 +289,7 @@ of interest averaged over the three periodic solutions shown in Figure
 \ref{fig:lorenz_periodic}, compared against those averaged over a
 physical solution.  Here, Periodic \#1, \#2, and \#3 correspond to
 the solid, dashed, and dotted lines, respectively.
-We observe from the table that although the mean of $J_1$ over the periodic
+We observe from the table that the mean of $J_1$ over the periodic
 solutions are different but comparable to the mean over physical solutions.  The mean of $J_2$ over the periodic solutions, on the other hand,
 is orders of magnitude different from that of the physical solutions.
 These differences disqualify the periodic solutions from being physical.
@@ -335,7 +333,6 @@ line indicate the initial conditions for both the dotted and dashed lines in
 Figure \ref{fig:lorenz_periodic}.}
 \label{fig:lorenz_map}
 \end{figure}
-\nisha{In Figure 4, the solid line appears only to have one local maximum, which is shown as the fixed point on the left plot of this figure. The two fixed points of the 2-time-iterate of the Lorenz map, shown on the right plot of this figure, both appear to correspond to the local maxima of the dashed curve in Figure 4.}
 The Lorenz map provides us a tool to find as many periodic solutions as we want.
 By intersecting the map with a diagonal line, we can find a local maximum of $u_3(t)$
 for which the next maximum is almost the same value.  We then look up the values of
