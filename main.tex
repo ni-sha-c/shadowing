@@ -987,9 +987,9 @@ We conclude with an example that illustrates a counterintuitive feature of some 
 governing equation can significantly change the statistics/long-term 
 behavior of its physical solutions. We construct yet another 
 perturbed tent map -- the \emph{plucked} 
-tent map -- in which an oscillatory perturbation is introduced (see Supplementary Material section \ref{sec:pluckedTentMap} for the map equation). In Figure \ref{fig:pluckedTentMap}, we show that the magnitude of the oscillatory perturbation is controlled by parameters $s$ and $n$, and its frequency is controlled by the parameter $n$; at $s=0,n=0$, we recover the original tent map. The stationary probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.1$, are shown in Figure \ref{fig:pluckedTentMapDistribution}. On the left, $n=0$ and there is already a marked asymmetry developed in the probability distribution compared to the uniform distribution seen at $s=0, n=0$. On the right, we show that by increasing $n,$ despite the fact that the magnitude of the perturbation becomes smaller with $n$, we see a dramatic change in the appearance of the stationary probability distribution: we observe an apparent fractal distribution reminiscent of that of the quasi-physical solutions in 
+tent map -- in which an oscillatory perturbation is introduced (see Supplementary Material section \ref{sec:pluckedTentMap} for the map equation). In Figure \ref{fig:pluckedTentMap}, we show that the magnitude of the oscillatory perturbation is controlled by parameters $s$ and $n$, and its frequency is controlled by the parameter $n$; at $s=0$, we recover the original tent map at all $n$. The stationary probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.1$, are shown in Figure \ref{fig:pluckedTentMapDistribution}. On the top-left, $n=0$, and there is already a marked asymmetry developed in the probability distribution compared to the uniform distribution seen at $s=0, n=0$. The figure shows that by increasing $n,$ despite the fact that the magnitude of the perturbation becomes smaller with $n$, we see a dramatic change in the appearance of the stationary probability distribution: we observe an apparent fractal distribution reminiscent of that of the quasi-physical solutions in 
 section \ref{sec:tentPerts}. By construction of the map (Supplementary Material section \ref{sec:pluckedTentMap}), the nonuniformities of the probability distribution at $n=0$ are transferred to smaller and smaller scales, 
-as $n$ is increased. It is worth emphasizing that remarkable changes in the physical distribution are effected (as shown in the right hand side of Figure \ref{fig:pluckedTentMapDistribution}) with a tiny perturbation -- the perturbed map at $n=10$, and the original tent map appear indiscernible on the left hand side of Figure \ref{fig:pluckedTentMap}. 
+as $n$ is increased. It is worth emphasizing that these remarkable changes in the physical distribution are effected (as shown in the right hand side of Figure \ref{fig:pluckedTentMapDistribution}) with a tiny perturbation -- the perturbed map at $n=10$, and the original tent map appear indiscernible on the bottom-right of Figure \ref{fig:pluckedTentMap}. 
 
 In view of the plucked tent map, we can question further the
 validity of numerical solutions. Can numerical play 
@@ -1017,11 +1017,11 @@ before and appropriately attributed as ``ergodicity breaking error'' \cite{patri
 \end{figure}
 \begin{figure}
     \centering
-%    \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.png}
- %   \includegraphics[width=0.45\textwidth]{osc_tent_dens_3.png}
-  %  \includegraphics[width=0.45\textwidth]{osc_tent_dens_6.png}
-   % \includegraphics[width=0.45\textwidth]{osc_tent_dens_10.png}
-    \caption{The effect of increasing $n$ on the probability distribution associated to the plucked tent map. L: The stationary probability distribution of the plucked tent map at $s=0.1, n = 0$. R: The stationary probability distribution of the plucked tent map at $s=0.1, n = 6$.}
+   \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.1_0.png}
+    \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.1_3.png}
+    \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.1_6.png}
+    \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.1_10.png}
+    \caption{The effect of increasing $n$ on the probability distribution associated to the plucked tent map. The stationary probability distribution of the plucked tent map at $s=0.1$ and $n = 0$ (top-left), $n=3$ (top-right), $n = 6$ (bottom-left) and $n=10$ (bottom-right).}
     \label{fig:pluckedTentMapDistribution}
 \end{figure}
 Violations of smooth response, like in the plucked tent map, have an immediate implication for shadowing sensitivities as well. In particular, if perturbed solutions are shadowed by physical solutions for all time, the change in the statistics of the perturbed solutions must be small. In other words, the physicality of shadowing predicts that there cannot be a large change in statistics due to small parameter perturbations; the reality is that, as illustrated by the plucked tent map, the effect of small parameter changes on the statistics can be drastic.  
@@ -1150,10 +1150,10 @@ in the interval $[1,2)$.
 Recall that our motivation is to construction a slight perturbation of the tent map whose stationary probability distribution is not just 
 non-uniform (e.g. like the other tent map perturbations of section \ref{sec:tentPerts}) but in which the nonuniformity can be controlled, and made skewed as desired. Thus, we choose to construct a base perturbation of the tent map, ${\rm min}(o_s(x), o_s(2-x))$ -- 
 which is also obtained by setting $n=0$ in $\varphi_{s,n}$ --  
-in which an asymmetry is produced in the probability distribution (left hand side of Figure \ref{fig:pluckedTentMapDistribution}).
+in which an asymmetry is produced in the probability distribution (top-left of Figure \ref{fig:pluckedTentMapDistribution}).
 Upon repeating, with appropriate scaling, the oscillation $o_s$, 
 the frequency of which is controlled by $n$, we obtain $\varphi_{s,n}$, 
-as indicated by Eq. \ref{eqn:frequency}-\ref{eqn:plucked}. Thus, the asymmetric probability distribution, through this process of scaled repetition, acquires an apparent fractal-like structure seen on increasing $n$, as shown on the right hand side of Figure \ref{fig:pluckedTentMapDistribution}.
+as indicated by Eq. \ref{eqn:frequency}-\ref{eqn:plucked}. Thus, the asymmetric probability distribution, through this process of scaled repetition, acquires an apparent fractal-like structure seen on increasing $n$, as shown on the bottom row of Figure \ref{fig:pluckedTentMapDistribution}.
 
 One way to see the asymmetry in the probability distribution 
 about $x=1$, at $n=0$, is to construct a Markov chain with nodes 00, 01, 10, and 11, that indicate the subintervals $(0,0.5)$, $[0.5,1)$, 
@@ -1168,11 +1168,11 @@ $[1,1.5)$ and $[1.5,2)$, respectively. From Eq. \ref{eqn:plucked}, we can see th
 .\] 
 The stationary probability distribution of this Markov chain, which 
 is the left eigenvector of the transition matrix corresponding to eigenvalue 1, is $[(1-s)^2/2, \; (1-s^2)/2, \; (1+s)^2/2,\; (1-s^2)/2]^T$.
-One can verify this is consistent with the left hand side of Figure \ref{fig:pluckedTentMapDistribution} for $\varphi_{0.1,0}$. Clearly, the time spent by an infinitely long physical solution in the second quarter interval, $[0.5,1]$ is 1.2 times the time spent in the first quarter, $[0,0.5]$; the time spent in the third quarter $[1,1.5]$ is 1.5 times that spent in the first quarter. This nonuniformity is more pronounced with increasing $s$. For instance, at $s=0.5$, the left subinterval, [0,1),is three times less likely to be visited by a long trajectory compared to $[1,2)$. 
+One can verify this is consistent with the top-left of Figure \ref{fig:pluckedTentMapDistribution} for $\varphi_{0.1,0}$. Clearly, the time spent by an infinitely long physical solution in the second quarter interval, $[0.5,1]$ is 1.2 times the time spent in the first quarter, $[0,0.5]$; the time spent in the third quarter $[1,1.5]$ is 1.5 times that spent in the first quarter. This nonuniformity is more pronounced with increasing $s$. For instance, at $s=0.5$, the left subinterval, [0,1),is three times less likely to be visited by a long trajectory compared to $[1,2)$. 
 
 But, as mentioned in the main text, even a small perturbation -- very small $s$ -- is sufficient to trigger a remarkable variation in the statistics. This is because this particular construction transfers 
 the nonuniformities in the probability distribution at larger scales to smaller scales, with increasing $n.$ The nonuniformity at the largest 
 scale of half intervals is retained at higher values of $n.$ That is,
-the probability of visiting the interval $[0,1]$ is the same: $(1-s)$, at all $n$. However, with increasing $n,$ the nonuniformity emerges within smaller subintervals, due to the construction of the map that relies on repeating the behavior at larger scales at smaller scales (Eq. \ref{eqn:frequency}). This repetitive construction is responsible for the apparent fractal structure of the probability distribution (Figure \ref{fig:pluckedTentMapDistribution}, right). The scripts that generate the plucked tent map and its 
+the probability of visiting the interval $[0,1]$ is the same: $(1-s)$, at all $n$. However, with increasing $n,$ the nonuniformity emerges within smaller subintervals, due to the construction of the map that relies on repeating the behavior at larger scales at smaller scales (Eq. \ref{eqn:frequency}). This repetitive construction is responsible for the apparent fractal structure of the probability distribution (Figure \ref{fig:pluckedTentMapDistribution}, bottom-right). The scripts that generate the plucked tent map and its 
 stationary probability distributions can be found under \verb+tent_sens_stat+. 
 \end{document}
