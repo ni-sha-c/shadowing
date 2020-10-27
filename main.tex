@@ -1148,20 +1148,21 @@ which is also obtained by setting $n=0$ in $\varphi_{s,n}$ --
 in which an asymmetry is produced in the probability distribution (left hand side of Figure \ref{fig:pluckedTentMapDistribution}).
 Upon repeating, with appropriate scaling, the oscillation $o_s$, 
 the frequency of which is controlled by $n$, we obtain $\varphi_{s,n}$, 
-as indicated by Eq. \ref{eqn:frequency}-\ref{eqn:plucked}. Thus, the asymmetric probability distribution, through this process of scaled repetition, acquires the fractal-like structure seen on increasing $n$, as shown on the right hand side of Figure \ref{fig:pluckedTentMapDistribution}.
+as indicated by Eq. \ref{eqn:frequency}-\ref{eqn:plucked}. Thus, the asymmetric probability distribution, through this process of scaled repetition, acquires an apparent fractal-like structure seen on increasing $n$, as shown on the right hand side of Figure \ref{fig:pluckedTentMapDistribution}.
 
-Consider $s=0.5$. 
 One way to see the asymmetry in the probability distribution 
 about $x=1$, at $n=0$, is to construct a Markov chain with nodes 00, 01, 10, and 11, that indicate the subintervals $(0,0.5)$, $[0.5,1)$, 
-$[1,1.5)$ and $[1.5,2)$, respectively. From Eq. \ref{eqn:plucked}, we can see that the application of $\varphi_{0.5,0}$ yields the following transition matrix:
+$[1,1.5)$ and $[1.5,2)$, respectively. From Eq. \ref{eqn:plucked}, we can see that the application of $\varphi_{s,0}$ yields the following transition matrix:
 \[
 \begin{bmatrix}
-		1/4 & 3/4 & 0 & 0 \\
-		0 & 0 & 3/4 & 1/4 \\
-		0 & 0 & 3/4 & 1/4 \\
-		1/4 & 3/4 & 0 & 0
+		(1-s)/2\quad & (1+s)/2 \quad & 0 \quad & 0 \\
+		0 \quad & 0 \quad & (1+s)/2 \quad & (1-s)/2 \\
+		0 \quad & 0  \quad & (1+s)/2 \quad & (1-s)/2 \\
+		(1-s)/2 \quad & (1+s)/2 \quad & 0 \quad & 0
 \end{bmatrix}
 .\] 
-The stationary probability distribution of this Markov chain is $[1/8, 3/8, 9/8, 3/8]^T$, consistent with the left hand side of Figure \ref{fig:pluckedTentMapDistribution}. Clearly, the left subinterval, $[0,1)$ is three times less likely to be visited by a long trajectory of $\varphi_{0.5,0}$, compared to $[1,2)$. In fact, the probability of visiting $[0,1)$ remains at 0.25 for all values of $n$, but for $n >> 0$, fractal distributions are produced within smaller subsets of the two subintervals. The scripts that generate the plucked tent map and its 
+The stationary probability distribution of this Markov chain, which 
+is the left eigenvector of the transition matrix corresponding to eigenvalue 1, is $[(1-s)^2/2, \; (1-s^2)/2, \; (1+s)^2/2,\; (1-s^2)/2]^T$.
+One can verify this is consistent with the left hand side of Figure \ref{fig:pluckedTentMapDistribution} for $\varphi_{0.1,0}$. Clearly, the left subinterval, $[0,1),$ is three times less likely to be visited by a long trajectory of $\varphi_{0.5,0}$, compared to $[1,2)$. In fact, the probability of visiting $[0,1)$ remains at 0.25 for all values of $n$, but for $n >> 0$, fractal distributions are produced within smaller subsets of the two subintervals. The scripts that generate the plucked tent map and its 
 stationary probability distributions can be found under \verb+tent_sens_stat+. 
 \end{document}
