@@ -1,29 +1,6 @@
 import numba
 from numpy import *
-@numba.jit(nopython=True)
-def tent_basic(x,s):
-    if x < 1:
-        return min(2*x/(1-s), \
-                2 - 2*(1-x)/(1+s))
-    return min(2*(2-x)/(1-s), \
-            2 - 2*(x-1)/(1+s))
-
-@numba.jit(nopython=True)
-def oscillation(x,s):
-    if x < 0.5:
-        return tent_basic(2*x,s)/2
-    return 2-tent_basic(2-2*x,s)/2 
-
-@numba.jit(nopython=True)
-def frequency(x,s,n):
-    return oscillation(2**n*x - floor(2**n*x),s)/2**n + \
-            2*floor(2**n*x)/2**n
-
-@numba.jit(nopython=True)
-def osc_tent(x, s, n):
-    return min(frequency(x,s,n), frequency(2-x,s,n))
-
-
+from plucked_map import *
 @numba.jit(nopython=True)
 def accumulate(nbins, n, m, s):
     density = zeros(nbins)
@@ -37,25 +14,25 @@ def accumulate(nbins, n, m, s):
 
 @numba.jit(nopython=True)
 def analytical_rho(x,s):
-    if x < s:
-        return (1-s)/4
+    if x < 0.5:
+        return (1-s)**2/2
     elif x < 1:
-        return (1 + s)/4
-    elif x < 1+s:
-        return 1 + s/4
-    return (1+s)/4
+        return (1-s*s)/2
+    elif x < 1.5:
+        return (1+s)**2/2
+    return (1-s*s)/2
 
 nbins = 2**12
 nrep = 5
 density = zeros(nbins)
-s = 0.5
+s = 0.1
 n = 0
-#for m in range(nrep):
-#    print("repeat {}".format(m))
-#    density += accumulate(nbins, 1000000000, n, s)/nrep
+for m in range(nrep):
+    print("repeat {}".format(m))
+    density += accumulate(nbins, 1000000000, n, s)/nrep
 x = array(linspace(0, 2, nbins+2)[1:-1])
-for i,xi in enumerate(x):
-    density[i] = analytical_rho(xi,s)
+#for i,xi in enumerate(x):
+#    density[i] = analytical_rho(xi,s)
 fig = figure(figsize=(8,5))
 ax = fig.add_subplot(111)
 ax.fill_between(x, 0, density)
