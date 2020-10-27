@@ -999,7 +999,8 @@ exhibit drastically different statistics from that of the ensemble? Uniformly hy
 dynamical systems exhibit \emph{linear response} 
 (\cite{ruelle}\cite{baladi}) by which small parameter perturbations 
 lead to small changes in statistics, which can be expanded as Taylor series around the reference parameter value. But, uniform hyperbolicity is a mathematical idealization, and although some physical systems have been observed to behave as if they were uniformly hyperbolic \cite{gallavotti}, a violation of uniform hyperbolicity is more likely 
-\cite{wormell}\cite{luca}. The plucked tent map provides a pathological example of a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}).
+\cite{wormell}\cite{luca}. Sauer \cite{sauer} has shown 
+examples in which numerical error due to computation in double-precision floating point arithmetic cause significant change in the stationary probability distribution on the attractor. The plucked tent map adds to this list of examples by exhibiting a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}).
 
 Both the nonphysicality of shadowing solutions, and the existence of extremely non-smooth statistical response, undermine the validity of using shadowing for sensitivity analysis of statistics \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. When the goal is to compute derivatives of ensemble averages, where the ensemble
 is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results. This is because shadowing-based methods compute the sensitivities of ensemble statistics along shadowing solutions, but these may not be physical solutions that reproduce ensemble statistics. The error in shadowing sensitivities has been observed
