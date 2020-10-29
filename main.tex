@@ -991,21 +991,22 @@ We conclude with an example that illustrates a counterintuitive feature of some 
 governing equation can significantly change the statistics/long-term 
 behavior of its physical solutions. We construct yet another 
 perturbed tent map -- the \emph{plucked} 
-tent map -- in which an oscillatory perturbation is introduced (see Supplementary Material section \ref{sec:pluckedTentMap} for the map equation). In Figure \ref{fig:pluckedTentMap}, we show that the magnitude of the oscillatory perturbation is controlled by parameters $s$ and $n$, and its frequency is controlled by the parameter $n$; at $s=0$, we recover the original tent map at all $n$. The stationary probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.1$, are shown on the right column of Figure \ref{fig:pluckedTentMap}. On the top row, $n=0$, and there is already a marked asymmetry developed in the probability distribution compared to the uniform distribution seen at $s=0, n=0$. The figure shows that by increasing $n,$ despite the fact that the magnitude of the perturbation becomes smaller with $n$, we see a dramatic change in the appearance of the stationary probability distribution: we observe an apparent fractal distribution reminiscent of that of the quasi-physical solutions in 
+tent map -- in which an oscillatory perturbation is introduced (see Supplementary Material section \ref{sec:pluckedTentMap} for the map equation). In Figure \ref{fig:pluckedTentMap}, we show that the magnitude of the oscillatory perturbation is controlled by parameters $s$ and $n$, and its frequency is controlled by the parameter $n$; at $s=0$, we recover the original tent map at all $n$. The physical probability distributions -- computed empirically over a trajectory of length 10 billion -- at $s=0.1$, are shown on the right column of Figure \ref{fig:pluckedTentMap}. On the top row, $n=0$, and there is already a marked asymmetry developed in the physical distribution compared to the uniform distribution, which is the physical distribution seen at $s=0, n=0$. The figure shows that by increasing $n,$ despite the fact that the magnitude of the perturbation becomes smaller with $n$, we see a dramatic change in the appearance of the stationary probability distribution: we observe an apparent fractal distribution reminiscent of that of the quasi-physical solutions in 
 section \ref{sec:tentPerts}. By construction of the map (Supplementary Material section \ref{sec:pluckedTentMap}), the nonuniformities of the probability distribution at $n=0$ are transferred to smaller and smaller scales, 
-as $n$ is increased. It is worth emphasizing that these remarkable changes in the physical distribution (shown on the bottom-right of Figure \ref{fig:pluckedTentMap}) are effected with a tiny perturbation -- the perturbed map at $n=6$, and the original tent map appear indiscernible on the bottom-left of Figure \ref{fig:pluckedTentMap}. 
+as $n$ is increased. It is worth emphasizing that these remarkable changes in the physical distribution (shown on the bottom-right of Figure \ref{fig:pluckedTentMap}) are effected with a tiny perturbation -- the perturbed map at $n=6$ and the original tent map appear indiscernible on the bottom-left of Figure \ref{fig:pluckedTentMap}. 
 
 In view of the plucked tent map, we can question further the
-validity of numerical solutions. Can numerical play 
+validity of numerical solutions. Can numerical solutions play 
 the role of the plucking perturbation to the 
 governing equation? That is, can numerical solutions represent 
-slight perturbations to the governing equations that nevertheless 
-exhibit drastically different statistics from that of the ensemble? Uniformly hyperbolic 
+slight perturbations to the governing equations for which the physical 
+distribution is drastically different from the physical distribution 
+of the original governing equation? Sauer \cite{sauer} has shown 
+examples in which numerical error due to computation in double-precision floating point arithmetic causes significant change in the stationary probability distribution on the attractor. The plucked tent map adds to this list of examples by demonstrating a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}). Uniformly hyperbolic 
 dynamical systems exhibit \emph{linear response} 
 (\cite{ruelle}\cite{baladi}) by which small parameter perturbations 
 lead to small changes in statistics, which can be expanded as Taylor series around the reference parameter value. But, uniform hyperbolicity is a mathematical idealization, and although some physical systems have been observed to behave as if they were uniformly hyperbolic \cite{gallavotti}, a violation of uniform hyperbolicity is more likely 
-\cite{wormell}\cite{luca}. Sauer \cite{sauer} has shown 
-examples in which numerical error due to computation in double-precision floating point arithmetic causes significant change in the stationary probability distribution on the attractor. The plucked tent map adds to this list of examples by exhibiting a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}).
+\cite{wormell}\cite{luca}. 
 
 Both the nonphysicality of shadowing solutions, and the existence of extremely non-smooth statistical response, undermine the validity of using shadowing for sensitivity analysis of statistics \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. When the goal is to compute derivatives of ensemble averages, where the ensemble
 is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results. This is because shadowing-based methods compute the sensitivities of ensemble statistics along shadowing solutions, but these may not be physical solutions that reproduce ensemble statistics. The error in shadowing sensitivities has been observed
@@ -1042,11 +1043,11 @@ shadowed by a true solution in that the difference between them is small for a l
 \bibliography{refs.bib}
 \section{Supplementary material}
 %\subsection{The Lorenz Map}
-The supplementary material for this paper including the code, data and figures can be found on Github \cite{supp}. The code can be found under the \verb+code+ subdirectory inside of which section-wise code is separated into further subdirectories. The data used to plot the figures can be found under \verb+data+. The files referred to in this section can be found in the appropriate subdirectory under \verb+code+. 
+The supplementary material for this paper including the code, data and figures can be found on Github \cite{supp}. The code can be found under the \verb+code+ subdirectory inside which section-wise code is separated into further subdirectories. The data used to plot the figures can be found under \verb+data+. The files referred to in this section can be found in the appropriate subdirectory under \verb+code+. 
 \subsection{Approximation of the Lorenz Map}
 \label{sec:lorenzMapApprox}
 The motivation for approximating the Lorenz map is that a 
-closed form expression for the map is necessary for our numerical shadowing procedure. In a small region around the cusp, we approximate the map using an exponential function. The tails on both sides are fitted with a sum of a cubic polynomial and a rational function. Thus, the approximate Lorenz map has the 
+closed form expression for the map is necessary for our numerical shadowing procedure (section \ref{sec:computingShadowing}). In a small region around the cusp, we approximate the map using an exponential function. The tails on both sides are fitted with a sum of a cubic polynomial and a rational function. Thus, the approximate Lorenz map has the 
 following closed form expression:
 \begin{align}
     \varphi(x) = \begin{cases}
@@ -1072,8 +1073,8 @@ and,
 \end{figure}
 The location of the cusp is denoted $z_{\rm sep}$ (in which ``sep'' stands 
 for \emph{separation}), and the maximum and minimum values encountered 
-in the Lorenz map iterates are denoted $z_{\rm max}$ and $z_{\rm min}$, respectively. The exponent of the cusp is denoted $p$. The coefficients of the cubic polynomial modelling the left (right) tail are  denoted $p_{L,n}, n = 0,1,2,3$ ($p_{R,n}, n = 0,1,2,3$). The coefficients of the numerator and denominator of the rational function modelling the left (right) tail are denoted $a_{L,0}, a_{L,1}$ ($a_{R,0}, a_{R,1}$) and $b_{L,n}, n=0,1,2,3$ ($b_{R,n}, n=0,1,2,3$), respectively. The values of these coefficients are obtained by 
-regression on the map at standard parameters are shown in the table below. As shown in Figure \ref{fig:lorenzMapComp}, the fit obtained matches the Lorenz map closely.
+in the Lorenz map iterates are denoted $z_{\rm max}$ and $z_{\rm min}$, respectively. The exponent of the cusp is denoted $p$. The coefficients of the cubic polynomial modelling the left (right) tail are  denoted $p_{L,n}, n = 0,1,2,3$ ($p_{R,n}, n = 0,1,2,3$). The coefficients of the numerator and denominator of the rational function modelling the left (right) tail are denoted $a_{L,0}, a_{L,1}$ ($a_{R,0}, a_{R,1}$) and $b_{L,n}, n=0,1,2,3$ ($b_{R,n}, n=0,1,2,3$), respectively. The values of these coefficients, which are obtained by
+regression, are shown for the map at standard parameters, in the table below. As shown in Figure \ref{fig:lorenzMapComp}, the fit obtained matches the Lorenz map closely.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
@@ -1096,19 +1097,19 @@ regression on the map at standard parameters are shown in the table below. As sh
          $b_{R,3}$ = 0.6456076059873844 & $b_{R,2}$ = -0.34840383986411055 \\ $b_{R,1}$ = 2.6035438510917692 &  $b_{R,0}$ = 1.0 \\
          \hline
     \end{tabular}
-    \caption{The fitting parameters of the Lorenz map at $\sigma = 10, \beta = 8/3$ and $\rho = 28.$}
+    \caption{The fitting parameters of the Lorenz map at $\sigma = 10, \beta = 8/3$, and $\rho = 28.$}
     \label{tab:lorenzFit}
 \end{table}
 
 \subsection{Computing shadowing solutions}
 \label{sec:computingShadowing}
 		In general, to numerically compute the shadowing solutions, one could use existing methods such as 
-		the least squares shadowing method \cite{qiqi-lss}. However, since these maps are all one-dimensional chaotic systems that have in common non-invertibility with two inverse \emph{branches}, we devise a simpler approach. The map $\varphi_s$ in this section refers to any of the perturbations of the tent map (section \ref{sec:tentPerts}) or the Lorenz map. Suppose we are given a perturbed solution $x_n, n =0,1,\cdots,N$ that we must compute a shadow of. 
+		the least squares shadowing method \cite{qiqi-lss}. However, since the  maps we consider are all one-dimensional chaotic systems that have in common non-invertibility with two inverse \emph{branches}, we devise a simpler approach. The map $\varphi_s$ in this section refers to any of the perturbations of the tent map (section \ref{sec:tentPerts}) or the Lorenz map. Suppose we are given a perturbed solution $x_n, n =0,1,\cdots,N$ that we must compute a shadow of. 
 The shadowing solution, $y_n, n=0,1,2,\cdots,N$ 
 must a) satisfy the governing equation: $y_{n+1} = \varphi_s(y_n)$
 and b) lie close to the given perturbed solution at all times up to 
-$N$, i.e., $|x_n - y_n| < \epsilon$, for some $\epsilon > 0$, for all $n \leq N$. Suppose we set $y_0 = x_0$, the difference $y_1 - x_1$ will amplify on further iterations under $\varphi_s$ for any perturbed solution. On the other hand, backward iteration of the map is contracting, and thus we set $y_N = x_N$ and proceed backward in time to 
-construct a solution of $\varphi_s$, noting that any difference that emerges at a given time $n$ will be made smaller starting at $n-1$. Each point has two pre-images under $\varphi_s$, and thus there are two possible choices for $y_{N-1}$, each lying in one of two fixed sub-intervals separated by the cusp of $\varphi_s$. Due to the contraction of errors backward in time, as long as we choose a pre-image in the same subinterval as the perturbed solution, we are guaranteed to approximate a shadowing solution. Marching backward by choosing at each step, the pre-image $y_n$ in the same subinterval as $x_n$, $y_n$ approximates the shadowing solution better as $n$ decreases. Thus, the procedure to find a shadowing solution simply reduces to solving for a backward trajectory (specifically one among the possible $2^N$), starting at a given final condition $x_N$.
+$N$, i.e., $|x_n - y_n| < \epsilon$, for some $\epsilon > 0$, for all $n \leq N$. Suppose we set $y_0 = x_0$, the difference $y_1 - x_1$ will amplify on further iterations under $\varphi_s$ for any perturbed solution. On the other hand, backward iteration of the map is contracting, and thus we set $y_N = x_N$. Then, we proceed backward in time to 
+construct a solution of $\varphi_s$, noting that any difference that emerges at a given time $n$ will be made smaller starting at $n-1$. Each point has two pre-images under $\varphi_s$, and thus there are two possible choices for $y_{N-1}$, each lying in one of two fixed sub-intervals separated by the cusp of $\varphi_s$. Due to the contraction of errors backward in time, as long as we choose a pre-image in the same subinterval as the perturbed solution, we are guaranteed to approximate a shadowing solution. Marching backward by choosing at each step, the pre-image $y_n$ in the same subinterval as $x_n$, $y_n$ approximates the shadowing solution better as $n$ decreases. Thus, the procedure to find a shadowing solution simply reduces to solving for a backward trajectory (specifically one among the possible $2^N$), starting at a given final condition,  $x_N$.
 	
 		Hence, it is clear that all we need is the inverse of 
 		$\varphi_s$, which is propagated backward by choosing the same \emph{branch} of the inverse as $x_n$ at time $n$. This logic is implemented for each map of section \ref{sec:tentPerts} in the function \verb+shadow+ that can be found in the files named for each map (for example, the shadowing solution of the pinched tent map can be found by executing the \verb+shadow+ function of \verb+tent_shadow/tent_shadow_pinched.py+). These functions use the analytical inverses of the maps, which are easy to derive for the tent map perturbations of section \ref{sec:tentPerts}. For the Lorenz map, we use Newton's method to solve for the inverse, and this is implemented in the file \verb+lorenz_map/shadow.py+. Note that we need a closed form expression of the map, for the Newton's method, and this is indeed the reason why we approximate the map, as described in section \ref{sec:lorenzMapApprox}.
@@ -1122,7 +1123,7 @@ $((1-s)/2,1)$:
 \begin{align}
 		f_s(x) = 		{\rm min}\Big(
 				\dfrac{2x}{1-s}, 2 - \dfrac{2(1-x)}{1+s}\Big),
-				\;\;\; x < 1 \\
+				\;\;\; x < 1. 
 \end{align}
 Then, we introduce oscillations using repetitions of
 the above map within the unit interval,
@@ -1133,7 +1134,7 @@ the above map within the unit interval,
 		\end{cases}
 \end{align}
 We can modulate
-the frequency or repetitions -- proportional to $n$ -- 
+the frequency of repetitions -- proportional to $n$ -- 
 of the oscillations through
 \begin{align}
 		\label{eqn:frequency}
@@ -1150,7 +1151,7 @@ in the interval $[1,2)$.
 		\lambda_{s,n}(x), \lambda_{s,n}(2-x)\right), \; 0< x < 2. 
 \end{align}
 Recall that our motivation is to construction a slight perturbation of the tent map whose stationary probability distribution is not just 
-non-uniform (e.g. like the other tent map perturbations of section \ref{sec:tentPerts}) but in which the nonuniformity can be controlled, and made skewed as desired. Thus, we choose to construct a base perturbation of the tent map, ${\rm min}(o_s(x), o_s(2-x))$ -- 
+non-uniform (e.g. like the other tent map perturbations of section \ref{sec:tentPerts}), but in which the nonuniformity can be controlled, and made skewed as desired. Thus, we choose to construct a base perturbation of the tent map, ${\rm min}(o_s(x), o_s(2-x))$ -- 
 which is also obtained by setting $n=0$ in $\varphi_{s,n}$ --  
 in which an asymmetry is produced in the probability distribution (top-right of Figure \ref{fig:pluckedTentMap}).
 Upon repeating, with appropriate scaling, the oscillation $o_s$, 
@@ -1170,11 +1171,11 @@ $[1,1.5)$ and $[1.5,2)$, respectively. From Eq. \ref{eqn:plucked}, we can see th
 .\] 
 The stationary probability distribution of this Markov chain, which 
 is the left eigenvector of the transition matrix corresponding to eigenvalue 1, is $[(1-s)^2/2, \; (1-s^2)/2, \; (1+s)^2/2,\; (1-s^2)/2]^T$.
-One can verify this is consistent with the top-right of Figure \ref{fig:pluckedTentMap} for $\varphi_{0.1,0}$. Clearly, the time spent by an infinitely long physical solution in the second quarter interval, $[0.5,1]$ is 1.2 times the time spent in the first quarter, $[0,0.5]$; the time spent in the third quarter $[1,1.5]$ is 1.5 times that spent in the first quarter. This nonuniformity is more pronounced with increasing $s$. For instance, at $s=0.5$, the left subinterval, [0,1),is three times less likely to be visited by a long trajectory compared to $[1,2)$. 
+One can verify this is consistent with the top-right of Figure \ref{fig:pluckedTentMap} for $\varphi_{0.1,0}$. Clearly, the time spent by an infinitely long physical solution in the second quarter interval, $[0.5,1]$ is about 1.2 times the time spent in the first quarter, $[0,0.5]$; the time spent in the third quarter $[1,1.5]$ is about 1.5 times that spent in the first quarter. This nonuniformity is more pronounced with increasing $s$. For instance, at $s=0.5$, the left subinterval, [0,1),is three times less likely to be visited by a long trajectory compared to $[1,2)$. 
 
 But, as mentioned in the main text, even a small perturbation -- very small $s$ -- is sufficient to trigger a remarkable variation in the statistics. This is because this particular construction transfers 
 the nonuniformities in the probability distribution at larger scales to smaller scales, with increasing $n.$ The nonuniformity at the largest 
 scale of half intervals is retained at higher values of $n.$ That is,
 the probability of visiting the interval $[0,1]$ is the same: $(1-s)$, at all $n$. However, with increasing $n,$ the nonuniformity emerges within smaller subintervals, due to the construction of the map that relies on repeating the behavior at larger scales at smaller scales (Eq. \ref{eqn:frequency}). This repetitive construction is responsible for the apparent fractal structure of the probability distribution (Figure \ref{fig:pluckedTentMap}, bottom-right). The scripts that generate the plucked tent map and its 
-stationary probability distributions can be found under \verb+tent_sens_stat+. 
+physical probability distributions can be found under \verb+tent_sens_stat+. 
 \end{document}
