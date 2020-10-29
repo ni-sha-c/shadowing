@@ -1002,7 +1002,7 @@ governing equation? That is, can numerical solutions represent
 slight perturbations to the governing equations for which the physical 
 distribution is drastically different from the physical distribution 
 of the original governing equation? Sauer \cite{sauer} has shown 
-examples in which numerical error due to computation in double-precision floating point arithmetic causes significant change in the stationary probability distribution on the attractor. The plucked tent map adds to this list of examples by demonstrating a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}). Uniformly hyperbolic 
+examples in which numerical error due to computation in double-precision floating point arithmetic causes significant change in the stationary probability distribution on the attractor; other works \cite{cns} further analyze the unreliability due to double-precision arithmetic of statistical measures such as power spectra and correlation functions. The plucked tent map adds to this list of examples by demonstrating a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}). Uniformly hyperbolic 
 dynamical systems exhibit \emph{linear response} 
 (\cite{ruelle}\cite{baladi}) by which small parameter perturbations 
 lead to small changes in statistics, which can be expanded as Taylor series around the reference parameter value. But, uniform hyperbolicity is a mathematical idealization, and although some physical systems have been observed to behave as if they were uniformly hyperbolic \cite{gallavotti}, a violation of uniform hyperbolicity is more likely 
@@ -1013,14 +1013,14 @@ is distributed according to the physical measure, i.e., the SRB measure, shadowi
 before and appropriately attributed as ``ergodicity breaking error'' \cite{patrick} \cite{angxiu-error}. 
 \begin{figure}
     \centering
-    \includegraphics[width=0.45\textwidth]{osc_tent_0.png}
-     \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.1_0.png}
-    \includegraphics[width=0.45\textwidth]{osc_tent_3.png}
-     \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.1_3.png}
-    \includegraphics[width=0.45\textwidth]{osc_tent_6.png}
-     \includegraphics[width=0.45\textwidth]{osc_tent_dens_0.1_6.png}
+    \includegraphics[width=0.3\textwidth,height=1.35in]{osc_tent_0.png}
+     \includegraphics[width=0.6\textwidth,height=1.35in]{osc_tent_dens_0.1_0.png}
+    \includegraphics[width=0.3\textwidth,height=1.35in]{osc_tent_3.png}
+     \includegraphics[width=0.6\textwidth,height=1.35in]{osc_tent_dens_0.1_3.png}
+    \includegraphics[width=0.3\textwidth,height=1.35in]{osc_tent_6.png}
+     \includegraphics[width=0.6\textwidth,height=1.35in]{osc_tent_dens_0.1_6.png}
     \caption{
-    The effect of increasing $n$ on the probability distribution associated to the plucked tent map. The left column shows the plucked tent map at 
+    The effect of increasing $n$ on the physical probability distribution associated to the plucked tent map. The left column shows the plucked tent map at 
     different values of $s$ and $n = 0$ (top), $n=3$ (middle), $n=6$ (bottom). The original tent map is at $s=0$ on each plot.
     The right column shows the stationary, physical probability distribution of the plucked tent map at $s=0.1$ and $n = 0$ (top), $n=3$ (middle), $n = 6$ (bottom).}
     \label{fig:pluckedTentMap}
@@ -1035,7 +1035,7 @@ dispel the notion that shadowing solutions are physical solutions, i.e., that th
 statistical distribution is the same as that typically observed for almost every solution 
 of a governing equation. The existence of long-time shadowing solutions \cite{grebogi} has historically been used to address the issue of whether numerical simulations, which are 
 perturbed solutions, represent the true physics implied by the governing equation. In light of the evidence in this paper, we must reopen this issue. Even when numerical simulations are 
-shadowed by a true solution in that the difference between them is small for a long time, this shadowing solution may not represent the long-term or ensemble behavior of the physical system. The nonphysicality of shadowing solutions also indicates that shadowing-based methods \cite{qiqi-lss} can lead to incorrect values of sensitivities of statistics to parameter changes. 
+shadowed by a true solution in that the difference between them is small for a long time, this shadowing solution may not represent the long-term or ensemble behavior of the physical system. The nonphysicality of shadowing solutions also indicates that shadowing-based methods can lead to incorrect values of sensitivities of statistics to parameter changes. 
 
 
 
