@@ -922,14 +922,13 @@ section \ref{sec:quasiphysical} that shadowing solutions can almost surely be no
 
 \subsection{What about the Lorenz equation?}
 In order to analyze the behavior of the shadowing solutions of the Lorenz'63 system 
-of equations, we first make a closed form approximation of the Lorenz map (see section \ref{sec:lorenzMapApprox} of the supplementary material). The reason 
-is that except at rare parameter values, the Lorenz system does not have 
+of equations, we first make a closed form approximation of the Lorenz map (see section \ref{sec:lorenzMapApprox} of the supplementary material). Except at rare parameter values, the Lorenz system does not have 
 solutions that shadow perturbed orbits for all time, but rather only for a finite time 
 \cite{lorenzPOTP}. Hence, the Lorenz map also does not have infinitely long shadowing solutions. This implies that a numerical solution of the Lorenz map approximates 
 a true solution, as accurately as desired, only for a finite time.
 
 A closed form approximation is constructed by regression performed using long solutions 
-of the Lorenz map (see Figure \ref{fig:lorenz_map}). 
+of the Lorenz map (Figure \ref{fig:lorenz_map}). 
 \begin{figure}
     \centering
     \includegraphics[width=0.32\textwidth]{lorenz_zmax_sigma.png}
@@ -953,7 +952,7 @@ The left, center, and right plots show the effect of the
 Is the green line overlapping one of the two lines?
 \end{comment}
 The Lorenz map approximation obtained this way is illustrated in Figure \ref{fig:lorenz_params}, for variations of the parameters around their standard values of 
-$\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is numerically verified that the approximate Lorenz map qualitatively reproduces the behavior of the true Lorenz map. Using the approximate Lorenz map, we calculate next the shadowing solutions. 
+$\rho = 28, \sigma = 10,$ and $\beta = 8/3.$ Using the approximate Lorenz map, we calculate next the shadowing solutions. 
 \begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{lorenz_shadow_density_lorenz_zmax_15_28_2.67.json.png}
@@ -967,12 +966,12 @@ $\rho = 28, \sigma = 10, \beta = 8/3.$ For a range of parameter values, it is nu
     \includegraphics[width=0.48\textwidth]{lorenz_shadow_density_lorenz_zmax_10_28_3.33.json.png}
     \hspace{0.005\textwidth}
     \includegraphics[width=0.48\textwidth]{baseline_density_lorenz_zmax_10_28_3.33.json.png}
-    \caption{The left column shows the empirical distribution of the shadowing solution of the Lorenz map at $\rho = 28$ (top row), $\rho = 29$ (middle row), and $\beta = 10/3$ (bottom row). The right column shows the probability distribution of the corresponding physical solution. In each case, the parameters not mentioned are held at their standard values of $\rho = 28, \sigma = 10, \beta = 8/3.$
+    \caption{The left column shows the empirical distribution of the shadowing solution, and the right column shows the physical distribution of the Lorenz map at the following sets of parameters: top row: $\sigma = 15, \rho = 28, \beta = 8/3$, $\rho = 29$, middle row: $\sigma = 10, \rho = 30, \beta = 10/3$, and bottom row: $\sigma = 10, \rho = 28, \beta = 10/3$.
     }
     \label{fig:lorenz_params_scaled}
 \end{figure}
-The empirical densities computed from long shadowing solutions, of length 10 billion, are shown in the left column of Figure \ref{fig:lorenz_params_scaled} at three different sets of parameter values, which are also different from the standard values of $\rho = 28, \sigma = 10$, and $\beta = 8/3$. 
-In the top and middle row, $\rho = 29$ and $\rho = 30$ are used, respectively, while the other two parameters are retained at their standard values. In the bottom row, only the parameter $\beta$ is perturbed from the standard values; $\beta = 10/3$ is used. On the right column, we plot the densities of physical solutions, the SRB distribution, at the set of parameters corresponding to each row. We again notice that, while the physical distributions are smooth, the shadowing solutions have a rough distribution that appears to have hair-like patterns. Thus, we draw the same conclusion in the Lorenz map as in the various perturbations of the tent map treated in section \ref{sec:tentPerts}: shadowing solutions do not have the same distribution as a typically observed solution of the governing equation. In other words, shadowing solutions may be nonphysical.
+The empirical distribution computed from long shadowing solutions, of length 10 billion, are shown in the left column of Figure \ref{fig:lorenz_params_scaled} at three different sets of parameter values, which are also different from the standard values of $\rho = 28, \sigma = 10$, and $\beta = 8/3$. 
+In each row, one of the parameters is  $\rho = 29$ and $\rho = 30$ are used, respectivel, while the other two parameters are retained at their standard values. In the bottom row, only the parameter $\beta$ is perturbed from the standard values; $\beta = 10/3$ is used. On the right column, we plot the distribution of physical solutions, the SRB distribution, at the set of parameters corresponding to each row. We again notice that, while the physical distributions appear smooth, the shadowing solutions clearly exhibit roughness. Thus, we draw the same conclusion in the Lorenz map as in the various perturbations of the tent map treated in section \ref{sec:tentPerts}: shadowing solutions do not have the same distribution as a typically observed solution of the governing equation. In other words, shadowing solutions are nonphysical.
 
 
 \section{Discussion and outlook}
