@@ -75,11 +75,17 @@
 \author{Nisha Chandramoorthy \and Qiqi Wang}
 
 %\authorrunning{Short form of author list} % if too long for running head
-
-\institute{           %  \\
+\institute{N. Chandramoorthy, Corresponding Author \at
+              Mechanical Engineering and Center for Computational Science and Engineering \\
+              77 Massachusetts Avenue, Cambridge MA
+               \email{nishac@mit.edu}           %  \\
 %             \emph{Present address:} of F. Author  %  if needed
-           Center for Computational Science and Engineering, MIT, Cambridge, MA 02139, USA. Corresponding author email: \email{nishac@mit.edu}  \email{qiqi@mit.edu}. }
-
+           \and
+           Q. Wang \at
+              Department of Aeronautics and Astronautics and Center for Computational Science and Engineering \\
+              77 Massachusetts Avenue, Cambridge MA \\
+              \email{qiqi@mit.edu}
+}
 %\date{Received: date / Accepted: date}
 % The correct dates will be entered by the editor
 
@@ -99,49 +105,45 @@ Based on the shadowing property of dynamical systems, we expect that numerical s
 Shadowing refers to the relationship between a pair of solutions to slightly different governing equations. The difference between the governing equations can be due to parameter perturbation or numerical error. The solution to one governing equation is said to shadow a solution to a second, slightly different equation if
 the first solution stays close to the second solution for some amount of time.
 
-When the slightly different governing equations are uniformly hyperbolic, it has been long know that infinitely 
+When the slightly different governing equations are uniformly hyperbolic, it has been long known that infinitely 
 long shadowing solutions exist \cite{anosov}\cite{bowen}.
 Numerical experiments in non-hyperbolic systems have shown that shadowing
-solutions may still exist \cite{grebogi}\cite{hammel} for finite amounts of time.
+solutions may still exist \cite{grebogi}\cite{hammel} for a 
+finite amount of time.
 
 The existence of shadowing trajectories underlies many applications.
 Numerical simulations of turbulent flows have been widely used to study its statistical behavior.
 It is argued, based on shadowing, that such numerical simulations of chaotic dynamical systems can be
-useful, despite the butterfly effect. Consider a numerical solution to a deterministic chaotic system with an initial condition $x$.
-Because of numerical and modeling errors, there will typically be a small difference between the
-true governing physics and the equations solved on a computer.  As the system is evolved forward
-in time, this difference will be amplified exponentially due to the chaotic nature of the system.
-The question therefore arises as to whether or not numerical solutions to chaotic systems, such
-as turbulent flows, represent the true physics.  The existence of shadowing solutions
+useful, despite the \emph{butterfly effect} that causes infinitesimal errors in the state to grow exponentially in time. Because of numerical and modeling errors, there is invariably a small difference between the true governing physics and the equations solved on a computer. By nature of chaos, this difference increases exponentially, as the system is evolved forward in time. Thus, the fidelity of numerical solutions of chaotic systems, such
+as turbulent flows, to the true physics is called into question.  The existence of shadowing solutions
 is used to argue for the usefulness of such numerical solutions.
 When certain conditions for shadowing theorems are met, the numerical solution would be an
 approximation to a ``true'' solution that satisfies the real governing physics.
 
 Shadowing is also used in sensitivity analysis of chaotic dynamical systems.  In particular,
 it is used in computing how long-time-averages in a chaotic system
-respond to small perturbations in the governing equation \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. In this application, derivative
+respond to small perturbations in the governing equation \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. In this application, the derivative
 of the long-time-averages is computed using a solution to the perturbed governing equation
 that shadows a solution to the unperturbed equation.  The Least Squares Shadowing \cite{qiqi-lss}\cite{angxiu-lss} method
 uses this concept.
 
 There is an implicit assumption in both of these applications.  The assumption is that
-the shadowing trajectory is a ``physical'' trajectory, a trajectory on which
+the shadowing trajectory is a \emph{physical} trajectory, a trajectory on which
 the long-time-average of a quantity is equal to the ensemble average.
-Not all solutions satisfying the physical governing equation are considered ``physical''
-in this sense.  In high-Reynolds number fluid flows, for example, a steady-state, laminar flow solution may satisfy the Navier-Stokes equation. But such a solution would never be observed in reality because it is unstable, and any small perturbation
+Not all solutions satisfying the physical governing equation are considered physical in this sense.  In high-Reynolds number fluid flows, for example, a steady-state, laminar flow solution may satisfy the Navier-Stokes equation. But such a solution would never be observed in reality because it is unstable, and any small perturbation
 would trip it into turbulence. Unstable steady-state solutions are not the only
 nonphysical solution. Many chaotic dynamical systems have infinitely many periodic
-solutions that are, similar to their steady counterpart, unstable. These trajectories can have a probability distribution that is remarkably different from that of a typically observed solution of the governing equation. It is also possible to effect significant change in the statistics of the true governing dynamics by introducing a minor parameter perturbation. Thus, although two trajectories, at slightly different parameters, may shadow each other, the long-time-averages of observables calculated using them, may not be close.    
+solutions that are, similar to their steady counterpart, unstable. These trajectories can have a probability distribution that is remarkably different from that of a typically observed solution of the governing equation. It is also possible to effect significant change in the statistics of the true governing dynamics by introducing a minor parameter perturbation. Thus, although trajectories of governing equations at slightly different parameters may shadow each other, the long-time-averages that are typically observed at one parameter may not be close to that of the other.    
 As we will see
 in the next section, even solutions that look ``chaotic'', i.e., unsteady and aperiodic, may not be physical. 
 
 \section{What are physical and nonphysical solutions?}
 
-Intuitively, we call a solution to a governing equation ``physical'' if
+Intuitively, we call a solution to a governing equation \emph{physical} if
 it represents what one would observe in a physical experiment.  In particular, the statistics measured from a physical solution match the statistics observed
 in an experiment.   Not all solutions are physical.  A laminar flow
 solution, despite satisfying the governing equation, does not produce the
-turbulent statistics one would observe in a high-Reynolds number experiment. Such solutions are thus called nonphysical.
+turbulent statistics one would observe in a high-Reynolds number experiment. Such solutions are thus called \emph{nonphysical}.
 
 In this section, we first describe what distinguishes, mathematically, a physical
 and a nonphysical solution.  We also explain why it is theoretically unlikely
@@ -149,7 +151,7 @@ to observe a nonphysical solution in an experiment.  We then give a few
 examples of these almost-never-observed nonphysical solutions.
 
 \subsection{Physical solutions}
-What we typically call ``physical'' solutions to a governing equation satisfy the following
+What we have intuitively defined as physical solutions to a governing equation satisfy the following
 two criteria: 
 \begin{enumerate}
     \item Time-averaged quantities converge in the limit of infinite averaging time.
@@ -175,7 +177,7 @@ two criteria:
 L: An ensemble of initial conditions distributed uniformly in the box $u_1\in[0,1], u_2\in[0,1], u_3\in[28,39]$ 
 after 10 time units of evolution, shown on the $u_1-u_3$ plane.
 R: distribution of a trajectory of $1000$ time units in length.
-In both plots, the color represent the number of samples in a
+In both plots, the color represents the number of samples in a
 $2048\times2048$ uniform grid.  The trajectory is sampled every 0.001 time units.
 }
 \label{fig:lorenz_ergodicity1}
@@ -280,7 +282,7 @@ statistics are different from physical solutions.
 Here we illustrate the difference using the mean of two
 quantities of interest
 \begin{align}
-    J_1(u) = u_3\;,\quad J_2(u) = e^{-\dfrac{u_3^2}2}.
+		J_1(u) = u_3\;{\rm and}\;\quad J_2(u) = e^{-\dfrac{u_3^2}2}.
 \end{align}
 Table \ref{tab:lorenz_periodic_stats} shows these quantities
 of interest averaged over the three periodic solutions shown in Figure
@@ -288,7 +290,7 @@ of interest averaged over the three periodic solutions shown in Figure
 physical solution.  Here, Periodic \#1, \#2, and \#3 correspond to
 the solid, dashed, and dotted lines, respectively.
 We observe from the table that the mean of $J_1$ over the periodic
-solutions are different but comparable to the mean over physical solutions.  The mean of $J_2$ over the periodic solutions, on the other hand,
+solutions is different but comparable to the mean over physical solutions.  The mean of $J_2$ over the periodic solutions, on the other hand,
 is orders of magnitude different from that of the physical solutions.
 These differences disqualify the periodic solutions from being physical.
 \begin{table}[H]
@@ -359,7 +361,8 @@ the Lorenz equation could have all been learned from the Lorenz map.
 Having discussed periodic solutions in this section,
 we move to a second type of nonphysical solutions.
 This type is more difficult to find and study than the periodic solutions.
-To make it easier, we switch our example to a one-dimensional, discrete time dynamical
+To make it easier, we switch our example to a one-dimensional, 
+discrete-time dynamical
 systems like the Lorenz map.  Because the Lorenz map lacks a closed form,
 we construct, in the next subsection, a one-dimensional discrete-time dynamical system
 with a closed form, one that qualitatively resembles the Lorenz map.  This map
@@ -368,15 +371,15 @@ of nonphysical solutions that hides in shadowing solutions.
 
 \subsection{Tent map: periodic and physical solutions}
 \label{sec:tent}
-The tent map has been widely studied \cite{tent1}\cite{tent2}.  It is qualitatively similar
-to the Lorenz map and has a simple analytical form:
+The tent map is qualitatively similar
+to the Lorenz map,
 \begin{equation} \label{tentmap}
     \varphi(x) := \begin{cases}
     2x \quad & x < 1 \\
     4 - 2x \quad & 2 \ge x \ge 1
-    \end{cases}
+    \end{cases}.
 \end{equation}
-Figure \ref{fig:tent_map} shows the tent map.
+Due to its simple analytical form, the properties of the tent map have been studied extensively \cite{tent1}\cite{tent2}. Figure \ref{fig:tent_map} shows the tent map.
 \begin{figure}\centering
 \includegraphics[width=0.48\textwidth]{tent_map.png}
 \caption{The tent map $\varphi$.}
@@ -410,7 +413,7 @@ of the map that its binary representation
 \end{equation}
 satisfies
 \begin{equation} \label{tent_xor}
-    x_{i+1,j} = x_{i,0} \veebar x_{i,j+1}
+    x_{i+1,j} = x_{i,0} \veebar x_{i,j+1},
 \end{equation}
 where $\veebar$ is the xor operator. To see why, note that 
 multiplication by 2 is a left-shift operator in binary, and 
@@ -483,8 +486,8 @@ uniformly.  In this case, the quasi-physical solution has very similar
 statistical behavior as a physical solution.  When $p=0.51$, the empirical
 distribution becomes ``hairy''.  An apparently fractal pattern emerges.
 This fractal pattern further amplifies when $p=0.55$.  Meanwhile,
-the density on the left side, $[0,1]$, becomes obviously higher than
-the density on the right side, $[1,2]$.  This is consistent with our
+the density on the left sub-interval, $[0,1]$, becomes obviously higher than
+the density on the right sub-interval, $[1,2]$.  This is consistent with our
 theoretical analysis at the beginning of this subsection.
 When $p=0.9$, the fractal pattern is so intensified that most
 of the solution seems to concentrate in a collection of tiny intervals.
@@ -739,10 +742,7 @@ the tent map.
 
 We first show that a physical solution of the tilted tent map 
 (\ref{tent_tilted}) is uniformly distributed in $[0,2]$, for
-any $0\le s<1$.
-According to the ergodic theory and the properties of the SRB measure of 
-one-dimensional chaotic systems (\cite{young}), 
-we only need to show that the uniform
+any $0\le s<1$. For this, we only need to show that the uniform
 distribution is stationary under the tilted tent map.
 The function $\tilde{\varphi}_s$ stretches an infinitesimal
 region around each $x$ by the absolute value of the derivative at $x$; 
@@ -775,8 +775,7 @@ $\xi_{s,j}$ is the $j$th bit in the binary representation of $\tilde{h}_s$ --
 each bit repeats the previous one with probability
 $\frac{1+s}2$.  For a uniformly random
 $x$, $\tilde{h}_s(x)$ is exactly the kind of initial condition
-we used to construct the quasi-physical solution
-in section \ref{sec:quasiphysical}, with $p=\frac{1+s}2$.
+we used to construct the quasi-physical solution in section \ref{sec:quasiphysical}, with $p=\frac{1+s}2$.
 Since this analysis holds for any $x$ sampled uniformly on $[0,2]$, we can conclude that
 the shadowing solution is almost surely nonphysical.  Let $x_{s,i},i=0,1,\ldots$ be a solution
 to the tilted tent map $\tilde{\varphi}_s$ with $x_{s,0}$ chosen 
@@ -845,7 +844,7 @@ in Figure \ref{fig:tent_squashed}, has the closed form
 In Figure \ref{fig:tent_squashed_shadow}, we show side-by-side the probability distributions generated by observing a long solution (of length 10 billion) 
 of $\hat{\varphi}^{\rm sq}_s$ (left) and its corresponding shadowing solution (right)
 at two different values of $s.$ The left column showing the probability distribution of the shadowing solution is reminiscent of the hairy probability distributions of 
-the quasi-solutions of the tent map in section \ref{sec:quasiphysical}. The reader is referred to the Supplementary Material section \ref{sec:computingShadowing} for the computational method used in this paper, for the shadowing solutions. Note that, unlike the tilted tent maps, the family of squashed tent maps do not have the uniform distribution as their SRB distribution, but have a different regular probability distribution as indicated on the right column of Figure \ref{fig:tent_squashed_shadow}. On the other hand, the shadowing solution is distributed neither like a physical solution of the original tent map nor of the squashed tent map, as suggested by its fractal-like probability distribution on the left column of Figure \ref{fig:tent_squashed_shadow}.
+the quasi-solutions of the tent map (section \ref{sec:quasiphysical}). The reader is referred to the Supplementary Material section \ref{sec:computingShadowing} for the computational method used in this paper, for the shadowing solutions. Note that, unlike the tilted tent maps, the family of squashed tent maps do not have the uniform distribution as their SRB distribution, but have a different regular probability distribution as indicated on the right column of Figure \ref{fig:tent_squashed_shadow}. On the other hand, the shadowing solution is distributed neither like a physical solution of the original tent map nor of the squashed tent map, as suggested by its fractal-like probability distribution on the left column of Figure \ref{fig:tent_squashed_shadow}.
 
 Next we consider a second perturbation of the tent map, the \emph{pinched} tent map, which has the following closed form
 \begin{align}
@@ -896,7 +895,7 @@ $x$-axis.
     \label{fig:tent_wave}
 \end{figure}
 The wave perturbation does not noticeably alter the SRB density of the original tent map. As we show in Figure \ref{fig:tent_wave_shadow} (right), a solution of the 
-wave tent map, starting from almost any point on $[0,2]$ -- a physical solution -- has a density that looks almost identical to a uniform density of 0.5. On the left column of Figure \ref{fig:tent_wave_shadow}, we observe that the distributions of the shadowing solutions corresponding to the physical solutions on the right, once again appear fractal.  
+wave tent map, starting from almost any point on $[0,2]$ -- a physical solution -- has a density that looks almost identical to a uniform density of 0.5. On the left column of Figure \ref{fig:tent_wave_shadow}, we observe that the distributions of the shadowing solutions corresponding to the physical solutions on the right once again appear fractal.  
 \begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{tent_wave_shadow_density_0.05.png}
@@ -972,7 +971,7 @@ In each row, one of the parameters is perturbed from the standard values. On the
 
 \section{Discussion and outlook}
 
-Through a rigorous counter-example, we show that shadowing can lead
+Through rigorous counterexamples, we show that shadowing can lead
 to nonphysical solutions. This has a troubling implication for numerical simulations of chaotic
 governing equations.  Through the examples in this paper, it is clear that a numerical solution, satisfying
 a governing equation perturbed due to numerics, is not 
@@ -990,7 +989,7 @@ tent map -- in which an oscillatory perturbation is introduced (see Supplementar
 section \ref{sec:tentPerts}. By construction of the map (Supplementary Material section \ref{sec:pluckedTentMap}), the nonuniformities of the probability distribution at $n=0$ are transferred to smaller and smaller scales, 
 as $n$ is increased. It is worth emphasizing that these remarkable changes in the physical distribution (shown on the bottom-right of Figure \ref{fig:pluckedTentMap}) are effected with a tiny perturbation -- the perturbed map at $n=6$ and the original tent map appear indiscernible on the bottom-left of Figure \ref{fig:pluckedTentMap}. 
 
-In view of the plucked tent map, we can question further the
+In view of the plucked tent map, we can further question the
 validity of numerical solutions. Can numerical solutions play 
 the role of the plucking perturbation to the 
 governing equation? That is, can numerical solutions represent 
