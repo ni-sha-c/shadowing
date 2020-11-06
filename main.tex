@@ -78,8 +78,7 @@
 
 \institute{           %  \\
 %             \emph{Present address:} of F. Author  %  if needed
-           Center for Computational Science and Engineering, MIT, Cambridge, MA 02139, USA. \email{nishac@mit.edu 
-		   }  \email{qiqi@mit.edu}
+           Center for Computational Science and Engineering, MIT, Cambridge, MA 02139, USA. Corresponding author email: \email{nishac@mit.edu}  \email{qiqi@mit.edu}. Preprint available at \cite{preprint}
 }
 
 %\date{Received: date / Accepted: date}
@@ -101,10 +100,10 @@ Based on the shadowing property of dynamical systems, we expect that numerical s
 Shadowing refers to the relationship between a pair of solutions to slightly different governing equations. The difference between the governing equations can be due to parameter perturbation or numerical error. The solution to one governing equation is said to shadow a solution to a second, slightly different equation if
 the first solution stays close to the second solution for some amount of time.
 
-The existence of arbitrarily long shadowing solutions for sufficiently similar governing equations
-has been proven for invertible hyperbolic maps by Anosov \cite{anosov} and Bowen \cite{bowen}.
-For non-hyperbolic systems, it is often possible to estimate the length of time for which shadowing
-solutions exist \cite{grebogi}\cite{hammel}.
+When the slightly different governing equations are uniformly hyperbolic, it has been long know that infinitely 
+long shadowing solutions exist \cite{anosov}\cite{bowen}.
+Numerical experiments in non-hyperbolic systems have shown that shadowing
+solutions may still exist \cite{grebogi}\cite{hammel} for finite amounts of time.
 
 The existence of shadowing trajectories underlies many applications.
 Numerical simulations of turbulent flows have been widely used to study its statistical behavior.
@@ -1033,6 +1032,11 @@ statistical distribution is the same as that typically observed for almost every
 of a governing equation. The existence of long-time shadowing solutions \cite{grebogi} has historically been used to address the issue of whether numerical simulations, which are 
 perturbed solutions, represent the true physics implied by the governing equation. In light of the evidence in this paper, we must reopen this issue. Even when numerical simulations are 
 shadowed by a true solution in that the difference between them is small for a long time, this shadowing solution may not represent the long-term or ensemble behavior of the physical system. The nonphysicality of shadowing solutions also indicates that shadowing-based methods can lead to incorrect values of sensitivities of statistics to parameter changes. 
+
+\vspace{1in}
+
+\textbf{Funding:} This work was supported by Air Force Office of Scientific Research Grant No. FA8650-19-C-2207.
+\textbf{Conflict of Interest:} The authors declare that they have no conflict of interest.
 
 
 
