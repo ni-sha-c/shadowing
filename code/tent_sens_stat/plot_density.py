@@ -26,7 +26,7 @@ nbins = 2**12
 nrep = 5
 density = zeros(nbins)
 s = 0.1
-n = 0
+n = 3
 for m in range(nrep):
     print("repeat {}".format(m))
     density += accumulate(nbins, 1000000000, n, s)/nrep

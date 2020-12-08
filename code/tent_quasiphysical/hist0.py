@@ -3,7 +3,6 @@ from pylab import *
 from numpy import *
 
 width = 2**13
-
 @numba.jit(nopython=True)
 def transform(x, p):
     addition = (random.rand() > p) ^ (x % 2)
@@ -22,7 +21,7 @@ def accumulate(n, p):
     return xhist
 
 n = 10000000000
-
+'''
 figure(figsize=(16,18))
 density = array(accumulate(n, 0.5001), float) / n * width / 2
 x = linspace(0,2,width*2+1)[1:-1:2]
@@ -55,9 +54,8 @@ for tick in gca().xaxis.get_major_ticks():
 for tick in gca().yaxis.get_major_ticks():
     tick.label.set_fontsize(40)
 savefig('tent_quasiphysical_hist_p_0.55.png')
-
+'''
 figure(figsize=(16,18))
-density = array(accumulate(n, 0.9), float) / n * width / 2
 x = linspace(0,2,width*2+1)[1:-1:2]
 fill_between(x, density)
 ylim([0,1])
@@ -66,3 +64,4 @@ for tick in gca().xaxis.get_major_ticks():
 for tick in gca().yaxis.get_major_ticks():
     tick.label.set_fontsize(40)
 savefig('tent_quasiphysical_hist_p_0.9.png')
+
