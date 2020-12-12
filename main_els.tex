@@ -127,17 +127,17 @@
 This paper proves that shadowing solutions can be almost surely nonphysical.
 This finding invalidates the argument that small perturbations in a chaotic system can only have a small impact on its statistical behavior.
 This theoretical finding has implications for many applications
-in which chaotic mechanics plays an important role.
+in which chaotic dynamics plays an important role.
 It suggests, for example, that we can control the climate through subtle perturbations. It also suggests that numerical simulations of chaotic dynamics, such as turbulent flows and global atmosphere and ocean circulation, may fail to predict the true long-term or statistical behavior.
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
 \end{abstract}
 
 %%Research highlights
-This paper highlights through rigorous examples that
+
 \begin{highlights}
-\item numerical solutions of chaotic dynamical systems are not guaranteed to produce the correct statistics or long-term behavior;
-\item it is theoretically possible to significant alter the statistics of a chaotic system, e.g. the earth's climate, using tiny parameter perturbations.
+\item This paper highlights through rigorous examples that numerical solutions of chaotic dynamical systems are not guaranteed to produce the correct statistics or long-term behavior;
+\item We show through examples that it is theoretically possible to significantly alter the statistics of a chaotic system, e.g. the earth's climate, by minor parameter perturbations.
 \end{highlights}
 
 \begin{keyword}
@@ -182,8 +182,7 @@ solutions may still exist \cite{grebogi}\cite{hammel} for a
 finite amount of time.
 
 The existence of shadowing trajectories underlies many applications.
-Numerical simulations of turbulent flows have been widely used to study its statistical behavior.
-It is argued, based on shadowing, that such numerical simulations of chaotic dynamical systems can be
+Numerical simulations of turbulent flows have been extensively used to study their statistical behavior. It is argued, based on shadowing, that such numerical simulations of chaotic dynamical systems can be
 useful, despite the \emph{butterfly effect} that causes infinitesimal errors in the state to grow exponentially in time. Because of numerical and modeling errors, there is invariably a small difference between the true governing physics and the equations solved on a computer. By nature of chaos, this difference increases exponentially, as the system is evolved forward in time. Thus, the fidelity of numerical solutions of chaotic systems, such
 as turbulent flows, to the true physics is called into question.  The existence of shadowing solutions
 is used to argue for the usefulness of such numerical solutions.
@@ -192,19 +191,18 @@ When certain conditions for shadowing theorems are met, the numerical solution w
 approximation to a ``true'' solution that satisfies the real governing physics.
 
 Shadowing is also used in sensitivity analysis of chaotic dynamical systems.  In particular,
-it is used in computing how long-time-averages in a chaotic system
+it is used in computing how long-time averages in a chaotic system
 respond to small perturbations in the governing equation \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. In this application, the derivative
-of the long-time-averages is computed using a solution to the perturbed governing equation
-that shadows a solution to the unperturbed equation.  The Least Squares Shadowing \cite{qiqi-lss}\cite{angxiu-lss} method
-uses this concept.
+of the long-time averages is computed using a solution of the perturbed governing equation
+that shadows a solution of the unperturbed equation.  The Least Squares Shadowing \cite{qiqi-lss}\cite{angxiu-lss} method
+uses this idea.
 
-There is an implicit assumption in both of these applications.  The assumption is that
-the shadowing trajectory is a \emph{physical} trajectory, a trajectory on which
-the long-time-average of a quantity is equal to the ensemble average.
-Not all solutions satisfying the physical governing equation are considered physical in this sense.  In high-Reynolds number fluid flows, for example, a steady-state, laminar flow solution may satisfy the Navier-Stokes equation. But such a solution would never be observed in reality because it is unstable, and any small perturbation
+There is an implicit assumption in both of these applications: chaotic numerical simulations and shadowing-based sensitivity analysis.  The assumption is that a shadowing trajectory is a \emph{physical} trajectory, a trajectory on which
+the long-time average of a quantity is equal to the ensemble average.
+Not all solutions satisfying the governing equation are considered physical in this sense.  In high-Reynolds number fluid flows, for example, a steady-state, laminar flow solution may satisfy the Navier-Stokes equation. But such a solution would never be observed in reality because it is unstable, and any small perturbation
 would trip it into turbulence. Unstable steady-state solutions are not the only
 nonphysical solution. Many chaotic dynamical systems have infinitely many periodic
-solutions that are, similar to their steady counterpart, unstable. These trajectories can have a probability distribution that is remarkably different from that of a typically observed solution of the governing equation. It is also possible to effect significant change in the statistics of the true governing dynamics by introducing a minor parameter perturbation. Thus, although trajectories of governing equations at slightly different parameters may shadow each other, the long-time-averages that are typically observed at one parameter may not be close to that of the other.    
+solutions that are, similar to their steady counterpart, unstable. These trajectories can have a probability distribution that is remarkably different from that of a typically observed solution of the governing equation.     
 As we will see
 in the next section, even solutions that look ``chaotic'', i.e., unsteady and aperiodic, may not be physical. 
 
@@ -319,7 +317,7 @@ of ergodic theory. Under surprisingly weak conditions, a solution starting from
 Meanwhile, an ensemble of trajectories starting from any distribution with a 
 finite density also evolves towards the same final distribution, $\mu$. Due to expansion of a volume of solutions tangent to the attractor filaments, a finite density under long-time evolution becomes absolutely continuous on the unstable manifold, i.e., the likelihood of a trajectory visiting any set not intersecting the attractor filaments is zero. The 
 stationary distribution achieved on long-time evolution of the ensemble that has the absolute continuity property is called the Sinai-Ruelle-Bowen
-(SRB) measure. The absolute continuity property is sufficient to ensure that the SRB measure is the same $\mu.$ That is, the SRB measure is physically observed in the sense that physical solutions produce long-time-averages which are expectations with respect to the SRB measure. 
+(SRB) measure. The absolute continuity property is sufficient to ensure that the SRB measure is the same $\mu.$ That is, the SRB measure is physically observed in the sense that physical solutions produce long-time averages which are expectations with respect to the SRB measure. 
 
 Note that almost any, not any, initial condition leads to a physical solution. A set of special initial conditions
 contained in a neighborhood of the attractor may exist starting from which physical solutions are not generated. These initial conditions do not produce the same statistics as the physical solutions. This special set of initial conditions is Lebesgue measure zero -- one
@@ -1052,6 +1050,7 @@ relation of a numerical solution, such as DNS of turbulent flows, to
 the true physics? For an ${\cal O}(10^{-18})$ 
 perturbation (due to numerical error), 
 we may get completely different statistics from a true, physical solution. How then can we trust numerical solutions when they are not guaranteed to share the long-term statistical behavior of the governing equation? 
+
 We conclude with an example that illustrates a counterintuitive feature of some chaotic systems: a small perturbation to the 
 governing equation can significantly change the statistics/long-term 
 behavior of its physical solutions. We construct yet another 
@@ -1070,8 +1069,8 @@ of the original governing equation? Sauer \cite{sauer} has shown
 examples in which numerical error due to computation in double-precision floating point arithmetic causes significant change in the stationary probability distribution on the attractor; other works \cite{cns} further analyze the unreliability due to double-precision arithmetic of statistical measures such as power spectra and correlation functions. The plucked tent map adds to this list of examples by demonstrating a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}). Uniformly hyperbolic 
 dynamical systems exhibit \emph{linear response} 
 (\cite{ruelle}\cite{baladi}) by which small parameter perturbations 
-lead to small changes in statistics, which can be expanded as Taylor series around the reference parameter value. But, uniform hyperbolicity is a mathematical idealization, and although some physical systems have been observed to behave as if they were uniformly hyperbolic \cite{gallavotti}, a violation of uniform hyperbolicity is more likely 
-\cite{wormell}\cite{luca}. 
+lead to small changes in statistics, which can be expanded as Taylor series around the reference parameter value. But, uniform hyperbolicity is a mathematical idealization, and although some physical systems have been observed to behave as if they were uniformly hyperbolic \cite{gallavotti}, a violation of uniform hyperbolicity is also prevalent in physical systems
+\cite{wormell}\cite{lucarini}. 
 
 Both the nonphysicality of shadowing solutions, and the existence of extremely non-smooth statistical response, undermine the validity of using shadowing for sensitivity analysis of statistics \cite{qiqi-lss}\cite{angxiu-lss}\cite{lasagna}. When the goal is to compute derivatives of ensemble averages, where the ensemble
 is distributed according to the physical measure, i.e., the SRB measure, shadowing-based methods can give wrong results. This is because shadowing-based methods compute the sensitivities of ensemble statistics along shadowing solutions, but these may not be physical solutions that reproduce ensemble statistics. The error in shadowing sensitivities has been observed
@@ -1100,10 +1099,11 @@ dispel the notion that shadowing solutions are physical solutions, i.e., that th
 statistical distribution is the same as that typically observed for almost every solution 
 of a governing equation. The existence of long-time shadowing solutions \cite{grebogi} has historically been used to address the issue of whether numerical simulations, which are 
 perturbed solutions, represent the true physics implied by the governing equation. In light of the evidence in this paper, we must reopen this issue. Even when numerical simulations are 
-shadowed by a true solution in that the difference between them is small for a long time, this shadowing solution may not represent the long-term or ensemble behavior of the physical system. The nonphysicality of shadowing solutions also indicates that shadowing-based methods can lead to incorrect values of sensitivities of statistics to parameter changes. 
-
+shadowed by a true solution in that the difference between them is small for a long time, this shadowing solution may not represent the long-term or ensemble behavior of the physical system. Because of nonphysicality of shadowing solutions, shadowing-based methods can lead to incorrect values of sensitivities of statistics to parameter changes. Finally, nonphysicality of shadowing also hints at a distinctive feature of some chaotic systems: physical solutions of two slightly different models may have remarkably different statistics. This suggests the possibility that we may be able to construct minor parameter perturbations that favorably alter climate statistics.   
 \vspace{1in}
 
+{\em Acknowledgments:} The authors are grateful to Prof. Tim Sauer and Prof. John Williams for comments on the paper.
+\\
 \textbf{Funding:} This work was supported by Air Force Office of Scientific Research Grant No. FA8650-19-C-2207.
 \textbf{Conflict of Interest:} The authors declare that they have no conflict of interest.
 
