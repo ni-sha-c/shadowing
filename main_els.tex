@@ -134,9 +134,10 @@ It suggests, for example, that we can control the climate through subtle perturb
 \end{abstract}
 
 %%Research highlights
+This paper highlights through rigorous examples that
 \begin{highlights}
-\item Research highlight 1
-\item Research highlight 2
+\item numerical solutions of chaotic dynamical systems are not guaranteed to produce the correct statistics or long-term behavior;
+\item it is theoretically possible to significant alter the statistics of a chaotic system, e.g. the earth's climate, using tiny parameter perturbations.
 \end{highlights}
 
 \begin{keyword}
@@ -166,11 +167,12 @@ long-time averages by using the idea of shadowing \cite{qiqi-lss}, leads to inco
     \item we cannot trust the sensitivities of long-time averages or statistical averages to small parameter changes computed by using shadowing-based methods;
 	\item it is possible for two models separated by tiny changes in parameter values to have drastically different statistical behavior. This means that the Lorenzian butterfly (a small perturbation) can significantly alter the climate of Texas (statistical/long-term average), and not just its weather (short-term averages).
 \end{itemize}
-The paper is organized as follows. In section \ref{sec:shadowingIntro}, we introduce the dynamical systems concept of shadowing and its applications in the context of chaotic numerical simulations. In section \ref{sec:nonphysical}, we define the notion of physicality and give examples to illustrate the different ways in which to obtain nonphysical solutions. Section \ref{sec:shadowingnonphysical} is dedicated to several examples of perturbed tent maps that have nonphysical shadowing solutions. In the discussion in section \ref{sec:discussion}, we illustrate with an example that a small parameter perturbation can change the statistics significantly. The supplementary material, section \ref{sec:supp}, contains the numerical procedure to generate the probability distributions of the shadowing solutions.
+Our subject -- shadowing -- and other dynamical systems concepts used in this paper are introduced in detail, where they appear, so as to make our presentation accessible to computational scientists across disciplines. 
+The paper is organized as follows. In section \ref{sec:shadowingIntro}, we introduce the concept of shadowing and its applications in the context of chaotic numerical simulations. In section \ref{sec:nonphysical}, we define the notion of physicality and give examples to illustrate the different ways in which to obtain nonphysical solutions. Section \ref{sec:shadowingnonphysical} is dedicated to several examples of perturbed tent maps that have nonphysical shadowing solutions. In the discussion in section \ref{sec:discussion}, we illustrate with an example that a small parameter perturbation can change statistics significantly. The supplementary material, section \ref{sec:supp}, contains the numerical procedure used to generate shadowing solutions.
 
 \section{Shadowing and applications}
 \label{sec:shadowingIntro}
-Our main analysis tool in advancing our conjecture is {\em shadowing}. Shadowing and other dynamical systems concepts used in this paper are introduced in detail, where they appear, so as to make our presentation accessible to the large audience of computational scientists across different disciplines. Shadowing refers to the relationship between a pair of solutions to slightly different governing equations. The difference between the governing equations can be due to parameter perturbation or numerical error. The solution to one governing equation is said to shadow a solution to a second, slightly different equation if
+Shadowing refers to the relationship between a pair of solutions to slightly different governing equations. The difference between the governing equations can be due to parameter perturbation or numerical error. The solution to one governing equation is said to shadow a solution to a second, slightly different equation if
 the first solution stays close to the second solution for some amount of time.
 
 When the slightly different governing equations are uniformly hyperbolic, it has been long known that infinitely 
