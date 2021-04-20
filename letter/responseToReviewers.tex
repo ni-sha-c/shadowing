@@ -1,0 +1,178 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{graphicx}
+\usepackage[numbers]{natbib}
+\usepackage{verbatim}
+\usepackage[textsize=tiny]{todonotes}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\pagestyle{fancy}
+\lhead{Response to the Reviewers}
+\rhead{30th October 2020}
+\lfoot{\href{mailto:nishac@mit.edu}{Nisha Chandramoorthy} and \href{mailto:qiqi@mit.edu}{Qiqi Wang}}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\definecolor{blue(pigment)}{rgb}{0.2, 0.2, 0.6}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
+\newcommand{\highlight}[1]{{\color{burgundy}\textbf{#1}}}
+
+
+
+
+\title{}
+\author{}
+\date{30th October 2020}
+\setlength{\marginparwidth}{2.1cm}
+\begin{document}
+
+\begin{center}
+		\Large{\textbf{Manuscript NODY-D-20-01636R1: Response to Reviewers}}
+\end{center}
+\medskip
+We would first like to thank both the reviewers for investing their time to read our work carefully and provide us with thoughtful feedback. We have substantially revised our work to incorporate all of both the reviewers' suggestions. In the following letter, we answer each of their comments and hope that both reviewers would find that the 
+important issues they raised have been satisfactorily addressed by us.
+Quotes from the Reviewers' comments are highlighted in 
+\highlight{red} in order to distinguish them from our responses to the comments, which immediately follow the comments. 
+\section{Response to Reviewer 1}
+We are very grateful to you for asking thought-provoking
+questions on extending our approach to higher-dimensional unstable manifolds 
+and on the applications of the CLV self-derivative computations.
+
+1. \highlight{Although equation (13) can be utilized to compute 
+the self-derivative for all unstable CLV vectors, this has not
+been demonstrated. How does the proposed method work for 
+higher dimensional systems with at $d_u > 3$ dimensional unstable subspace?}
+
+Indeed, as you point out, our examples involve computing only the first CLV self-derivative. However, our derivation of Eq. 13 is also valid for other unstable CLV self-derivatives; convergence to the self-derivative is guaranteed for the $i$th CLV self-derivative when $2\lambda_i > \lambda_1$. This criterion, which is obtained in Appendix C, suggests that the convergence of the differential CLV method is always guaranteed for first CLV self-derivative. We have rewritten section 3.4 to emphasize this point. Due to this unconditional convergence guarantee, we have focused, in this paper, on the unstable CLV self-derivative computation in the case of one-dimensional unstable manifolds.  
+ 
+Moreover, a convincing validation through the 
+super-contracting Solenoid map was possible because there is an alternative analytical route to the computation of the first CLV's self-derivative; this is in turn because its norm is also the curvature of the attractor manifold. In the case of higher-dimensional attractors, the local unstable manifolds are not one-parameter curves, but rather, embedded images of $d_u$ dimensional Euclidean spaces. Thus, the local unstable manifolds can be endowed with a Riemannian metric, and several different notions of curvature that exist for higher-dimensional manifolds, including the Riemannian curvature tensor, can theoretically be defined for local unstable manifolds. However, to the best of our knowledge, it is not yet well-understood how the CLV self-derivatives are connected to these curvatures in higher dimensions.
+
+We believe the differential CLV method provides a starting point for this more complicated geometric picture in higher dimensions, exploration of which we defer to a future work. With these considerations, we have added text 
+to the introduction, section 3 and conclusion that clarifies our focus on one-dimensional unstable manifolds. 
+
+2. \highlight{The application of these derivatives to compute sensitivity of ergodic chaotic systems
+is potentially quite significant. 
+However, the authors do not present any demonstration of 
+this important application and for the connection of derivations the readers
+are referred to an unrefereed publication (Ref. [9]). Obviously, from application perspective, the high-dimensionality is again the real issue in computing sensitivities
+in chaotic systems, which is raised in item (1) above.}
+
+This is indeed a valid concern. However, the connection between the differential expansion equation (Eq. 17 in the revised manuscript) and linear response is fundamental, and independent of the S3 algorithm (Ref. 9, which is Ref. 12 in the revised manuscript). To clarify this point, we have rewritten section 5, which now provides a full explanation of this fundamental connection, directly from Ruelle's formula, without relying on the reference. The purpose of our paper is to show this link itself rather than full-fledged applications of linear response. In particular, the link we expose is between the fundamental quantity, the density gradient (denoted $g$), and the change in the expansion of tangent space-volumes, in the unstable manifold, which is captured by the scalar fields $\alpha_{x,i}.$ 
+
+Because of this link, even when one uses a different basis -- for instance, forward/backward Lyapunov vectors -- as opposed to the CLV basis to represent unstable tangent vectors, the second-order tangent equations in the form of Eq. 17 (differential expansion equation) or Eq. 18 (differential CLV method) in the revised manuscript, still prove useful for linear response. Further, a different treatment of the unstable contribution to Ruelle's response, such as the Linear Response Algorithm (Ref. 26), also uses a second-order tangent equation of the form we present in this paper.
+
+To the best of our knowledge, this algorithm and our S3 algorithm, which are both under active development, are the only 
+practical ways for exact computation of Ruelle's formula in chaotic systems, and both use the recursive second-order tangent equations. 
+
+Another important reason for our exposition of this link (between $g$ and $\alpha_{\cdot,i}$) is that it could trigger applications beyond linear response, where the change in the SRB distribution on unstable manifolds is directly or indirectly needed, e.g., in variational data assimilation, Bayesian inference and inverse problems in chaotic systems. 
+
+We now describe this theoretical link in greater detail, independently of the computational aspects. Then, we present the major ideas in the S3 algorithm in order to present a complete picture of linear response computation, which is beyond the scope of this paper, and is part of our work under review (Ref. 12).
+
+Focusing on the one-dimensional unstable manifold case, the solution to the differential expansion equation, $d/dt(1/z_{\cdot, 1})$, appears in the recursive computation of the logarithmic {\em density gradient} of the SRB measure on the unstable manifold, $(1/\rho) d(\rho\circ\mathcal{C}_{x,1})/dt.$ While Ref. 9 (Ref. 12 in the revised manuscript) provides a different derivation of this recursive computation (Eq. 33 in revised manuscript), it can also be derived from the fact that the SRB density is preserved in the following sense by $\varphi$ (alternatively, it is a simple eigenfunction of the transfer operator for eigenvalue 1):
+\begin{align*}
+		\rho(\varphi(x)) = \dfrac{\rho(x)}{z_{x,1}}. 
+\end{align*}
+Taking the logarithm of the above measure-preservation statement, and then differentiating with respect to the unstable coordinate $t$, we obtain Eq. 33 of the revised manuscript. 
+Since the main component of linear response (Eq. 32, for which we have included the complete derivation in the Appendix section D) is the time-correlation between the density gradient and the objective function, the connection with the density gradient reinforces our observation that the differential expansion factor, $\alpha_{x,1}$, is a fundamental quantity for linear response. 
+
+The S3 algorithm, which is the primary contribution of the first author's ongoing PhD thesis work, has another crucial component besides the density gradient computation: a certain tangent space-splitting of a general perturbation. We did not consider a general differentiable perturbation field but rather a differentiable perturbation tangent to the unstable manifold, in the present paper (section 5). The splitting of a general perturbation, which makes a contribution to the overall sensitivity due to its stable components, and the computation of this stable contribution, are beyond the scope of this paper. This is because the CLV derivatives and the differential expansion factors, which are the subject of this paper, are directly linked to the sensitivity to unstable perturbations. For completion, here we briefly describe the main ideas of S3, including the stable contribution computation.
+
+Given the setting in section 5 of the revised manuscript, we now consider a general perturbation $V.$ In the case of one-dimensional unstable manifolds, we find a vector field $a$, where $V = a V^1 + \chi$, such that the sensitivity to the component $\chi$, $\langle d(J \circ \varphi^n) \cdot \chi, \mu\rangle$, known as the {\em stable contribution}, is efficiently computable. The stable contribution can be computed using the following stable tangent equation:  
+\begin{align}
+		v_{n+1} = (d\varphi)_n\; v_n + \chi_{n+1},
+\end{align}
+where we have used the shorthand notation as in the manuscript. The solution to the stable tangent equation gives the stable contribution as an ergodic average,
+\begin{align}
+	\langle d(J\circ\varphi^n) \cdot \chi,\mu \rangle = 
+		\dfrac{1}{N}\sum_{n=0}^{N-1} (dJ)_n \cdot v_n.
+\end{align}
+For the remaining unstable contribution -- $\langle d(J\circ\varphi^n) \cdot (aq) \rangle$ -- we use the method (regularization through integration by parts) described in section 5 of our revised manuscript. However, the scalar derivative $b := d(a\circ \mathcal{C}_{x,1})/dt$, which is required for the unstable contribution (in the second term of Eq. 32) is no longer given by the expression in the revised manuscript (in the paragraph below the definitions of $b$ and $g$). This is because $V$ now consists of the component $\chi$ in addition to $a\: V^1$. Thus, to determine $b$, we must also know the derivative of $\chi$ with respect to the unstable coordinate $t$. 
+
+A recursive algorithm for the derivative of $\chi$ in the unstable direction, including the proof of existence of this derivative, is part of our new work on linear response computation and beyond the scope of the present paper. The S3 algorithm thus comprises of the following ingredients:
+\begin{itemize}
+	\item In order to obtain the stable contribution, the stable tangent equation is solved so that $v_n \cdot q_n = 0$. The scalar field $a_n$ is obtained from this orthogonality.
+		\item We obtain $g_n$ along a trajectory by solving Eq. 33. 
+		\item We obtain $b_n$ along a trajectory by solving a second-order tangent equation for $d\chi_n/dt$.
+\end{itemize}
+Putting the stable and unstable contributions together, we obtain the following ergodic average for the linear response:
+\begin{align}
+	\langle J, \partial_s\mu_s\rangle = \lim_{N\to\infty}
+		\dfrac{1}{N} \sum_{n=0}^{N-1}(dJ)_n\cdot v_n \; +\; \sum_{k=0}^\infty \lim_{N\to\infty}
+		\dfrac{1}{N} \sum_{n=0}^{N-1}  J_{n+k} \; (a_n\; g_n + b_n )   .
+\end{align}
+In section 5, we have presented the complete picture for the computation of the unstable contribution, by considering an unstable perturbation. Thank you very much for encouraging us to improve this section! 
+
+\section*{Response to Reviewer 2}
+We are very grateful to you for recommending edits that have substantially improved our manuscript.
+
+\highlight{Rather than first mentioning CLVs, I suggest starting with sensitivity analysis (and predictions under
+uncertainty), then explaining that computing CLVs (and their self-derivatives) are useful for these.}
+
+We have fully restructured the introduction and rewritten a majority of it. In the revised manuscript's introduction, sensitivity analysis of statistics is first described along with applications. After this, we introduce the differential CLV method and discuss that it is needed for the computation of sensitivities of statistics or linear response. Thank you very much for this suggestion!
+
+\highlight{Section 2, Line 6: I recommend not making $p_0 = p$ to make it clear it is the initial point along a trajectory. This
+would allow you to use p for some generic point, not the initial point on a trajectory.}
+
+Thank you for this suggestion!
+In order to conform better with the standard notation in the literature, we have denoted phase points with the letter $x$ rather than $p$ in the revised manuscript. Since everywhere in the paper $x_0$ is a $\mu$-typical point, interchangeably using $x$ and $x_0$ is intentional. We mention prominently that the initial condition $x_0$, or simply $x$, is a generic phase point chosen $\mu$-a.e. on the attractor, at the start of the algorithm (section 3) and in the background section (section 2), where the $\mu$-typicality of the initial condition plays a role, e.g., in the definition of LEs. To achieve a $\mu$-typical point $x$, we evolve the dynamics for a sufficiently long spin-up time, upon starting from a Lebesgue-a.e. initial condition.  
+
+\highlight{Section 3.1, Equation 10: I think one or two intermediate equations to explain the coordinate changes mentioned
+in the previous paragraph would be helpful here for improving understanding of this equation.}
+
+We have added more explanation of the coordinate changes in the first paragraph of section 3.1 and the first two paragraphs of section 3.2.
+The definition of the CLV self-derivative in Eq. 10 follows from the limit-based definition in Eq. 8, which states that the self-derivative is with respect to the $t$ coordinate function along the curve $\mathcal{C}_{x,i}$. These $d$ curves (at different indices $1\leq i\leq d$) represent our local coordinate system that is completely determined (up to a linear transformation) by the following constraints: i) $\mathcal{C}_{x,i}(0) = x$ and ii) $\mathcal{C}_{x,i}'(t) = V^i(\mathcal{C}_{x,i}(t)).$ In order to present more intuition about the coordinate system, we describe i) that its existence can also be explained due to existence and uniqueness theorems of ODEs (section 2.5) ii) properties of the connecting maps $f_{x,i}$ that can be proved from Pesin theory of unstable/stable manifolds (e.g. Ch. 6 of Ref. 19; section 2 of Ref. 22) in section 3.2.  
+Thank you for suggesting an improvement in our explanation!
+
+\highlight{Figure 1: Use a dotted or dashed line for one of the curves to explicitly show that they overlap.
+Figure 2: See suggestion for figure 1}
+
+Thank you very much for this tip! We have revised both these figures by using different markers for the analytical and numerically computed values such that their overlap is now visible. 
+
+\highlight{Figure 4: It's difficult to see some of the points, you might want to plot this with slightly larger points, especially
+for the red points on the right.}
+
+We have increased the size of the points and they are more visible now. Thank you very much for your feedback! 
+
+\highlight{Figure 5: These curves look orange and gray to me. I don't see any blue.}
+
+Thank you very much for noticing! We have corrected the reference to ``blue'' to ``gray''.
+
+\highlight{Section 4.4, line 16: The bottom left subfigure shows $[0,0,1,0]^T$, not $[0,1,0,0]^T$.}
+
+Thanks for catching this error! We have made the correction.
+
+\highlight{Section 4.4: What impact to perturbations to $s_3$ have? You've described the others but omitted $s_3$.}
+
+Turning on $s_3$ produces compressions and rarefactions in the unstable manifold. This is because the perturbations we introduce are non-uniform in the unstable direction and are aligned with the unstable direction. We have now added the effects of all 4 parameters, while we had only explained those of $s_0$ and $s_2$ before, which served as examples for a small and significant curvature in the unstable manifold, respectively. Thank you for your recommendation!
+
+\highlight{Section 4.5, figure 12: It's not easy to see the variation in color, please consider another colormap for this plot. If
+you use a colormap with many colors, you might not need figure 13}
+
+We have modified the colormap to a more visibly diverging colormap, which brings out the range of $\|W^1\|$ more clearly. Thank you for improving this figure! The curvature can be 8 orders of magnitude higher in the sharp (possibly non-differentiable) turns when compared to the straight portions, and a few orders of magnitude higher than the visibly curved portions of the attractor. In order to convey this clearly, we have retained Figure 13.
+
+\highlight{Section 4.5, figure 13: You should consider plotting $V^1$ in gray or black behind the colored portions of the plot to
+reveal the entire unstable manifold.}
+
+Thank you for this excellent suggestion! We have added a thin black line that shows the entire unstable manifold. Since the colormap for the curvature contains a range of clearly distinguished light colors, which are also shown on thicker lines, the subfigures are easily legible and interpretable now. Thank you again!   
+
+
+\highlight{Section 5, line 10: Since you used "f" earlier, I would strongly suggest using another variable to indicate a scalar
+observable here or change the earlier definition.}
+
+Thank you very much for spotting this oversight! We have changed the scalar observable to $J$ in the linear response section (section 5).
+
+\highlight{Section 5, equation 31: You should consider putting an abbreviated derivation in an appendix at least. Also, what
+is $q_n$?}
+
+We have rewritten this section to improve our explanation of the computation of linear response, and particularly where the differential expansion equation (Eq. 17 in the revised paper) appears. The equation in question is now Eq. 32 in the revised manuscript, which can be derived by integration by parts of Ruelle's original formula (Eq. 31). In order to obtain the regularized expression, we use the following sequence of steps: i) using the disintegration theorem on the SRB measure, ii) integration by parts on local unstable manifolds, and iii) expressing the resulting ensemble average as an ergodic average. These steps are briefly outlined in a new Appendix section (section D).
+Thank you very much for suggesting this addition, which has led to a more complete presentation of linear response.
+
+The type errors you point out were automatically fixed when we rewrote the section. Thank you for spotting them!
+\end{document}
