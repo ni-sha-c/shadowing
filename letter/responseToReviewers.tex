@@ -55,67 +55,9 @@ Thank you for pointing this out. In section \ref{sec:nonphysical}, we have inclu
 \section*{Response to Reviewer 2}
 We are very grateful to you for recommending edits that have substantially improved our manuscript.
 
-\reviewerOne{Rather than first mentioning CLVs, I suggest starting with sensitivity analysis (and predictions under
-uncertainty), then explaining that computing CLVs (and their self-derivatives) are useful for these.}
+\reviewerTwo{My main technical objection is the claim that the findings here imply that all numerical solutions of chaotic systems might be "unphysical". ...In other words, why must a numerical solution closely follow a specific realization of the exact chaotic system? }
 
 We have fully restructured the introduction and rewritten a majority of it. In the revised manuscript's introduction, sensitivity analysis of statistics is first described along with applications. After this, we introduce the differential CLV method and discuss that it is needed for the computation of sensitivities of statistics or linear response. Thank you very much for this suggestion!
 
-\reviewerOne{Section 2, Line 6: I recommend not making $p_0 = p$ to make it clear it is the initial point along a trajectory. This
-would allow you to use p for some generic point, not the initial point on a trajectory.}
 
-Thank you for this suggestion!
-In order to conform better with the standard notation in the literature, we have denoted phase points with the letter $x$ rather than $p$ in the revised manuscript. Since everywhere in the paper $x_0$ is a $\mu$-typical point, interchangeably using $x$ and $x_0$ is intentional. We mention prominently that the initial condition $x_0$, or simply $x$, is a generic phase point chosen $\mu$-a.e. on the attractor, at the start of the algorithm (section 3) and in the background section (section 2), where the $\mu$-typicality of the initial condition plays a role, e.g., in the definition of LEs. To achieve a $\mu$-typical point $x$, we evolve the dynamics for a sufficiently long spin-up time, upon starting from a Lebesgue-a.e. initial condition.  
-
-\reviewerOne{Section 3.1, Equation 10: I think one or two intermediate equations to explain the coordinate changes mentioned
-in the previous paragraph would be helpful here for improving understanding of this equation.}
-
-We have added more explanation of the coordinate changes in the first paragraph of section 3.1 and the first two paragraphs of section 3.2.
-The definition of the CLV self-derivative in Eq. 10 follows from the limit-based definition in Eq. 8, which states that the self-derivative is with respect to the $t$ coordinate function along the curve $\mathcal{C}_{x,i}$. These $d$ curves (at different indices $1\leq i\leq d$) represent our local coordinate system that is completely determined (up to a linear transformation) by the following constraints: i) $\mathcal{C}_{x,i}(0) = x$ and ii) $\mathcal{C}_{x,i}'(t) = V^i(\mathcal{C}_{x,i}(t)).$ In order to present more intuition about the coordinate system, we describe i) that its existence can also be explained due to existence and uniqueness theorems of ODEs (section 2.5) ii) properties of the connecting maps $f_{x,i}$ that can be proved from Pesin theory of unstable/stable manifolds (e.g. Ch. 6 of Ref. 19; section 2 of Ref. 22) in section 3.2.  
-Thank you for suggesting an improvement in our explanation!
-
-\reviewerOne{Figure 1: Use a dotted or dashed line for one of the curves to explicitly show that they overlap.
-Figure 2: See suggestion for figure 1}
-
-Thank you very much for this tip! We have revised both these figures by using different markers for the analytical and numerically computed values such that their overlap is now visible. 
-
-\reviewerOne{Figure 4: It's difficult to see some of the points, you might want to plot this with slightly larger points, especially
-for the red points on the right.}
-
-We have increased the size of the points and they are more visible now. Thank you very much for your feedback! 
-
-\reviewerOne{Figure 5: These curves look orange and gray to me. I don't see any blue.}
-
-Thank you very much for noticing! We have corrected the reference to ``blue'' to ``gray''.
-
-\reviewerOne{Section 4.4, line 16: The bottom left subfigure shows $[0,0,1,0]^T$, not $[0,1,0,0]^T$.}
-
-Thanks for catching this error! We have made the correction.
-
-\reviewerOne{Section 4.4: What impact to perturbations to $s_3$ have? You've described the others but omitted $s_3$.}
-
-Turning on $s_3$ produces compressions and rarefactions in the unstable manifold. This is because the perturbations we introduce are non-uniform in the unstable direction and are aligned with the unstable direction. We have now added the effects of all 4 parameters, while we had only explained those of $s_0$ and $s_2$ before, which served as examples for a small and significant curvature in the unstable manifold, respectively. Thank you for your recommendation!
-
-\reviewerOne{Section 4.5, figure 12: It's not easy to see the variation in color, please consider another colormap for this plot. If
-you use a colormap with many colors, you might not need figure 13}
-
-We have modified the colormap to a more visibly diverging colormap, which brings out the range of $\|W^1\|$ more clearly. Thank you for improving this figure! The curvature can be 8 orders of magnitude higher in the sharp (possibly non-differentiable) turns when compared to the straight portions, and a few orders of magnitude higher than the visibly curved portions of the attractor. In order to convey this clearly, we have retained Figure 13.
-
-\reviewerOne{Section 4.5, figure 13: You should consider plotting $V^1$ in gray or black behind the colored portions of the plot to
-reveal the entire unstable manifold.}
-
-Thank you for this excellent suggestion! We have added a thin black line that shows the entire unstable manifold. Since the colormap for the curvature contains a range of clearly distinguished light colors, which are also shown on thicker lines, the subfigures are easily legible and interpretable now. Thank you again!   
-
-
-\reviewerOne{Section 5, line 10: Since you used "f" earlier, I would strongly suggest using another variable to indicate a scalar
-observable here or change the earlier definition.}
-
-Thank you very much for spotting this oversight! We have changed the scalar observable to $J$ in the linear response section (section 5).
-
-\reviewerOne{Section 5, equation 31: You should consider putting an abbreviated derivation in an appendix at least. Also, what
-is $q_n$?}
-
-We have rewritten this section to improve our explanation of the computation of linear response, and particularly where the differential expansion equation (Eq. 17 in the revised paper) appears. The equation in question is now Eq. 32 in the revised manuscript, which can be derived by integration by parts of Ruelle's original formula (Eq. 31). In order to obtain the regularized expression, we use the following sequence of steps: i) using the disintegration theorem on the SRB measure, ii) integration by parts on local unstable manifolds, and iii) expressing the resulting ensemble average as an ergodic average. These steps are briefly outlined in a new Appendix section (section D).
-Thank you very much for suggesting this addition, which has led to a more complete presentation of linear response.
-
-The type errors you point out were automatically fixed when we rewrote the section. Thank you for spotting them!
 \end{document}
