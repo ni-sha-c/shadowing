@@ -57,7 +57,15 @@ We are very grateful to you for recommending edits that have substantially impro
 
 \reviewerTwo{My main technical objection is the claim that the findings here imply that all numerical solutions of chaotic systems might be "unphysical". ...In other words, why must a numerical solution closely follow a specific realization of the exact chaotic system? }
 
-We have fully restructured the introduction and rewritten a majority of it. In the revised manuscript's introduction, sensitivity analysis of statistics is first described along with applications. After this, we introduce the differential CLV method and discuss that it is needed for the computation of sensitivities of statistics or linear response. Thank you very much for this suggestion!
-
+Thank you for your question! Traditionally, the justification for using numerical solutions to model chaotic governing physics is shadowing. While we do not contend that there may be alternative perspectives on numerical solutions, we question this traditional justification, based on the atypicality of shadowing trajectories that we show in the paper. To elaborate on this traditional argument for shadowing justifying the correctness of numerical solution, let us consider a chaotic ODE of the form 
+\begin{align}
+    \dfrac{d x}{dt} = f(x, s),
+\end{align}
+where $x \in \mathbb{R}^d$ is a $d$-dimensional state vector, $s$ is a set of
+parameters in $\mathbb{R}^p$, and $f:\mathbb{R}^d \times \mathbb{R}^p \to \mathbb{R}^d$ is the generating flow. A numerical solution of the system may be represented as $\hat{x}(t)$ such that 
+\begin{align}
+    \dfrac{d\hat{x}}{dt} = f(\hat{x}, s) + \delta f(\hat{x},s), 
+\end{align}
+where $\delta f:\mathbb{R}^d \times \mathbb{R}^p \to \mathbb{R}^d$ is the model discrepancy introduced due to numerical discretization. A corollary of the shadowing lemma is that for every $\epsilon > 0,$ there exists  $\sup_{x} \|\delta f(x,s)\|$ is small, 
 
 \end{document}
