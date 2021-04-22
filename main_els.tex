@@ -50,6 +50,10 @@
 \usepackage{xcolor,verbatim}
 \definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
 \newcommand{\nisha}[1]{{\color{darkgreen} #1}}
+\definecolor{azure}{rgb}{0.0, 0.5, 1.0}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
+\newcommand{\reviewerOne}[1]{{\color{burgundy}\textbf{#1}}}
+\newcommand{\reviewerTwo}[1]{{\color{azure}\textbf{#1}}}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 
 %% The amsthm package provides extended theorem environments
@@ -237,9 +241,9 @@ two criteria:
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{lorenz_ensemble_10.png}
 \caption{
-L: An ensemble of initial conditions distributed uniformly in the box $u_1\in[0,1], u_2\in[0,1], u_3\in[28,39]$ 
+Left: An ensemble of initial conditions distributed uniformly in the box $u_1\in[0,1], u_2\in[0,1], u_3\in[28,39]$ 
 after 10 time units of evolution, shown on the $u_1-u_3$ plane.
-R: distribution of a trajectory of $1000$ time units in length.
+Right: distribution of a trajectory of $1000$ time units in length.
 In both plots, the color represents the number of samples in a
 $2048\times2048$ uniform grid.  The trajectory is sampled every 0.001 time units.
 }
@@ -250,9 +254,9 @@ $2048\times2048$ uniform grid.  The trajectory is sampled every 0.001 time units
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{lorenz_ensemble_15.png}
 \caption{
-L: distribution of the same ensemble as in Figure \ref{fig:lorenz_ergodicity1}
+Left: distribution of the same ensemble as in Figure \ref{fig:lorenz_ergodicity1}
 after another 5 time units of evolution.
-R: distribution of the same trajectory as in Figure \ref{fig:lorenz_ergodicity1}
+Right: distribution of the same trajectory as in Figure \ref{fig:lorenz_ergodicity1}
 evolved for $10,000$ time units.
 }
 \label{fig:lorenz_ergodicity2}
@@ -262,9 +266,9 @@ evolved for $10,000$ time units.
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{lorenz_ensemble_50.png}
 \caption{
-L: distribution of the same ensemble as in Figures \ref{fig:lorenz_ergodicity1}
+Left: distribution of the same ensemble as in Figures \ref{fig:lorenz_ergodicity1}
 and \ref{fig:lorenz_ergodicity2} after a total of 50 time units of evolution.
-R: distribution of the same trajectory as in Figures \ref{fig:lorenz_ergodicity1}
+Right: distribution of the same trajectory as in Figures \ref{fig:lorenz_ergodicity1}
 and \ref{fig:lorenz_ergodicity2} evolved for $100,000$ time units.
 }
 \label{fig:lorenz_ergodicity3}
@@ -325,7 +329,11 @@ subsection, before discussing a less obvious type in section \ref{sec:quasiphysi
 
 A periodic solution is nonphysical because it 
 does not visit as much
-of the phase space as a physical solution does.
+of the phase space as a physical solution does. \reviewerOne{Although we refer to them as nonphysical, periodic solutions, may not, in a literal sense be physically meaningless. Rather, by nonphysicality, we mean atypicality, in this paper. Atypical solutions, such as periodic solutions, which do not produce the same statistics as a chaotic solution, are almost never physically observed. This is because, an initial condition randomly generated from the attractor basin, according to any absolutely continuous probability distribution, produces a chaotic orbit, with probability 1. The long-term statistics along such an orbit are the same as phase-space averages according to the SRB measure, i.e., such orbits are physical. In other words, when randomly sampling initial conditions, finding a periodic solution is a zero probability event. This lack of physical observability of periodic solutions is what has lent them a classification under nonphysical solutions, although periodic solutions may have some problem-specific, meaningful physical interpretations.}
+
+\reviewerOne{
+At the same time, the set of all periodic solutions is a dense subset of the attractor. That is,}
+
 Figure \ref{fig:lorenz_periodic} shows
 a few periodic solutions of the Lorenz equation. Comparing these solutions
 to the physical solution visualized in Figures \ref{fig:lorenz_ergodicity1}--\ref{fig:lorenz_ergodicity3},
@@ -386,11 +394,11 @@ as shown in Figure \ref{fig:lorenz_map}.
 \includegraphics[width=0.48\textwidth]{lorenz_zmax_10_28_2.6666666666666665.png}
 \hspace{0.02\textwidth}
 \includegraphics[width=0.48\textwidth]{lorenz_zmax2_10_28_2.6666666666666665.png}
-\caption{L: the Lorenz map.  The x-axis is the $n$-th local maximum of $u_3(t)$ over a
+\caption{Left: the Lorenz map.  The x-axis is the $n$-th local maximum of $u_3(t)$ over a
 long solution; the y-axis is the $(n+1)$-th local maximum of $u_3(t)$.  The intersection of this curve
 		with the dashed line ($y=x$) indicates the initial condition for the solid line
 in Figure \ref{fig:lorenz_periodic}.
-R: the Lorenz map iterated twice.  The x-axis is the $n$-th local maximum
+Right: the Lorenz map iterated twice.  The x-axis is the $n$-th local maximum
 of $u_3(t)$; the y-axis is the $(n+2)$-th maximum.  The intersections with the diagonal dashed
 line indicate the initial conditions for both the dotted and dashed lines in
 Figure \ref{fig:lorenz_periodic}.}
@@ -630,7 +638,7 @@ perturbations reflects the chaotic nature of the governing equation.
     \includegraphics[width=0.48\textwidth]{scaled_tent_map.png}
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{tent_ivp.png}
-    \caption{L: The scaled tent map $\hat{\varphi}_s$ at different values of $s$ between 0 and 1. R: sensitivity to small perturbation in the governing
+    \caption{Left: The scaled tent map $\hat{\varphi}_s$ at different values of $s$ between 0 and 1. Right: sensitivity to small perturbation in the governing
     equation.
     The y-axis shows the absolute value of the difference between
     two solutions, one satisfying Eq. \ref{tent_scaled},
@@ -735,7 +743,7 @@ we need to analyze two cases: $x<1+s$ and $x\ge 1+s$.
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{tilted_conjugate_map.png}
     \\ \vspace{0.02\textwidth}
-     \caption{L: the tilted tent map Eq. \ref{tent_tilted} for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5. R: the conjugacy $\tilde{h}_s$ between the tent map (Eq. \ref{tentmap})
+     \caption{Left: the tilted tent map Eq. \ref{tent_tilted} for $s=0, 0.1, 0.2, 0.3, 0.4,$ and 0.5. Right: the conjugacy $\tilde{h}_s$ between the tent map (Eq. \ref{tentmap})
     and the tilted tent map (Eq. \ref{tent_tilted}), evaluated using
     Eq. \ref{conjugate_tilted}-\ref{conjugate_tilted_helper}, for the same set of $s$ as the
     left plot.}
@@ -781,9 +789,9 @@ $\varphi(\tilde{h}_s(x)) = \tilde{h}_s(\tilde\varphi_s(x))$ also holds when $x\g
     \hspace{0.02\textwidth}
     \includegraphics[width=0.48\textwidth]{tilted_conjugate_density_0.5.png}
    \caption{
-     L: the density of a trajectory satisfying Eq. \ref{tentmap}
+     Left: the density of a trajectory satisfying Eq. \ref{tentmap}
     that shadows a random trajectory satisfying Eq. \ref{tent_tilted} for $s=0.1$.
-    R: the density of a trajectory satisfying Eq. \ref{tentmap}
+    Right: the density of a trajectory satisfying Eq. \ref{tentmap}
     that shadows a random trajectory satisfying Eq. \ref{tent_tilted} for $s=0.5$.
     }
     \label{fig:tilted_tent_density}
@@ -1131,7 +1139,7 @@ and,
 \begin{figure}
 		\includegraphics[width=0.45\textwidth]{lorenz_map_fit_lorenz_zmax_10_28_2.6666666666666665.npy.png}
 		\includegraphics[width=0.45\textwidth]{lorenz_map_fit_error_lorenz_zmax_10_28_2.6666666666666665.npy.png}
-		\caption{L: the blue and orange lines are the Lorenz map at the standard parameters, and the dotted black lines indicate the approximate Lorenz map (Table \ref{tab:lorenzFit}). R: the regression error is shown as a function of $z$} 
+		\caption{Left: the blue and orange lines are the Lorenz map at the standard parameters, and the dotted black lines indicate the approximate Lorenz map (Table \ref{tab:lorenzFit}). Right: the regression error is shown as a function of $z$} 
 	\label{fig:lorenzMapComp}
 \end{figure}
 The location of the cusp is denoted $z_{\rm sep}$ (in which ``sep'' stands 
