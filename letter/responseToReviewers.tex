@@ -50,22 +50,43 @@ We thank the reviewer for pointing out multiple references that support the conc
 
 2. \reviewerOne{There is another thing that might be mentioned.  Periodic solutions of some chaotic systems, such as three-body system, have physical meanings.  Although three-body systems are chaotic in essence, periodic orbits of three-body system indeed exist.}
 
-Thank you for pointing this out. In section \ref{sec:nonphysical}, we have included the idea that periodic solutions may be atypical but not necessarily nonphysical.
+Thank you for pointing this out. In section , we have included the idea that periodic solutions may be atypical but not necessarily nonphysical.
 
 \section*{Response to Reviewer 2}
 We are very grateful to you for recommending edits that have substantially improved our manuscript.
 
 \reviewerTwo{My main technical objection is the claim that the findings here imply that all numerical solutions of chaotic systems might be "unphysical". ...In other words, why must a numerical solution closely follow a specific realization of the exact chaotic system? }
 
-Thank you for your question! Traditionally, the justification for using numerical solutions to model chaotic governing physics is shadowing. While we do not contend that there may be alternative perspectives on numerical solutions, we question this traditional justification, based on the atypicality of shadowing trajectories that we show in the paper. To elaborate on this traditional argument for shadowing justifying the correctness of numerical solution, let us consider a chaotic ODE of the form 
+Thank you for your question! The traditional tenet used to justify using numerical solutions to model chaotic governing physics is shadowing. While we do not contend that there may be alternative perspectives on numerical solutions, we question this traditional tenet, based on the atypicality of shadowing trajectories that we show in the paper. To elaborate on this point, let us consider a chaotic ODE of the form 
 \begin{align}
+\label{eqn:true}
     \dfrac{d x}{dt} = f(x, s),
 \end{align}
 where $x \in \mathbb{R}^d$ is a $d$-dimensional state vector, $s$ is a set of
-parameters in $\mathbb{R}^p$, and $f:\mathbb{R}^d \times \mathbb{R}^p \to \mathbb{R}^d$ is the generating flow. A numerical solution of the system may be represented as $\hat{x}(t)$ such that 
+parameters in $\mathbb{R}^p$, and $f:\mathbb{R}^d \times \mathbb{R}^p \to \mathbb{R}^d$ is the generating vector field. As you point out, the traditional view is that the numerical solution of the system is considered to be an exact solution of a slightly perturbed model. According to this view, a numerical solution to Eq. \ref{eqn:true} can be represented as $\hat{x}(t)$ such that 
 \begin{align}
+\label{eqn:numerical}
     \dfrac{d\hat{x}}{dt} = f(\hat{x}, s) + \delta f(\hat{x},s), 
 \end{align}
-where $\delta f:\mathbb{R}^d \times \mathbb{R}^p \to \mathbb{R}^d$ is the model discrepancy introduced due to numerical discretization. A corollary of the shadowing lemma is that for every $\epsilon > 0,$ there exists  $\sup_{x} \|\delta f(x,s)\|$ is small, 
+where $\delta f:\mathbb{R}^d \times \mathbb{R}^p \to \mathbb{R}^d$ is the model discrepancy introduced due to numerical error. One may consider a different model for the numerical solution such as the flow of a vector field $f(\hat{x}, s + \delta s)$ with perturbations of the parameter. However, for small perturbations $\delta s$, performing a Taylor expansion of $f$ around the unperturbed $s$ leads to the model in Eq. \ref{eqn:numerical}, up to first order in $\|\delta s\|$. Thus, Eq. \ref{eqn:numerical} is a rather general model for a numerical solution of Eq. \ref{eqn:true}.
+
+For an $\epsilon >0$, an $\epsilon$-orbit or a {\em pseudo-orbit} of the original system (Eq. \ref{eqn:true}) is any solution $\hat{x}(t)$ of Eq. \ref{eqn:numerical} wherein $\|\delta f(\hat{x}(t), s)\| \leq \epsilon$ for all $t$. Any reasonably accurate numerical solution can be considered to be an $\epsilon$-orbit of the ground truth dynamics in Eq. \ref{eqn:true}.
+
+The shadowing lemma says that for every $\delta > 0,$ there exists $\epsilon > 0$ such that for every $\epsilon$-orbit $\hat{x}(t)$ that satisfies Eq. \ref{eqn:numerical}, there exists a true orbit $x(t)$ satisfying Eq. \ref{eqn:true} that $\delta$-shadows it. This means that there exists some scalar function $\gamma(t)$ with $|\gamma'(t) - 1| < \delta$ such that $\| \hat{x}(\gamma(t)) - x(t) \| < \delta$ for all $t.$
+
+Now, since $x(t)$ and $\hat{x}(t)$ are $\delta$-close to each other, their long-term (empirical) probability distributions are also similar. That is, for any regular scalar function $J,$ the time-averages $\langle J\rangle_x^T := (1/T)\int_0^T J(x(t))\: dt$ and 
+$\langle J\rangle_{\hat{x}}^T := (1/T) \int_0^T J(\hat{x}(t)) \: dt$ are expected to be close to each other for large $T.$ 
+
+However, we show through examples in the paper that $x(t)$, a shadowing orbit, which is a true solution of Eq. \ref{eqn:true}, need not be a typical or a {\em physical} orbit. That is, the infinitely-long time average along $x(t)$, $\lim_{T\to\infty} \langle J\rangle_x^T$, need not be equal to the average of $J$ over an ensemble of solutions to Eq. \ref{eqn:true}. In fact, we show that the discrepancy can be large, when compared to the true value of the ensemble average. Note that the ensemble average over all possible solutions of Eq. \ref{eqn:true} is observed along any randomly chosen orbit, i.e., if we chose an initial condition $x(0)$ by sampling a uniform distribution in the attractor basin of the dynamics in Eq. \ref{eqn:true}, then $\lim_{T\to\infty}\langle J\rangle_x^T$ is equal to the ensemble average of $J.$ However, when $x(0)$ is a special initial condition that is chosen so that $x(t)$ $\delta$-shadows a pseudo-orbit $\hat{x}(t),$ it is not guaranteed to reproduce ensemble statistics.
+
+Since the statistics or long-term averages of pseudo-orbits and shadowing orbits are close, we expect that the pseudoorbits (the numerical solution $\hat{x}(t)$) is also statistically inconsistent. 
+
+As you rightly pointed out, in some scenarios, the pseudo-orbits may in fact inhabit the same or almost the same attractor. In other words, the attractor, or the set that all orbits of Eq. \ref{eqn:true} converge to asymptotically, may be identical or very close to that of Eq. \ref{eqn:numerical}. However, the probability distribution of an ensemble of orbits on the attractor, which is proportional to the amount of time almost every orbit spends in each portion of the attractor, are not guaranteed to be the same for the two models. This is the main argument in the paper.
+
+We hope that this clarifies our position: we refute the belief that, due to shadowing, numerical solutions, which are considered to be pseudo-orbits that are close to true orbits, are also capable of modeling the true long-term behavior of a chaotic system. We support our claim by proving that shadowing orbits, despite being true orbits, are not representative of almost every orbit of the system: they can have atypical statistical behavior. 
+
+Thank you again for raising this question! We have added more explanation (in \reviewerTwo{blue}) to clarify this point in section 5.
+
+
 
 \end{document}
