@@ -65,6 +65,81 @@ eprint = {https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.1985.0078}
 ,
     abstract = { The spectral rigidity ⊿(L) of a set of quantal energy levels is the mean square deviation of the spectral staircase from the straight line that best fits it over a range of L mean level spacings. In the semiclassical limit (ℏ→0), formulae are obtained giving ⊿(L) as a sum over classical periodic orbits. When L ≪Lmax, where Lmax ~ℏ-(N-1) for a system of N freedoms, ⊿(L) is shown to display the following universal behaviour as a result of properties of very long classical orbits: if the system is classically integrable (all periodic orbits filling tori), ⊿(L)═ 1/5L (as in an uncorrelated (Poisson) eigenvalue sequence); if the system is classically chaotic (all periodic orbits isolated and unstable) and has no symmetry, ⊿(L) ═ In L/2π2+Dif 1≪ L≪ Lmax (as in the gaussian unitary ensemble of random-matrix theory); if the system is chaotic and has time-reversal symmetry, ⊿(L) = In L/π2 + Eif 1 ≪ L ≪ Lmax (as in the gaussian orthogonal ensemble). When L ≫ Lmax, ⊿(L) saturates non-universally at a value, determined by short classical orbits, of order ℏ–(N–1) for integrable systems and In (ℏ-1) for chaotic systems. These results are obtained by using the periodic-orbit expansion for the spectral density, together with classical sum rules for the intensities of long orbits and a semiclassical sum rule restricting the manner in which their contributions interfere. For two examples ⊿(L) is studied in detail: the rectangular billiard (integrable), and the Riemann zeta function (assuming its zeros to be the eigenvalues of an unknown quantum system whose unknown classical limit is chaotic). }
 }
+@article{cvitanovic1,
+title = {Periodic orbits as the skeleton of classical and quantum chaos},
+journal = {Physica D: Nonlinear Phenomena},
+volume = {51},
+number = {1},
+pages = {138-151},
+year = {1991},
+issn = {0167-2789},
+doi = {https://doi.org/10.1016/0167-2789(91)90227-Z},
+url = {https://www.sciencedirect.com/science/article/pii/016727899190227Z},
+author = {Predrag Cvitanović},
+abstract = {A description of a low-dimensional deterministic chaotic system in terms of unstable periodic orbits (cycles) is a powerful tool for theoretical and experimental analysis of both classical and quantum deterministic chaos, comparable to the familiar perturbation expansions for nearly integrable systems. The infinity of orbits characteristic of a chaotic dynamical system can be resummed and brought to a Selberg product form, dominated by the short cycles, and the eigenvalue spectrum of operators associated with the dynamical flow can then be evaluated in terms of unstable periodic orbits. Methods for implementing this computation for finite subshift dynamics are introduced.}
+}
+@book{baladi-book,
+  title={Dynamical zeta functions and dynamical determinants for hyperbolic maps},
+  author={Baladi, Viviane},
+  year={2018},
+  publisher={Springer}
+}
+@article{llave,
+title={Smooth conjugacy and S-R-B measures for uniformly and non-uniformly hyperbolic systems},
+author={de la Llave, R.},
+journal={Commun.Math. Phys.},
+volume={150},
+pages={289--320},
+year={1992},
+doi={10.1007/BF02096662}
+}
+@article{cns1,
+title = {On the risks of using double precision in numerical simulations of spatio-temporal chaos},
+journal = {Journal of Computational Physics},
+volume = {418},
+pages = {109629},
+year = {2020},
+issn = {0021-9991},
+doi = {https://doi.org/10.1016/j.jcp.2020.109629},
+url = {https://www.sciencedirect.com/science/article/pii/S0021999120304034},
+author = {Tianli Hu and Shijun Liao},
+keywords = {Spatio-temporal chaos, Reliable simulation, Numerical noise},
+abstract = {Due to the butterfly-effect, computer-generated chaotic simulations often deviate exponentially from the true solution, so that it is very hard to obtain a reliable simulation of chaos in a long-duration time. In this paper, a new strategy of the so-called Clean Numerical Simulation (CNS) in physical space is proposed for spatio-temporal chaos, which is computationally much more efficient than its predecessor (in spectral space). The strategy of the CNS is to reduce both of the truncation and round-off errors to a specified level by implementing high-order algorithms in multiple-precision arithmetic (with sufficient significant digits for all variables and parameters) so as to guarantee that numerical noise is below such a critical level in a temporal interval t∈[0,Tc] that corresponding numerical simulation remains reliable over the whole interval. Without loss of generality, the complex Ginzburg-Landau equation (CGLE) is used to illustrate its validity. As a result, a reliable long-duration numerical simulation of the CGLE is achieved in the whole spatial domain over a long interval of time t∈[0,3000], which is used as a reliable benchmark solution to investigate the influence of numerical noise by comparing it with the corresponding ones given by the 4th-order Runge-Kutta method in double precision (RKwD). Our results demonstrate that the use of double precision in simulations of chaos might lead to huge errors in the prediction of spatio-temporal trajectories and in statistics, not only quantitatively but also qualitatively, particularly in a long interval of time.}
+}
+@article{cns2,
+title = {Influence of numerical noises on computer-generated simulation of spatio-temporal chaos},
+journal = {Chaos, Solitons & Fractals},
+volume = {136},
+pages = {109790},
+year = {2020},
+issn = {0960-0779},
+doi = {https://doi.org/10.1016/j.chaos.2020.109790},
+url = {https://www.sciencedirect.com/science/article/pii/S0960077920301922},
+author = {Shijie Qin and Shijun Liao},
+keywords = {Spatio-temporal chaos, Numerical noises, Reliability},
+abstract = {Due to the famous butterfly-effect, it is rather difficult to gain a reliable simulation of chaos in an interval of time that is long enough from statistic viewpoint. In this paper we propose an efficient numerical strategy of the clean numerical simulation (CNS) in physical space to gain reliable simulation of spatio-temporal chaos in a long enough interval of time by means of reducing both of truncation and round-off error to a required tiny level. Without loss of generality, the damped driven sine-Gordon equation is used to illustrate its validity for spatio-temporal chaos. The reliable result in a long interval of time given by this CNS algorithm is used as benchmark solution to investigate the influence of numerical noise (i.e. truncation and round-off error) by comparing it in details with those given by the Runge-Kutta’s method in double precision. It is found that numerical noise can lead to, both quantitatively and qualitatively, huge deviation of the spatio-temporal chaotic system not only in trajectories but also even in statistics! Therefore, in practice we should check very carefully the reliability of computer-generated simulations of spatio-temporal chaotic systems (including turbulent flows), especially when the duration of simulation is quite long. The new strategy of the CNS in physical space provides us an efficient way to accurately study lots of spatio-temporal chaotic systems in science and engineering in a long enough interval of time so as to reveal some new physical truths by means of clearing away numerical noises.}
+}
+@article{cns3,
+author = {Xu,Tianzhuang and Li,Jing and Li,Zhihui and Liao,Shijun},
+title = {Accurate predictions of chaotic motion of a free fall disk},
+journal = {Physics of Fluids},
+volume = {33},
+number = {3},
+pages = {037111},
+year = {2021},
+doi = {10.1063/5.0039688},
+
+URL = { 
+        https://doi.org/10.1063/5.0039688
+    
+},
+eprint = { 
+        https://doi.org/10.1063/5.0039688
+    
+}
+
+}
+
 
 @article{gallavotti,
 		author={GALLAVOTTI, G. AND COHEN, E.G.D.},

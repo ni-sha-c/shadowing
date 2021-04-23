@@ -1068,7 +1068,10 @@ governing equation? That is, can numerical solutions represent
 slight perturbations to the governing equations for which the physical 
 distribution is drastically different from the physical distribution 
 of the original governing equation? Sauer \cite{sauer} has shown 
-examples in which numerical error due to computation in double-precision floating point arithmetic causes significant change in the stationary probability distribution on the attractor; other works \cite{cns} further analyze the unreliability due to double-precision arithmetic of statistical measures such as power spectra and correlation functions. The plucked tent map adds to this list of examples by demonstrating a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}). Uniformly hyperbolic 
+examples in which numerical error due to computation in double-precision floating point arithmetic causes significant change in the stationary probability distribution on the attractor. \reviewerOne{Some authors \cite{cns2}\cite{cns3} resort to Clean Numerical Simulations to tackle scenarios that demand highly accurate long-term prediction of chaotic orbits. When using double-precision arithmetic however, these works  \cite{cns}\cite{cns1}\cite{cns2}\cite{cns3} show that large errors result in statistical measures such as power spectra and spatio-temporal correlation functions.} The plucked tent map adds to this list of examples by demonstrating a mechanism to produce an extreme non-smooth response (Supplementary Material section \ref{sec:pluckedTentMap}). 
+
+
+Uniformly hyperbolic 
 dynamical systems exhibit \emph{linear response} 
 (\cite{ruelle}\cite{baladi}) by which small parameter perturbations 
 lead to small changes in statistics, which can be expanded as Taylor series around the reference parameter value. But, uniform hyperbolicity is a mathematical idealization, and although some physical systems have been observed to behave as if they were uniformly hyperbolic \cite{gallavotti}, a violation of uniform hyperbolicity is also prevalent in physical systems
